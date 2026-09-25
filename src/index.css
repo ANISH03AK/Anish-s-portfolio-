@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #040711;
+  color: #f3f4f6;
+  overflow-x: hidden;
+}
+
+/* Custom discreet scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #040711;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Critical Floating Animation for Bottom-Right Corner Avatar */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+/* High-Tech Enterprise Block Background Themes */
+/* 1. Cyber (Default): Deep midnight slate with subtle circuit micro-grid and luminous cyan accents */
+[data-block-theme="cyber"] {
+  --block-bg: rgba(9, 14, 28, 0.85);
+  --block-border: rgba(56, 189, 248, 0.22);
+  --block-glow: 0 4px 20px -2px rgba(0, 242, 254, 0.12);
+}
+
+/* 2. Obsidian: Ultra-deep pitch smoked glass with razor 1px borders and minimalist contrast */
+[data-block-theme="obsidian"] {
+  --block-bg: rgba(5, 7, 12, 0.94);
+  --block-border: rgba(255, 255, 255, 0.10);
+  --block-glow: 0 4px 24px -2px rgba(0, 0, 0, 0.6);
+}
+
+/* 3. Blueprint: Technical coordinate grid with luminescent cyan engineering lines */
+[data-block-theme="blueprint"] {
+  --block-bg: rgba(6, 16, 36, 0.90);
+  --block-border: rgba(14, 165, 233, 0.35);
+  --block-glow: 0 0 15px rgba(14, 165, 233, 0.18);
+}
+
+/* 4. Frosted: High-diffusion translucent glass maximizing visibility of the underlying network parallax canvas */
+[data-block-theme="frosted"] {
+  --block-bg: rgba(15, 23, 42, 0.65);
+  --block-border: rgba(255, 255, 255, 0.18);
+  --block-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Print Styles for Resume Export */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #09090b !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-card {
+    border: 1px solid #e4e4e7 !important;
+    background: #ffffff !important;
+    color: #18181b !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+}

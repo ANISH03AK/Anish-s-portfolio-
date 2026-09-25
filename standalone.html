@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anish Kumar | React JS Developer & BMS/ELV Engineer Portfolio</title>
+  <meta name="description" content="Official portfolio of Anish Kumar: MCA graduate (85%), React JS Frontend Developer, and BMS/ELV Engineer with enterprise experience at TCS." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#040711',
+            slateDark: '#080d1e',
+            neonCyan: '#00f2fe',
+            neonBlue: '#38bdf8',
+            electricBlue: '#2563eb',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate On Scroll) CSS & JS CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- D3.js CDN for Domain Radar Chart -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+
+  <style>
+    body {
+      background-color: #040711;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #040711;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00f2fe;
+    }
+
+    /* CRITICAL FLOATING ANIMATION FOR FIXED BOTTOM-RIGHT CORNER PROFILE */
+    @keyframes subtleFloat {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-9px) rotate(1deg);
+      }
+    }
+
+    .corner-avatar-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+    }
+
+    .floating-corner-avatar {
+      animation: subtleFloat 3.8s ease-in-out infinite;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.45);
+    }
+
+    /* Dynamic Hover/Touch Interactive Animation: Scale up 15%, rotate slightly, intensify glow */
+    .corner-avatar-container:hover .floating-corner-avatar,
+    .corner-avatar-container:focus-within .floating-corner-avatar,
+    .floating-corner-avatar:hover {
+      transform: scale(1.15) rotate(-3.5deg) translateY(-4px) !important;
+      box-shadow: 0 0 35px rgba(0, 242, 254, 0.95), 0 0 60px rgba(37, 99, 235, 0.5) !important;
+      border-color: #00f2fe !important;
+    }
+
+    /* Glassmorphic Cards & Glowing Tags */
+    .glass-card {
+      background: linear-gradient(145deg, rgba(12, 20, 39, 0.82), rgba(6, 11, 23, 0.92));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(0, 242, 254, 0.45);
+      box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.15);
+    }
+
+    .skill-tag {
+      background: rgba(14, 23, 44, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(0, 242, 254, 0.15);
+      border-color: #00f2fe;
+      transform: translateY(-2px);
+      box-shadow: 0 0 14px rgba(0, 242, 254, 0.35);
+      color: #ffffff;
+    }
+
+    /* Blinking Caret for Typewriter */
+    .typing-caret {
+      animation: blink 0.9s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="selection:bg-cyan-500 selection:text-black">
+
+  <!-- ========================================== -->
+  <!-- 1. HIGH-TECH TOP TELEMETRY STRIP          -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 w-full border-b border-cyan-500/20 bg-[#040711]/90 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <!-- Monogram Wordmark -->
+      <a href="#top" class="flex items-center gap-3 group">
+        <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-950 border border-cyan-500/50 text-cyan-400 font-mono font-bold text-sm group-hover:scale-105 group-hover:border-cyan-400 transition-all shadow-[0_0_12px_rgba(0,242,254,0.3)]">
+          AK
+        </span>
+        <div class="flex flex-col">
+          <span class="text-base font-extrabold tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+            Anish Kumar
+          </span>
+          <span class="text-[10px] font-mono text-zinc-400">
+            MCA Graduate · Software Dev & BMS
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-mono font-medium text-zinc-400">
+        <a href="#about" class="hover:text-cyan-300 transition-colors">ABOUT</a>
+        <a href="#skills" class="hover:text-cyan-300 transition-colors">SKILLS</a>
+        <a href="#experience" class="hover:text-cyan-300 transition-colors">EXPERIENCE</a>
+        <a href="#projects" class="hover:text-cyan-300 transition-colors">PROJECTS</a>
+        <a href="#education" class="hover:text-cyan-300 transition-colors">EDUCATION</a>
+        <a href="#contact" class="hover:text-cyan-300 transition-colors">CONTACT</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="#projects" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-cyan-500/40 bg-cyan-950/40 text-xs font-mono text-cyan-300 hover:bg-cyan-900/60 hover:border-cyan-400 transition-all shadow-[0_0_10px_rgba(0,242,254,0.15)]">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <span>Dexter Live (Vercel)</span>
+        </a>
+        <a href="#contact" class="flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-xs font-semibold text-white transition-all shadow-md shadow-cyan-600/30 active:scale-95">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          <span>Contact Me</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. HERO SECTION                           -->
+  <!-- ========================================== -->
+  <section id="top" class="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 border-b border-zinc-800/80">
+    <!-- Ambient Backdrop Lights -->
+    <div class="absolute top-10 left-1/4 -translate-x-1/2 w-96 h-96 bg-cyan-600/10 blur-[130px] pointer-events-none rounded-full"></div>
+    <div class="absolute top-1/3 right-10 w-96 h-96 bg-blue-600/10 blur-[130px] pointer-events-none rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl space-y-6" data-aos="fade-up" data-aos-duration="800">
+        <!-- Credential Badges -->
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+          <span class="px-2.5 py-1 rounded bg-blue-950/80 border border-blue-500/40 text-blue-300 font-semibold shadow-sm">
+            MCA FIRST CLASS WITH DISTINCTION (85%)
+          </span>
+          <span class="text-zinc-600">·</span>
+          <span class="px-2.5 py-1 rounded bg-cyan-950/60 border border-cyan-500/40 text-cyan-300 font-semibold">
+            TCS ENTERPRISE BMS OPERATIONS
+          </span>
+          <span class="text-zinc-600">·</span>
+          <span class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>READY FOR IMMEDIATE HIRES</span>
+          </span>
+        </div>
+
+        <!-- Headline & Animated Typewriter Effect -->
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+            <i data-lucide="terminal" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span class="text-zinc-400">CURRENT FOCUS:</span>
+            <span id="typewriter-text" class="font-bold text-white tracking-wide">React JS Developer</span>
+            <span class="typing-caret w-2 h-4 bg-cyan-400 inline-block align-middle"></span>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.08]">
+            Engineering Scalable Web Apps & Critical Systems.
+          </h1>
+
+          <p class="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed pt-2">
+            Hello, I am <span class="text-white font-semibold">Anish Kumar</span>. An MCA graduate (85%) with dual expertise in 
+            <span class="text-cyan-400 font-medium">React JS, Python, and SQL full-stack web engineering</span> combined with 
+            <span class="text-blue-400 font-medium">mission-critical Building Management Systems (BMS/ELV)</span> at 
+            <span class="text-white font-medium">Tata Consultancy Services (TCS)</span>.
+          </p>
+        </div>
+
+        <!-- Direct Contact Bar -->
+        <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-400 py-1">
+          <span class="flex items-center gap-1.5 text-zinc-300">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>Anna Nagar West, Chennai, 600040</span>
+          </span>
+          <span class="text-zinc-600">·</span>
+          <a href="tel:8668183926" class="flex items-center gap-1.5 text-zinc-300 hover:text-cyan-300 transition-colors">
+            <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>+91 8668183926</span>
+          </a>
+          <span class="text-zinc-600">·</span>
+          <a href="mailto:anish03ak@gmail.com" class="flex items-center gap-1.5 text-zinc-300 hover:text-cyan-300 transition-colors">
+            <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>anish03ak@gmail.com</span>
+          </a>
+          <span class="text-zinc-600">·</span>
+          <a href="https://github.com/ANISH03AK" target="_blank" rel="noreferrer" class="flex items-center gap-1.5 text-zinc-300 hover:text-cyan-300 transition-colors">
+            <i data-lucide="github" class="w-3.5 h-3.5 text-zinc-300"></i>
+            <span>github.com/ANISH03AK</span>
+          </a>
+        </div>
+
+        <!-- Hero CTAs -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="https://dexter-style-elevation.vercel.app/" target="_blank" rel="noreferrer" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold tracking-wide transition-all shadow-[0_0_20px_rgba(0,242,254,0.45)] hover:shadow-[0_0_30px_rgba(0,242,254,0.7)] active:scale-95">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span>Launch Dexter E-Commerce (Live Vercel)</span>
+          </a>
+          <a href="#projects" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700/80 text-xs font-semibold tracking-wide transition-all hover:border-cyan-500/40">
+            <span>Explore All Projects</span>
+            <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+          </a>
+          <a href="#contact" class="flex items-center gap-2 px-4 py-3 rounded-xl text-zinc-400 hover:text-white text-xs font-medium transition-colors">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+            <span>Schedule Phone Screen</span>
+          </a>
+        </div>
+
+        <!-- Stats Ribbon -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-zinc-800/80">
+          <div class="p-3 rounded-xl glass-card">
+            <div class="text-2xl font-extrabold text-white font-mono">85%</div>
+            <div class="text-[11px] font-semibold text-cyan-400">MCA Score</div>
+            <div class="text-[10px] text-zinc-400">Distinction Rank</div>
+          </div>
+          <div class="p-3 rounded-xl glass-card">
+            <div class="text-2xl font-extrabold text-white font-mono">99.99%</div>
+            <div class="text-[11px] font-semibold text-cyan-400">TCS BMS Uptime</div>
+            <div class="text-[10px] text-zinc-400">Mission-Critical</div>
+          </div>
+          <div class="p-3 rounded-xl glass-card">
+            <div class="text-2xl font-extrabold text-white font-mono">1st Place</div>
+            <div class="text-[11px] font-semibold text-cyan-400">Tech Fest '22</div>
+            <div class="text-[10px] text-zinc-400">Code Conversion</div>
+          </div>
+          <div class="p-3 rounded-xl glass-card">
+            <div class="text-2xl font-extrabold text-white font-mono">PASSPORT</div>
+            <div class="text-[11px] font-semibold text-emerald-400">Ready to Relocate</div>
+            <div class="text-[10px] text-zinc-400">Global Deployments</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. PROFESSIONAL SUMMARY (ABOUT)            -->
+  <!-- ========================================== -->
+  <section id="about" class="py-16 sm:py-20 border-b border-zinc-800/80 bg-[#060a16]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4" data-aos="fade-up">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+          // SECTION 01: PROFESSIONAL SUMMARY
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">
+          Bridging Modern Software & Physical Infrastructure
+        </h2>
+        <div class="p-6 rounded-2xl glass-card text-zinc-300 leading-relaxed space-y-4 border border-cyan-500/20">
+          <p>
+            MCA graduate and Software Developer skilled in <strong class="text-cyan-300 font-semibold">React JS, Python, and SQL</strong>. Proven experience building responsive web applications, consuming RESTful APIs, and maintaining critical enterprise infrastructure (<strong class="text-white">BMS, Fire Alarms, CCTV, WLD, VESDA, AHU</strong>) at <strong class="text-white">Tata Consultancy Services (TCS)</strong>.
+          </p>
+          <p>
+            Seeking to leverage full-stack development and complex system troubleshooting skills in a fast-paced IT role. Bringing an engineering rigor honed in 24/7 mission-critical environments where zero downtime is the standard.
+          </p>
+          <div class="pt-3 border-t border-zinc-800 flex flex-wrap gap-4 text-xs font-mono text-zinc-400">
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Full-Stack React Architecture</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Python & CNN Deep Learning</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Relational MySQL 3NF Schemas</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> TCS Datacenter Infrastructure</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. TECHNICAL SKILLS MATRIX & D3 RADAR      -->
+  <!-- ========================================== -->
+  <section id="skills" class="py-16 sm:py-20 border-b border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="space-y-3" data-aos="fade-up">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+          // SECTION 02: TECHNICAL PROFICIENCY
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">
+          Domain Competency & Tech Stacks
+        </h2>
+        <p class="text-sm text-zinc-400 max-w-2xl">
+          Verified capabilities spanning modern JavaScript/React web engineering, machine learning pipelines, relational database architecture, and industrial facility protocols.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left: Glowing Glassmorphism Skills Tags (7 cols) -->
+        <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
+          <!-- Frontend Development -->
+          <div class="p-5 rounded-2xl glass-card space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-white flex items-center gap-2 font-mono">
+                <i data-lucide="layout" class="w-4 h-4 text-cyan-400"></i>
+                <span>FRONTEND & CLIENT ARCHITECTURE</span>
+              </h3>
+              <span class="text-xs font-mono text-cyan-400 font-semibold">90% PROFICIENCY</span>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-300">React JS</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-300">React Native</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-300">JavaScript (ES6+)</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-300">Tailwind CSS</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-300">HTML5 / CSS3</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-300">State Hooks & Context</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-300">Responsive UI/UX</span>
+            </div>
+          </div>
+
+          <!-- Backend & Databases -->
+          <div class="p-5 rounded-2xl glass-card space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-white flex items-center gap-2 font-mono">
+                <i data-lucide="database" class="w-4 h-4 text-emerald-400"></i>
+                <span>BACKEND, DATABASE & AI</span>
+              </h3>
+              <span class="text-xs font-mono text-emerald-400 font-semibold">88% PROFICIENCY</span>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-emerald-300">Python</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-emerald-300">MySQL (3NF / ACID)</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-emerald-300">RESTful APIs</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-emerald-300">Convolutional Neural Networks (CNNs)</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-emerald-300">OpenCV</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-emerald-300">Supabase</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-emerald-300">RDBMS Normalization</span>
+            </div>
+          </div>
+
+          <!-- BMS & ELV Infrastructure -->
+          <div class="p-5 rounded-2xl glass-card space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-white flex items-center gap-2 font-mono">
+                <i data-lucide="cpu" class="w-4 h-4 text-blue-400"></i>
+                <span>BMS & ENTERPRISE ELV INFRASTRUCTURE</span>
+              </h3>
+              <span class="text-xs font-mono text-blue-400 font-semibold">92% PROFICIENCY</span>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-blue-300">BMS Software Architecture</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-blue-300">Air Handling Units (AHU)</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-blue-300">Water Leak Detection (WLD)</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-blue-300">VESDA Smoke Sampling</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-blue-300">NOVEC 1230 Fire Suppression</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-blue-300">Enterprise CCTV</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-blue-300">Flap Barriers & Access Control</span>
+            </div>
+          </div>
+
+          <!-- Developer Tools & Environment -->
+          <div class="p-5 rounded-2xl glass-card space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-white flex items-center gap-2 font-mono">
+                <i data-lucide="tool" class="w-4 h-4 text-amber-400"></i>
+                <span>DEV TOOLS & SYSTEM DIAGNOSTICS</span>
+              </h3>
+              <span class="text-xs font-mono text-amber-400 font-semibold">VERIFIED</span>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-amber-300">Git / GitHub</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-amber-300">Vercel Deployment</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-amber-300">VS Code</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-amber-300">AI-Assisted Dev (Copilot)</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-amber-300">Hardware Diagnostics</span>
+              <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-mono text-amber-300">SQL Data Telemetry</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive D3 Radar Chart (5 cols) -->
+        <div class="lg:col-span-5 p-6 rounded-2xl glass-card border border-cyan-500/30 flex flex-col items-center" data-aos="fade-left">
+          <div class="w-full flex items-center justify-between mb-4 pb-3 border-b border-zinc-800">
+            <span class="text-xs font-mono font-bold text-cyan-300 flex items-center gap-2">
+              <i data-lucide="radar" class="w-4 h-4 text-cyan-400"></i>
+              <span>D3 DOMAIN COMPETENCY RADAR</span>
+            </span>
+            <span class="text-[11px] font-mono text-zinc-400">Composite: 88.8%</span>
+          </div>
+
+          <!-- Radar Chart SVG Container -->
+          <div id="radar-chart" class="w-full aspect-square flex items-center justify-center"></div>
+
+          <div class="w-full grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-zinc-800 text-[11px] font-mono text-zinc-400">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+              <span>Frontend: 90% (React)</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+              <span>BMS/ELV: 92% (TCS)</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span>Backend: 85% (SQL)</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+              <span>AI/ML: 88% (CNNs)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. WORK EXPERIENCE TIMELINE (TCS & FINO)   -->
+  <!-- ========================================== -->
+  <section id="experience" class="py-16 sm:py-20 border-b border-zinc-800/80 bg-[#060a16]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="space-y-3" data-aos="fade-up">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+          // SECTION 03: WORK EXPERIENCE
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">
+          Professional Career Timeline
+        </h2>
+        <p class="text-sm text-zinc-400 max-w-2xl">
+          Real-world enterprise operations, datacenter infrastructure management, and high-volume data analytics.
+        </p>
+      </div>
+
+      <!-- Vertical Timeline -->
+      <div class="relative pl-6 sm:pl-10 border-l-2 border-cyan-500/30 space-y-12 max-w-4xl mx-auto">
+        
+        <!-- Experience 1: TCS BMS Engineer -->
+        <div class="relative group" data-aos="fade-up">
+          <!-- Timeline Node Icon -->
+          <div class="absolute -left-[35px] sm:-left-[51px] top-1.5 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-cyan-950 border-2 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(0,242,254,0.6)]">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          </div>
+
+          <div class="p-6 sm:p-8 rounded-2xl glass-card space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-4">
+              <div>
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 font-semibold">
+                  Sept 2025 – Present · Chennai, India
+                </span>
+                <h3 class="text-xl font-bold text-white tracking-tight mt-2">
+                  BMS Engineer
+                </h3>
+                <div class="text-sm font-semibold text-zinc-300">
+                  Tata Consultancy Services (TCS) <span class="text-zinc-500 font-normal">· Contract via Johnson Controls</span>
+                </div>
+              </div>
+              <div class="text-right sm:self-center">
+                <span class="text-xs font-mono text-emerald-400 font-bold px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40">
+                  99.99% Facilities Uptime
+                </span>
+              </div>
+            </div>
+
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              Manage and maintain comprehensive Building Management Systems (BMS) for TCS facilities, ensuring uninterrupted and secure operations across mission-critical campus infrastructure.
+            </p>
+
+            <ul class="space-y-2.5 text-xs text-zinc-300 font-normal">
+              <li class="flex items-start gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Operate, monitor, and troubleshoot critical physical infrastructure, including Water Leak Detection (WLD), Very Early Smoke Detection Apparatus (VESDA), Rodent Repellent systems, Public Address (PA) systems, Air Handling Units (AHU), and NOVEC fire suppression systems.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Oversee enterprise security hardware, emergency safety interlocks, and campus access controls (Fire Alarms, CCTV surveillance networks, Flap Barrier turnstiles).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Execute daily operational database management and system state telemetry logging using SQL, generating compliance reports for leadership and safety audits.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Diagnosed and resolved critical sensory threshold discrepancies in AHU climate control loops, preventing thermal incidents in high-density server halls.</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-zinc-800">
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">SQL Telemetry</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">AHU Climate Loops</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">VESDA Laser Smoke</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">WLD Ribbon Sensors</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">NOVEC 1230 Suppression</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">Campus CCTV & Access</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 2: Fino Payment Bank -->
+        <div class="relative group" data-aos="fade-up">
+          <!-- Timeline Node Icon -->
+          <div class="absolute -left-[35px] sm:-left-[51px] top-1.5 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-blue-950 border-2 border-blue-400 text-blue-300 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+            <i data-lucide="landmark" class="w-4 h-4"></i>
+          </div>
+
+          <div class="p-6 sm:p-8 rounded-2xl glass-card space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-4">
+              <div>
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-blue-950/80 border border-blue-500/40 text-blue-300 font-semibold">
+                  Dec 2024 – June 2025 · Jayankondam, Tamil Nadu
+                </span>
+                <h3 class="text-xl font-bold text-white tracking-tight mt-2">
+                  Banking Operations & Data Analytics Intern
+                </h3>
+                <div class="text-sm font-semibold text-zinc-300">
+                  Fino Payment Bank <span class="text-zinc-500 font-normal">· Regional Banking Branch</span>
+                </div>
+              </div>
+              <div class="text-right sm:self-center">
+                <span class="text-xs font-mono text-cyan-400 font-bold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40">
+                  "Very Good" Rating
+                </span>
+              </div>
+            </div>
+
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              Executed daily banking operational workflows and analyzed customer transaction records to streamline branch processing times and account audits.
+            </p>
+
+            <ul class="space-y-2.5 text-xs text-zinc-300 font-normal">
+              <li class="flex items-start gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Executed daily banking operations, ledger reconciliations, and digital payment onboarding for hundreds of daily branch clients.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Analyzed customer transaction patterns and deposit frequency data to optimize branch operational workflows and reduce queue wait times.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Authored and presented a comprehensive research study on payment bank digital adoption and micro-banking services, earning a "Very Good" formal performance rating from regional bank leadership.</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-zinc-800">
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">Customer Data Analysis</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">SQL Queries</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">Financial Reconciliation</span>
+              <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300">Digital Banking Workflow</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. FEATURED PROJECTS                      -->
+  <!-- ========================================== -->
+  <section id="projects" class="py-16 sm:py-20 border-b border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="space-y-3" data-aos="fade-up">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+          // SECTION 04: KEY ENGINEERING PROJECTS
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">
+          Production Deployments & Systems
+        </h2>
+        <p class="text-sm text-zinc-400 max-w-2xl">
+          Live applications and engineered solutions built with React JS, Python CNNs, and normalized MySQL schemas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 1: Dexter Men's Wear (Live Vercel) -->
+        <div class="p-7 rounded-2xl glass-card border border-cyan-500/40 relative flex flex-col justify-between space-y-6 group hover:border-cyan-400 transition-all shadow-[0_0_20px_rgba(0,242,254,0.1)]" data-aos="fade-up">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/50 text-xs font-mono font-bold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span>LIVE ON VERCEL</span>
+              </span>
+              <span class="text-xs font-mono text-zinc-400">Apr 2026</span>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-extrabold text-white group-hover:text-cyan-300 transition-colors tracking-tight">
+                Dexter Men's Wear
+              </h3>
+              <p class="text-xs font-mono text-cyan-400 mt-0.5">
+                Modern Responsive E-Commerce Platform
+              </p>
+            </div>
+
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              Engineered a high-performance, responsive e-commerce web application for contemporary menswear with fluid component architecture, dynamic client-side state management, and real-time product filtering.
+            </p>
+
+            <div class="space-y-2 text-xs text-zinc-300 pt-2 border-t border-zinc-800">
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Architected modular React component hierarchy separating cart/filter containers from UI.</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Consumed RESTful APIs for dynamic collection rendering and instant checkout state.</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Deployed on Vercel with automated CI/CD pipeline achieving sub-second first-paint.</div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-cyan-300">React JS</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-cyan-300">Tailwind CSS</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-cyan-300">JavaScript ES6</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-cyan-300">RESTful APIs</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-cyan-300">Vercel</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between gap-3">
+            <a href="https://dexter-style-elevation.vercel.app/" target="_blank" rel="noreferrer" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-[0_0_20px_rgba(0,242,254,0.4)] hover:shadow-[0_0_30px_rgba(0,242,254,0.7)] transition-all cursor-pointer">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              <span>Launch Live Store (Vercel)</span>
+            </a>
+            <a href="https://github.com/ANISH03AK" target="_blank" rel="noreferrer" class="p-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-700 hover:text-white transition-colors" title="View Source on GitHub">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: AI Fake & Fraudulent Face Detection -->
+        <div class="p-7 rounded-2xl glass-card border border-zinc-800 relative flex flex-col justify-between space-y-6 group hover:border-purple-500/40 transition-all" data-aos="fade-up" data-aos-delay="100">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-purple-950 text-purple-300 border border-purple-500/40 text-xs font-mono font-bold">
+                AI / DEEP LEARNING (MCA CAPSTONE)
+              </span>
+              <span class="text-xs font-mono text-zinc-400">Aug 2024</span>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-extrabold text-white group-hover:text-purple-300 transition-colors tracking-tight">
+                Fake & Fraudulent Face Detection
+              </h3>
+              <p class="text-xs font-mono text-purple-400 mt-0.5">
+                Deep CNN for Synthetic Media Security
+              </p>
+            </div>
+
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              Trained Convolutional Neural Networks (CNNs) in Python to detect, classify, and isolate synthesized and manipulated facial images, protecting digital identity verification systems.
+            </p>
+
+            <div class="space-y-2 text-xs text-zinc-300 pt-2 border-t border-zinc-800">
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Curated multi-class facial datasets with OpenCV for image alignment and normalization.</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Designed alternating Conv2D, pooling, and dropout layers to recognize boundary artifacts.</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Evaluated model accuracy using ROC curves and confusion matrices with high precision.</div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-purple-300">Python</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-purple-300">TensorFlow / Keras</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-purple-300">CNNs</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-purple-300">OpenCV</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-purple-300">NumPy</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between gap-3">
+            <a href="https://github.com/ANISH03AK" target="_blank" rel="noreferrer" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 text-xs font-semibold hover:text-white transition-colors">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>View Model Code Repository</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: TCS Enterprise BMS Operations Suite -->
+        <div class="p-7 rounded-2xl glass-card border border-zinc-800 relative flex flex-col justify-between space-y-6 group hover:border-blue-500/40 transition-all" data-aos="fade-up">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-blue-950 text-blue-300 border border-blue-500/40 text-xs font-mono font-bold">
+                ENTERPRISE INFRASTRUCTURE & SQL
+              </span>
+              <span class="text-xs font-mono text-zinc-400">2025 – Present</span>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-extrabold text-white group-hover:text-blue-300 transition-colors tracking-tight">
+                TCS BMS Infrastructure Suite
+              </h3>
+              <p class="text-xs font-mono text-blue-400 mt-0.5">
+                Mission-Critical Physical Security & Telemetry
+              </p>
+            </div>
+
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              Enterprise physical infrastructure monitoring and relational state management at Tata Consultancy Services (TCS), overseeing environmental stability and emergency automation.
+            </p>
+
+            <div class="space-y-2 text-xs text-zinc-300 pt-2 border-t border-zinc-800">
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Continuous monitoring of AHU loops, VESDA air particles, and subfloor WLD sensor ribbons.</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Managed clean agent NOVEC 1230 fire suppression interlocks and biometric flap barriers.</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Executed daily SQL telemetry logging for safety compliance and risk mitigation audits.</div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-blue-300">SQL Database</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-blue-300">BMS Architecture</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-blue-300">AHU Climate</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-blue-300">VESDA</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-blue-300">WLD Sensors</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-blue-300">NOVEC 1230</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between gap-3">
+            <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span>Zero Unplanned Incidents Achieved</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Project 4: Online Tourism Management System -->
+        <div class="p-7 rounded-2xl glass-card border border-zinc-800 relative flex flex-col justify-between space-y-6 group hover:border-emerald-500/40 transition-all" data-aos="fade-up" data-aos-delay="100">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-xs font-mono font-bold">
+                FULL-STACK & DATABASE NORMALIZATION
+              </span>
+              <span class="text-xs font-mono text-zinc-400">Apr 2022</span>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-extrabold text-white group-hover:text-emerald-300 transition-colors tracking-tight">
+                Online Tourism Portal
+              </h3>
+              <p class="text-xs font-mono text-emerald-400 mt-0.5">
+                Normalized 3NF MySQL Booking Engine
+              </p>
+            </div>
+
+            <p class="text-sm text-zinc-300 leading-relaxed">
+              Constructed an end-to-end web portal featuring secure backend API endpoints, user itinerary booking engines, and an administrative control panel for seamless MySQL database package management.
+            </p>
+
+            <div class="space-y-2 text-xs text-zinc-300 pt-2 border-t border-zinc-800">
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Designed normalized relational schemas in MySQL in 3NF with foreign key constraints.</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Constructed server-side endpoints with strict input sanitization to prevent SQL injection.</div>
+              <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Built an administrator dashboard enabling real-time tour package updates and status logs.</div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-emerald-300">MySQL (3NF)</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-emerald-300">JavaScript</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-emerald-300">HTML5 / CSS3</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-emerald-300">PHP APIs</span>
+              <span class="skill-tag px-2.5 py-1 rounded text-xs font-mono text-emerald-300">ACID Transactions</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between gap-3">
+            <a href="https://github.com/ANISH03AK" target="_blank" rel="noreferrer" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 text-xs font-semibold hover:text-white transition-colors">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>View Database Schema on GitHub</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. EDUCATION & HONORS                     -->
+  <!-- ========================================== -->
+  <section id="education" class="py-16 sm:py-20 border-b border-zinc-800/80 bg-[#060a16]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="space-y-3" data-aos="fade-up">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+          // SECTION 05: ACADEMICS & AWARDS
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">
+          Education & Honors
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Degree 1: MCA -->
+        <div class="p-6 rounded-2xl glass-card space-y-3" data-aos="fade-up">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded bg-blue-950 text-blue-300 border border-blue-500/40 text-xs font-mono font-bold">
+              85% DISTINCTION
+            </span>
+            <span class="text-xs font-mono text-zinc-400">2022 – 2024</span>
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-tight">
+            Master of Computer Applications (MCA)
+          </h3>
+          <div class="text-xs font-semibold text-cyan-400 font-mono">
+            Meenakshi Ramasamy Engineering College
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed pt-1">
+            Graduated First Class with Distinction (85%). Advanced coursework in Full-Stack Web Development, RDBMS & SQL, Python, and Deep Learning Neural Networks.
+          </p>
+        </div>
+
+        <!-- Degree 2: B.Sc -->
+        <div class="p-6 rounded-2xl glass-card space-y-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">
+              82% FIRST CLASS
+            </span>
+            <span class="text-xs font-mono text-zinc-400">2019 – 2022</span>
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-tight">
+            B.Sc. in Computer Science
+          </h3>
+          <div class="text-xs font-semibold text-cyan-400 font-mono">
+            Meenakshi Ramasamy Arts and Science College
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed pt-1">
+            Graduated First Class (82%). Core grounding in Data Structures, Algorithms, Database Management Systems (DBMS), and Object-Oriented Programming.
+          </p>
+        </div>
+
+        <!-- Degree 3: Hardware Diploma -->
+        <div class="p-6 rounded-2xl glass-card space-y-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-xs font-mono font-bold">
+              80% SCORE
+            </span>
+            <span class="text-xs font-mono text-zinc-400">2019 – 2020</span>
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-tight">
+            Diploma in Computer Hardware
+          </h3>
+          <div class="text-xs font-semibold text-emerald-400 font-mono">
+            Meenakshi Ramasamy Arts and Science College
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed pt-1">
+            Hands-on hardware lab diagnostics, motherboard architecture, networking routing protocols, and enterprise peripheral maintenance.
+          </p>
+        </div>
+      </div>
+
+      <!-- Awards Ribbon -->
+      <div class="p-6 rounded-2xl glass-card border border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-4" data-aos="fade-up">
+        <div class="flex items-center gap-3">
+          <div class="p-3 rounded-xl bg-amber-950 border border-amber-500/40 text-amber-400">
+            <i data-lucide="trophy" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-bold text-white">First Place Winner: Code Conversion Competition</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-amber-950 text-amber-300 border border-amber-500/40">TECH FEST '22</span>
+            </div>
+            <p class="text-xs text-zinc-300 mt-1">
+              Secured 1st Prize in the State-Level Code Conversion contest among 120+ collegiate coders. Also completed certifications in Python for Data Science and DBA Roles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. CONTACT SECTION                        -->
+  <!-- ========================================== -->
+  <section id="contact" class="py-16 sm:py-24 border-b border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="space-y-3" data-aos="fade-up">
+        <div class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+          // SECTION 06: GET IN TOUCH
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">
+          Let's Connect for Opportunities
+        </h2>
+        <p class="text-sm text-zinc-400 max-w-2xl">
+          Actively interviewing for React JS, Full-Stack, and Software Developer positions. Available immediately for local and international relocation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        <!-- Direct Details (5 cols) -->
+        <div class="md:col-span-5 space-y-4" data-aos="fade-right">
+          <div class="p-6 rounded-2xl glass-card space-y-4 border border-cyan-500/30">
+            <h3 class="text-lg font-bold text-white tracking-tight">Direct Information</h3>
+
+            <div class="space-y-3 text-xs font-mono">
+              <div class="flex items-start gap-3">
+                <i data-lucide="mail" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                <div>
+                  <span class="text-zinc-500 block text-[10px]">EMAIL ADDRESS</span>
+                  <a href="mailto:anish03ak@gmail.com" class="text-zinc-200 hover:text-cyan-300 font-semibold transition-colors">
+                    anish03ak@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i data-lucide="phone" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <div>
+                  <span class="text-zinc-500 block text-[10px]">DIRECT PHONE</span>
+                  <a href="tel:8668183926" class="text-zinc-200 hover:text-cyan-300 font-semibold transition-colors">
+                    +91 8668183926 / 8870952017
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i data-lucide="map-pin" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
+                <div>
+                  <span class="text-zinc-500 block text-[10px]">LOCATION</span>
+                  <span class="text-zinc-200 font-semibold">Anna Nagar West, Chennai, 600040</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i data-lucide="github" class="w-4 h-4 text-purple-400 shrink-0 mt-0.5"></i>
+                <div>
+                  <span class="text-zinc-500 block text-[10px]">GITHUB PROFILE</span>
+                  <a href="https://github.com/ANISH03AK" target="_blank" rel="noreferrer" class="text-zinc-200 hover:text-cyan-300 font-semibold transition-colors">
+                    github.com/ANISH03AK
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-zinc-800">
+              <a href="mailto:anish03ak@gmail.com?subject=Interview%20Invitation%20-%20Software%20Developer%20Role" class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-md shadow-cyan-600/30 transition-all">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Send Direct Email</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Message Form (7 cols) -->
+        <div class="md:col-span-7 p-6 sm:p-8 rounded-2xl glass-card space-y-4" data-aos="fade-left">
+          <h3 class="text-lg font-bold text-white tracking-tight">Send a Quick Message</h3>
+          <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono text-zinc-400 mb-1">Your Name</label>
+                <input required type="text" id="sender-name" placeholder="e.g. Talent Acquisition" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-200 placeholder-zinc-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-zinc-400 mb-1">Your Email</label>
+                <input required type="email" id="sender-email" placeholder="name@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-200 placeholder-zinc-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-zinc-400 mb-1">Subject</label>
+              <input required type="text" id="sender-subject" placeholder="Opportunity: Software Developer / React JS Role" class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-200 placeholder-zinc-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-zinc-400 mb-1">Message</label>
+              <textarea required id="sender-message" rows="4" placeholder="Hello Anish, we reviewed your portfolio, TCS BMS experience, and Dexter Men's Wear live project..." class="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-200 placeholder-zinc-500 text-xs focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs tracking-wide shadow-md shadow-cyan-600/30 transition-all cursor-pointer">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Dispatch Message to Anish</span>
+            </button>
+            <div id="form-feedback" class="text-center text-xs font-mono hidden"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 9. FOOTER WITH PASSPORT READINESS         -->
+  <!-- ========================================== -->
+  <footer class="py-12 border-t border-zinc-800/80 bg-[#04060c] text-xs text-zinc-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <!-- Passport & Relocation Banner -->
+      <div class="p-5 rounded-2xl bg-[#091122]/90 border border-cyan-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div class="p-2.5 rounded-xl bg-cyan-950 border border-cyan-500/40 text-cyan-400 shrink-0">
+            <i data-lucide="globe" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-300">
+                INTERNATIONAL RELOCATION READY
+              </span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-semibold">
+                VALID INDIAN PASSPORT
+              </span>
+            </div>
+            <p class="text-xs text-zinc-300 mt-1">
+              Possesses a valid Indian Passport and active police verification clearance. Immediate readiness for global software development assignments, onsite relocations, and hybrid deployments.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 shrink-0">
+          <a href="mailto:anish03ak@gmail.com" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs transition-all shadow-md shadow-cyan-600/30">
+            Initiate Contact
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Nav & Copyright -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-zinc-900">
+        <div class="flex items-center gap-3">
+          <span class="font-extrabold text-sm text-white">Anish Kumar</span>
+          <span class="text-zinc-700">|</span>
+          <span class="text-zinc-400 font-mono text-[11px]">React JS Developer & BMS/ELV Engineer</span>
+        </div>
+        <div class="flex items-center gap-6 text-zinc-400">
+          <a href="#top" class="hover:text-cyan-400 transition-colors">TOP</a>
+          <a href="#about" class="hover:text-cyan-400 transition-colors">ABOUT</a>
+          <a href="#skills" class="hover:text-cyan-400 transition-colors">SKILLS</a>
+          <a href="#projects" class="hover:text-cyan-400 transition-colors">PROJECTS</a>
+          <a href="#contact" class="hover:text-cyan-400 transition-colors">CONTACT</a>
+        </div>
+        <div class="text-[11px] font-mono text-zinc-600">
+          © 2026 Anish Kumar · All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- 10. CRITICAL FIXED BOTTOM-RIGHT CORNER     -->
+  <!--     FLOATING & INTERACTIVE AVATAR          -->
+  <!-- ========================================== -->
+  <aside class="corner-avatar-container group" aria-label="Interactive Profile of Anish Kumar">
+    <!-- Outer ambient blur glow -->
+    <div class="absolute inset-0 rounded-full bg-cyan-400/25 blur-xl scale-125 pointer-events-none group-hover:scale-160 group-hover:bg-cyan-400/50 transition-all duration-500"></div>
+
+    <!-- Live Available Indicator Pin -->
+    <div class="absolute -top-1 -right-1 z-10 flex h-4 w-4">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-[#040711]"></span>
+    </div>
+
+    <!-- The Interactive Floating Profile Button -->
+    <a href="#about" class="floating-corner-avatar relative block w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden p-0.5 border-2 border-cyan-400/80 cursor-pointer focus:outline-none" title="Anish Kumar - Software Developer & BMS Engineer">
+      <div class="w-full h-full rounded-full overflow-hidden bg-[#0d1527] relative">
+        <img 
+          src="profile.jpg" 
+          alt="Anish Kumar" 
+          onerror="this.onerror=null; this.src='profile.svg';" 
+          class="w-full h-full object-cover object-[center_36%]"
+          loading="eager"
+        />
+        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/10 via-transparent to-white/20 pointer-events-none"></div>
+      </div>
+    </a>
+
+    <!-- Hover Floating Tooltip Badge -->
+    <div class="hidden sm:block absolute bottom-full right-0 mb-3 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 whitespace-nowrap">
+      <div class="px-3 py-1.5 rounded-xl bg-zinc-950/95 backdrop-blur-md border border-cyan-500/40 shadow-xl shadow-cyan-500/20 text-xs text-zinc-200 flex items-center gap-1.5 font-mono">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <span>Anish Kumar · MCA 85%</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- 11. INLINE JAVASCRIPT & ENGINES           -->
+  <!-- ========================================== -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Initialize AOS Animation On Scroll
+    AOS.init({
+      once: true,
+      duration: 700,
+      easing: 'ease-out-cubic',
+    });
+
+    // Animated Typing Effect in Hero
+    const TYPING_TITLES = [
+      'React JS Developer',
+      'BMS & ELV Engineer',
+      'Full-Stack System Architect',
+      'MCA Graduate (85% Distinction)'
+    ];
+
+    let titleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById('typewriter-text');
+
+    function typeWriterLoop() {
+      const current = TYPING_TITLES[titleIdx];
+      
+      if (!isDeleting) {
+        charIdx++;
+        typewriterElement.textContent = current.substring(0, charIdx);
+        if (charIdx >= current.length) {
+          isDeleting = true;
+          setTimeout(typeWriterLoop, 2200);
+          return;
+        }
+      } else {
+        charIdx--;
+        typewriterElement.textContent = current.substring(0, charIdx);
+        if (charIdx <= 0) {
+          isDeleting = false;
+          titleIdx = (titleIdx + 1) % TYPING_TITLES.length;
+        }
+      }
+
+      const speed = isDeleting ? 40 : 80;
+      setTimeout(typeWriterLoop, speed);
+    }
+
+    typeWriterLoop();
+
+    // Interactive D3 Domain Competency Radar Chart
+    function renderRadarChart() {
+      const container = d3.select('#radar-chart');
+      container.selectAll('*').remove();
+
+      const width = 280;
+      const height = 280;
+      const margin = 40;
+      const radius = Math.min(width, height) / 2 - margin;
+
+      const data = [
+        { axis: "Frontend (React)", value: 0.90 },
+        { axis: "BMS/ELV (TCS)", value: 0.92 },
+        { axis: "Backend (SQL)", value: 0.85 },
+        { axis: "AI/ML (CNNs)", value: 0.88 },
+      ];
+
+      const total = data.length;
+      const angleSlice = (Math.PI * 2) / total;
+
+      const svg = container.append("svg")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .append("g")
+        .attr("transform", `translate(${width/2},${height/2})`);
+
+      // Circular Grid Levels (20%, 40%, 60%, 80%, 100%)
+      const levels = 5;
+      for (let level = 0; level < levels; level++) {
+        const levelRadius = (radius / levels) * (level + 1);
+        svg.append("circle")
+          .attr("r", levelRadius)
+          .attr("fill", "none")
+          .attr("stroke", "rgba(56, 189, 248, 0.15)")
+          .attr("stroke-dasharray", "3,3");
+      }
+
+      // Axis Lines & Spoke Labels
+      const axis = svg.selectAll(".axis")
+        .data(data)
+        .enter()
+        .append("g")
+        .attr("class", "axis");
+
+      axis.append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", (d, i) => radius * Math.cos(angleSlice * i - Math.PI / 2))
+        .attr("y2", (d, i) => radius * Math.sin(angleSlice * i - Math.PI / 2))
+        .attr("stroke", "rgba(56, 189, 248, 0.25)");
+
+      axis.append("text")
+        .attr("x", (d, i) => (radius + 22) * Math.cos(angleSlice * i - Math.PI / 2))
+        .attr("y", (d, i) => (radius + 18) * Math.sin(angleSlice * i - Math.PI / 2))
+        .attr("text-anchor", "middle")
+        .attr("dy", "0.35em")
+        .attr("fill", "#38bdf8")
+        .attr("font-size", "10px")
+        .attr("font-family", "monospace")
+        .attr("font-weight", "600")
+        .text(d => d.axis);
+
+      // Radar Polygon
+      const radarLine = d3.lineRadial()
+        .radius(d => d.value * radius)
+        .angle((d, i) => i * angleSlice)
+        .curve(d3.curveLinearClosed);
+
+      // Gradient Definition
+      const defs = svg.append("defs");
+      const radialGradient = defs.append("radialGradient")
+        .attr("id", "radar-gradient")
+        .attr("cx", "50%")
+        .attr("cy", "50%")
+        .attr("r", "50%");
+
+      radialGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#00f2fe")
+        .attr("stop-opacity", 0.6);
+
+      radialGradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#2563eb")
+        .attr("stop-opacity", 0.25);
+
+      // Draw Polygon
+      svg.append("path")
+        .datum(data)
+        .attr("d", radarLine)
+        .attr("fill", "url(#radar-gradient)")
+        .attr("stroke", "#00f2fe")
+        .attr("stroke-width", 2)
+        .attr("filter", "drop-shadow(0 0 10px rgba(0, 242, 254, 0.5))");
+
+      // Vertex Circles
+      svg.selectAll(".radar-circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("class", "radar-circle")
+        .attr("r", 4)
+        .attr("cx", (d, i) => d.value * radius * Math.cos(angleSlice * i - Math.PI / 2))
+        .attr("cy", (d, i) => d.value * radius * Math.sin(angleSlice * i - Math.PI / 2))
+        .attr("fill", "#00f2fe")
+        .attr("stroke", "#ffffff")
+        .attr("stroke-width", 1.5);
+    }
+
+    renderRadarChart();
+    window.addEventListener('resize', renderRadarChart);
+
+    // Contact Form Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const feedback = document.getElementById('form-feedback');
+      const name = document.getElementById('sender-name').value;
+      const email = document.getElementById('sender-email').value;
+
+      btn.disabled = true;
+      btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5 animate-spin"></i><span>Sending...</span>`;
+      lucide.createIcons();
+
+      setTimeout(() => {
+        btn.innerHTML = `<i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i><span>Message Received!</span>`;
+        feedback.className = "text-center text-xs font-mono text-emerald-400 block pt-2";
+        feedback.textContent = `Thank you ${name}! Your dispatch has been transmitted to Anish Kumar. A confirmation was queued for ${email}.`;
+        lucide.createIcons();
+      }, 800);
+    }
+  </script>
+</body>
+</html>
