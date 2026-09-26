@@ -54,6 +54,18 @@ const server = http.createServer((req, res) => {
 
   let filePath = path.join(__dirname, pathname);
 
+  // If requested file does not exist directly, check dist/ directory or app.js alias
+  if (!fs.existsSync(filePath)) {
+    if (pathname === '/app.js' && fs.existsSync(path.join(__dirname, 'dist', 'app.js'))) {
+      filePath = path.join(__dirname, 'dist', 'app.js');
+    } else {
+      const distCandidate = path.join(__dirname, 'dist', pathname);
+      if (fs.existsSync(distCandidate)) {
+        filePath = distCandidate;
+      }
+    }
+  }
+
   // Security check to avoid path traversal
   if (!filePath.startsWith(__dirname)) {
     res.writeHead(403, { 'Content-Type': 'text/plain' });
