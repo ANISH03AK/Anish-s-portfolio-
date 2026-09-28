@@ -63,7 +63,7 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
           </div>
           <div className="flex items-center gap-2">
             <i className="fa-solid fa-briefcase text-indigo-400 text-xs w-4 text-center" />
-            <span>TCS BMS Operations (Johnson Controls)</span>
+            <span>BMS &amp; Facility Operations (Johnson Controls)</span>
           </div>
           <div className="flex items-center gap-2">
             <i className="fa-solid fa-passport text-rose-400 text-xs w-4 text-center" />
@@ -102,12 +102,6 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
             }}
           />
         </div>
-      </div>
-
-      {/* Online Status Pill Badge */}
-      <div className="profile-corner-status">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        <span>TCS BMS</span>
       </div>
     </div>
   );

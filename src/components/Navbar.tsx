@@ -75,48 +75,25 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#070a12]/95 backdrop-blur-md border-b border-zinc-800/80 transition-colors duration-300">
       {/* Top Bar: Brand & Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-        {/* Brand Name Typography & Image Logo - Locked to ONE SINGLE LINE across every device */}
+        {/* Brand Name Typography - Locked to ONE SINGLE LINE across every device */}
         <a
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
             handleNavClick('#hero');
           }}
-          className="flex items-center gap-2.5 sm:gap-3 shrink-0 py-1 group select-none cursor-pointer"
+          className="flex flex-col justify-center shrink-0 py-1 group select-none cursor-pointer"
           title="Anish Kumar · Portfolio Home"
         >
-          {/* Circular Image Logo Avatar */}
-          <div
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full p-[1.5px] shadow-md shrink-0 flex items-center justify-center transition-transform group-hover:scale-105"
-            style={{
-              background: `linear-gradient(135deg, ${currentTheme.primary}, ${currentTheme.secondary})`
-            }}
+          <span className="text-xl sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
+            ANISH KUMAR
+          </span>
+          <span
+            className="text-[10px] font-mono tracking-wider uppercase transition-colors font-medium whitespace-nowrap mt-1 hidden sm:block"
+            style={{ color: currentTheme.secondary }}
           >
-            <img
-              src="/profile.svg"
-              alt="Anish Kumar"
-              className="w-full h-full rounded-full object-cover bg-zinc-900"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (!target.dataset.hasFallenBack) {
-                  target.dataset.hasFallenBack = 'true';
-                  target.src = '/profile.png';
-                }
-              }}
-            />
-          </div>
-
-          <div className="flex flex-col justify-center shrink-0">
-            <span className="text-lg sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
-              ANISH KUMAR
-            </span>
-            <span
-              className="text-[9px] sm:text-[10px] font-mono tracking-wider uppercase transition-colors font-medium whitespace-nowrap mt-1 hidden sm:block"
-              style={{ color: currentTheme.secondary }}
-            >
-              Software Developer &amp; BMS Engineer
-            </span>
-          </div>
+            Software Developer &amp; BMS Engineer
+          </span>
         </a>
 
         {/* Desktop Navigation Menu (Visible on lg screens and up) */}
