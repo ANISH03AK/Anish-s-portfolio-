@@ -27,6 +27,7 @@
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
             display: ['"Space Grotesk"', 'sans-serif'],
+            stylish: ['"Syne"', '"Outfit"', '"Space Grotesk"', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace']
           }
         }
@@ -37,7 +38,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
 
   <!-- FontAwesome Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -169,92 +170,94 @@
       border-color: rgba(250, 204, 21, 0.45) !important;
     }
 
-    /* Dynamic Root Theme Accents */
+    /* Dynamic Root Theme Accents - Clean & Refined */
     :root {
-      --theme-primary: #ef4444;
-      --theme-secondary: #facc15;
-      --theme-accent: #f59e0b;
-      --theme-glow: rgba(239, 68, 68, 0.45);
-      --theme-bracket-top: #ef4444;
-      --theme-bracket-bot: #facc15;
-      --bg-base: #050505;
+      --theme-primary: #38bdf8;
+      --theme-secondary: #94a3b8;
+      --theme-accent: #0284c7;
+      --theme-glow: rgba(56, 189, 248, 0.15);
+      --theme-bracket-top: #38bdf8;
+      --theme-bracket-bot: #94a3b8;
+      --bg-base: #09090b;
     }
 
-    /* Core Palette 1: Obsidian & Gold */
-    body[data-color-theme="black-gold"] {
-      --theme-primary: #facc15;
-      --theme-secondary: #eab308;
-      --theme-accent: #ffd700;
-      --theme-glow: rgba(250, 204, 21, 0.45);
-      --theme-bracket-top: #facc15;
-      --theme-bracket-bot: #fbbf24;
-      --bg-base: #050505;
+    /* Clean Theme 1: Minimal Cyan & Slate (Default) */
+    body[data-color-theme="clean-cyan"] {
+      --theme-primary: #38bdf8;
+      --theme-secondary: #94a3b8;
+      --theme-accent: #0284c7;
+      --theme-glow: rgba(56, 189, 248, 0.15);
+      --theme-bracket-top: #38bdf8;
+      --theme-bracket-bot: #94a3b8;
+      --bg-base: #09090b;
     }
 
-    /* Core Palette 2: Crimson & Noir */
-    body[data-color-theme="crimson-noir"] {
-      --theme-primary: #ef4444;
-      --theme-secondary: #dc2626;
-      --theme-accent: #f87171;
-      --theme-glow: rgba(239, 68, 68, 0.45);
-      --theme-bracket-top: #ef4444;
-      --theme-bracket-bot: #dc2626;
-      --bg-base: #050505;
+    /* Clean Theme 2: Monochrome & Steel Blue */
+    body[data-color-theme="monochrome-blue"] {
+      --theme-primary: #60a5fa;
+      --theme-secondary: #cbd5e1;
+      --theme-accent: #3b82f6;
+      --theme-glow: rgba(96, 165, 250, 0.12);
+      --theme-bracket-top: #60a5fa;
+      --theme-bracket-bot: #cbd5e1;
+      --bg-base: #08090d;
     }
 
-    /* Core Palette 3: Trinity Fusion (Black, Red & Gold) */
-    body[data-color-theme="trinity-fusion"] {
-      --theme-primary: #ef4444;
-      --theme-secondary: #facc15;
-      --theme-accent: #f59e0b;
-      --theme-glow: rgba(239, 68, 68, 0.45);
-      --theme-bracket-top: #ef4444;
-      --theme-bracket-bot: #facc15;
-      --bg-base: #050505;
-    }
-
-    /* Optional Palette 1: Cyber Neon Cyan */
-    body[data-color-theme="cyber-cyan"] {
-      --theme-primary: #00f2fe;
-      --theme-secondary: #38bdf8;
-      --theme-accent: #06b6d4;
-      --theme-glow: rgba(0, 242, 254, 0.45);
-      --theme-bracket-top: #00f2fe;
-      --theme-bracket-bot: #38bdf8;
-      --bg-base: #030712;
-    }
-
-    /* Optional Palette 2: Emerald Matrix */
-    body[data-color-theme="emerald-matrix"] {
-      --theme-primary: #10b981;
-      --theme-secondary: #34d399;
+    /* Clean Theme 3: Minimal Mint & Charcoal */
+    body[data-color-theme="clean-emerald"] {
+      --theme-primary: #34d399;
+      --theme-secondary: #94a3b8;
       --theme-accent: #059669;
-      --theme-glow: rgba(16, 185, 129, 0.45);
-      --theme-bracket-top: #10b981;
-      --theme-bracket-bot: #34d399;
-      --bg-base: #030a06;
+      --theme-glow: rgba(52, 211, 153, 0.12);
+      --theme-bracket-top: #34d399;
+      --theme-bracket-bot: #94a3b8;
+      --bg-base: #060a08;
     }
 
-    /* Optional Palette 3: Royal Amethyst */
-    body[data-color-theme="royal-amethyst"] {
-      --theme-primary: #a855f7;
-      --theme-secondary: #c084fc;
-      --theme-accent: #9333ea;
-      --theme-glow: rgba(168, 85, 247, 0.45);
-      --theme-bracket-top: #a855f7;
-      --theme-bracket-bot: #c084fc;
-      --bg-base: #07030e;
+    /* Clean Theme 4: Subdued Warm Amber */
+    body[data-color-theme="clean-amber"] {
+      --theme-primary: #fbbf24;
+      --theme-secondary: #a1a1aa;
+      --theme-accent: #d97706;
+      --theme-glow: rgba(251, 191, 36, 0.12);
+      --theme-bracket-top: #fbbf24;
+      --theme-bracket-bot: #a1a1aa;
+      --bg-base: #0a0907;
     }
 
-    /* Optional Palette 4: Sunset Rose Gold */
-    body[data-color-theme="sunset-rose-gold"] {
-      --theme-primary: #f43f5e;
-      --theme-secondary: #fbbf24;
-      --theme-accent: #fb7185;
-      --theme-glow: rgba(244, 63, 94, 0.45);
-      --theme-bracket-top: #f43f5e;
-      --theme-bracket-bot: #fbbf24;
-      --bg-base: #0a0306;
+    /* Clean Theme 5: Subtle Rose & Slate */
+    body[data-color-theme="clean-rose"] {
+      --theme-primary: #fb7185;
+      --theme-secondary: #94a3b8;
+      --theme-accent: #e11d48;
+      --theme-glow: rgba(251, 113, 133, 0.12);
+      --theme-bracket-top: #fb7185;
+      --theme-bracket-bot: #94a3b8;
+      --bg-base: #0a0709;
+    }
+
+    /* Backward compatibility mapping */
+    body[data-color-theme="indigo-cyan"],
+    body[data-color-theme="cyber-cyan"],
+    body[data-color-theme="black-gold"],
+    body[data-color-theme="crimson-noir"],
+    body[data-color-theme="crimson-gold"],
+    body[data-color-theme="trinity-fusion"],
+    body[data-color-theme="emerald-amber"] {
+      --theme-primary: #38bdf8;
+      --theme-secondary: #94a3b8;
+      --theme-accent: #0284c7;
+      --theme-glow: rgba(56, 189, 248, 0.15);
+      --theme-bracket-top: #38bdf8;
+      --theme-bracket-bot: #94a3b8;
+      --bg-base: #09090b;
+    }
+
+    /* Stylish font class for Anish Kumar's name */
+    .font-name-stylish {
+      font-family: 'Syne', 'Outfit', 'Space Grotesk', sans-serif !important;
+      letter-spacing: -0.025em;
+      font-weight: 800;
     }
 
     /* High-Tech Corner Framing Brackets on Enterprise Cards */

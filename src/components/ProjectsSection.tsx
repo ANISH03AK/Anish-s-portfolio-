@@ -1,169 +1,169 @@
 import React from 'react';
-import { PERSONAL_INFO } from '../data/portfolioData';
+import { PROJECTS_DATA, PERSONAL_INFO } from '../data/portfolioData';
 import { ColorTheme } from '../data/colorThemes';
+
+interface ProjectDisplay {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  liveUrl?: string;
+  githubUrl: string;
+  previewBg: string;
+  icon: string;
+}
+
+const PROJECTS: ProjectDisplay[] = [
+  {
+    id: 'dexter',
+    title: "Dexter Men's Wear",
+    category: 'E-Commerce Web Application',
+    description: 'A responsive full-stack e-commerce web platform featuring dynamic catalog filtering, cart management, checkout workflows, and modern responsive UI.',
+    technologies: ['React JS', 'Tailwind CSS', 'RESTful APIs', 'Vercel'],
+    liveUrl: PERSONAL_INFO.dexterUrl,
+    githubUrl: PERSONAL_INFO.github,
+    previewBg: 'linear-gradient(135deg, #0e2a47 0%, #090d16 100%)',
+    icon: 'fa-solid fa-shirt'
+  },
+  {
+    id: 'fraud-detection',
+    title: 'Facial Fraud & Fake Detection',
+    category: 'Computer Vision & Deep Learning',
+    description: 'A convolutional neural network (CNN) trained in Python to detect, classify, and prevent fraudulent, spoofed, and AI-synthesized facial identities.',
+    technologies: ['Python', 'CNN', 'OpenCV', 'TensorFlow', 'REST APIs'],
+    githubUrl: PERSONAL_INFO.github,
+    previewBg: 'linear-gradient(135deg, #2b134d 0%, #090d16 100%)',
+    icon: 'fa-solid fa-brain'
+  },
+  {
+    id: 'tourism-system',
+    title: 'Tourism Operations Platform',
+    category: 'Database & Web Architecture',
+    description: 'A comprehensive travel booking and destination management system built with relational schema design, administrative controls, and secure booking APIs.',
+    technologies: ['MySQL', 'Web Platform', 'REST APIs', 'RDBMS'],
+    githubUrl: PERSONAL_INFO.github,
+    previewBg: 'linear-gradient(135deg, #063d2e 0%, #090d16 100%)',
+    icon: 'fa-solid fa-route'
+  }
+];
 
 interface ProjectsSectionProps {
   theme?: ColorTheme;
 }
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ theme }) => {
-  const primaryColor = theme?.primary || '#ef4444';
-  const secondaryColor = theme?.secondary || '#facc15';
+  const primaryColor = theme?.primary || '#06b6d4';
+  const secondaryColor = theme?.secondary || '#6366f1';
+  const accentColor = theme?.accent || '#f43f5e';
 
   return (
-    <section id="projects" className="py-20 relative z-10">
+    <section id="projects" className="py-28 sm:py-36 border-t border-zinc-800/80 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
-          <h2
-            className="text-xs font-mono tracking-widest uppercase font-semibold mb-2 transition-colors section-eyebrow"
-            style={{ color: secondaryColor }}
-          >
-            04. Works
-          </h2>
-          <p className="text-3xl sm:text-4xl font-extrabold text-white font-display">Featured Projects</p>
-          <p className="text-zinc-400 text-sm mt-3">Production e-commerce, AI computer vision research, and relational management systems.</p>
+        {/* Section Header with Generous Space */}
+        <div className="max-w-2xl mb-16 sm:mb-20" data-aos="fade-up">
           <div
-            className="w-16 h-1 mx-auto mt-4 rounded-full transition-all duration-300 theme-gradient-divider"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold mb-3 border"
             style={{
-              background: `linear-gradient(to right, ${primaryColor}, ${secondaryColor}, ${theme?.accent || '#f59e0b'})`
+              backgroundColor: `${accentColor}15`,
+              color: accentColor,
+              borderColor: `${accentColor}40`
             }}
-          />
+          >
+            <i className="fa-solid fa-cubes" />
+            <span>03. Featured Deployments</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+            Key Software Projects
+          </h2>
+          <p className="text-zinc-300 text-sm sm:text-base mt-2.5 leading-relaxed">
+            Production web platforms, deep learning neural networks, and relational database systems.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Project 1: Dexter Men's Wear (Featured with Animated Laser Beam Border & Bolt Badge) */}
-          <div className="laser-beam-border rounded-2xl p-[1.5px] shadow-2xl group flex flex-col" data-aos="fade-up" data-aos-delay="100">
-            <div className="laser-beam-content glass-card tech-brackets rounded-2xl overflow-hidden flex flex-col flex-1 bg-zinc-950/90 relative">
-              {/* Top Bolt Badge */}
-              <div className="absolute top-4 right-4 z-10">
-                <span
-                  className="px-3 py-1 rounded-full text-black font-mono text-[10px] font-extrabold uppercase tracking-wider shadow-md flex items-center gap-1 transition-all bolt-heading"
-                  style={{
-                    backgroundColor: secondaryColor,
-                    boxShadow: `0 0 12px ${secondaryColor}66`
-                  }}
-                >
-                  <i className="fa-solid fa-bolt" />LIVE ON VERCEL
-                </span>
+        {/* Clean Project Grid with Generous Gaps */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-9">
+          {PROJECTS.map((proj, idx) => (
+            <div
+              key={proj.id}
+              className="group rounded-3xl bg-zinc-950/85 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 flex flex-col overflow-hidden"
+              data-aos="fade-up"
+              data-aos-delay={idx * 120}
+            >
+              {/* Project Preview Header */}
+              <div
+                className="h-44 relative p-6 flex flex-col justify-between overflow-hidden border-b border-zinc-800/80"
+                style={{ background: proj.previewBg }}
+              >
+                <div className="flex items-center justify-between">
+                  <div
+                    className="w-10 h-10 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-lg shadow-md"
+                    style={{ color: primaryColor }}
+                  >
+                    <i className={proj.icon} />
+                  </div>
+                  <span
+                    className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-black/70 border border-white/15 text-zinc-200 font-medium"
+                  >
+                    {proj.category}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold text-white font-display group-hover:text-cyan-300 transition-colors">
+                  {proj.title}
+                </h3>
               </div>
 
-              {/* Card Banner Area */}
-              <div className="h-48 bg-gradient-to-br from-zinc-950/95 via-[#180808]/90 to-[#080202]/95 p-6 flex flex-col justify-end relative overflow-hidden border-b border-zinc-800">
-                <div
-                  className="absolute -right-8 -top-8 w-36 h-36 rounded-full blur-2xl transition-colors opacity-30 group-hover:opacity-50"
-                  style={{ backgroundColor: primaryColor }}
-                />
-                <i className="fa-solid fa-shirt text-6xl text-zinc-700/20 absolute right-4 bottom-3 pointer-events-none" />
-                <span className="text-xs font-mono font-semibold transition-colors" style={{ color: secondaryColor }}>
-                  REACT JS E-COMMERCE
-                </span>
-                <h3 className="text-2xl font-bold text-white font-display mt-1">Dexter Men's Wear</h3>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <p className="text-sm text-zinc-300 leading-relaxed">
-                  A high-conversion, responsive menswear retail web store engineered with React JS, modern component architecture, product filtering, dynamic cart management, and seamless mobile UX.
+              {/* Project Body */}
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-5">
+                <p className="text-sm text-zinc-200 leading-relaxed font-normal">
+                  {proj.description}
                 </p>
 
-                <div className="space-y-4">
-                  {/* Tech Stack Tags */}
-                  <div className="flex flex-wrap gap-1.5 text-xs font-mono">
-                    <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border text-zinc-200 transition-colors" style={{ borderColor: `${primaryColor}44` }}>React.js</span>
-                    <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border text-zinc-200 transition-colors" style={{ borderColor: `${primaryColor}44` }}>Tailwind CSS</span>
-                    <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border text-zinc-200 transition-colors" style={{ borderColor: `${primaryColor}44` }}>Vercel</span>
-                    <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border text-zinc-200 transition-colors" style={{ borderColor: `${primaryColor}44` }}>State Management</span>
+                <div>
+                  {/* Technology Badges */}
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {proj.technologies.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-xs font-mono px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
 
-                  {/* Clickable Glowing Button for Dexter Men's Wear */}
-                  <a
-                    href={PERSONAL_INFO.dexterUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full py-3 px-4 rounded-xl text-black font-extrabold text-xs font-mono tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all cursor-pointer"
-                    style={{
-                      background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
-                      boxShadow: `0 0 18px ${theme?.glowColor || 'rgba(239, 68, 68, 0.35)'}`
-                    }}
-                  >
-                    <i className="fa-solid fa-arrow-up-right-from-square" />
-                    <span>LAUNCH LIVE STORE ON VERCEL</span>
-                  </a>
+                  {/* Action Links */}
+                  <div className="flex items-center gap-3 pt-3 border-t border-zinc-900">
+                    {proj.liveUrl && (
+                      <a
+                        href={proj.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex-1 py-2 px-3 rounded-xl text-white font-bold text-xs font-mono flex items-center justify-center gap-2 transition-all shadow-md active:scale-95"
+                        style={{
+                          background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`
+                        }}
+                      >
+                        <i className="fa-solid fa-arrow-up-right-from-square text-[11px]" />
+                        <span>LIVE DEMO</span>
+                      </a>
+                    )}
+                    <a
+                      href={proj.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="py-2 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-zinc-800 text-xs font-mono flex items-center justify-center gap-1.5 transition-colors"
+                      title="View GitHub Repository"
+                    >
+                      <i className="fa-brands fa-github text-sm" />
+                      <span>CODE</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Project 2: Deepfake Video Detection using CNN */}
-          <div className="glass-card tech-brackets rounded-2xl overflow-hidden flex flex-col border border-zinc-800 hover:border-zinc-700 relative group" data-aos="fade-up" data-aos-delay="200">
-            <div className="h-48 bg-gradient-to-br from-zinc-950/95 via-[#181408]/90 to-[#080602]/95 p-6 flex flex-col justify-end relative overflow-hidden border-b border-zinc-800">
-              <div
-                className="absolute -right-8 -top-8 w-36 h-36 rounded-full blur-2xl transition-colors opacity-20 group-hover:opacity-40"
-                style={{ backgroundColor: secondaryColor }}
-              />
-              <i className="fa-solid fa-brain text-6xl absolute right-4 bottom-3 pointer-events-none opacity-15" style={{ color: secondaryColor }} />
-              <span className="text-xs font-mono font-semibold transition-colors" style={{ color: secondaryColor }}>
-                AI / COMPUTER VISION
-              </span>
-              <h3 className="text-2xl font-bold text-white font-display mt-1">Deepfake Detection</h3>
-            </div>
-
-            <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <p className="text-sm text-zinc-300 leading-relaxed">
-                Academic research project utilizing Convolutional Neural Networks (CNN) to detect facial manipulation and AI synthesis in video frames, identifying artifact discrepancies with high accuracy.
-              </p>
-
-              <div className="space-y-4">
-                <div className="flex flex-wrap gap-1.5 text-xs font-mono">
-                  <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border transition-colors" style={{ color: secondaryColor, borderColor: `${secondaryColor}40` }}>Python</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border transition-colors" style={{ color: secondaryColor, borderColor: `${secondaryColor}40` }}>CNN</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border transition-colors" style={{ color: secondaryColor, borderColor: `${secondaryColor}40` }}>OpenCV</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border transition-colors" style={{ color: secondaryColor, borderColor: `${secondaryColor}40` }}>TensorFlow</span>
-                </div>
-
-                <div className="p-2.5 rounded-xl telemetry-block border border-zinc-800 flex items-center justify-between text-xs font-mono text-zinc-400">
-                  <span>RESEARCH PAPER / MCA</span>
-                  <span className="font-bold transition-colors" style={{ color: secondaryColor }}>85% DISTINCTION</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 3: Tourism Management System */}
-          <div className="glass-card tech-brackets rounded-2xl overflow-hidden flex flex-col border border-zinc-800 hover:border-zinc-700 relative group" data-aos="fade-up" data-aos-delay="300">
-            <div className="h-48 bg-gradient-to-br from-zinc-950/95 via-[#1a0808]/90 to-[#080202]/95 p-6 flex flex-col justify-end relative overflow-hidden border-b border-zinc-800">
-              <div
-                className="absolute -right-8 -top-8 w-36 h-36 rounded-full blur-2xl transition-colors opacity-20 group-hover:opacity-40"
-                style={{ backgroundColor: primaryColor }}
-              />
-              <i className="fa-solid fa-map-location-dot text-6xl absolute right-4 bottom-3 pointer-events-none opacity-15" style={{ color: primaryColor }} />
-              <span className="text-xs font-mono font-semibold transition-colors" style={{ color: primaryColor }}>
-                FULL-STACK / DATABASE
-              </span>
-              <h3 className="text-2xl font-bold text-white font-display mt-1">Tourism Management</h3>
-            </div>
-
-            <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <p className="text-sm text-zinc-300 leading-relaxed">
-                A comprehensive relational database platform for booking itineraries, passenger records, destination scheduling, billing, and automated invoice generations.
-              </p>
-
-              <div className="space-y-4">
-                <div className="flex flex-wrap gap-1.5 text-xs font-mono">
-                  <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border transition-colors" style={{ color: primaryColor, borderColor: `${primaryColor}40` }}>Python / Web</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border transition-colors" style={{ color: primaryColor, borderColor: `${primaryColor}40` }}>MySQL</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border transition-colors" style={{ color: primaryColor, borderColor: `${primaryColor}40` }}>Relational Schema</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-zinc-900 border transition-colors" style={{ color: primaryColor, borderColor: `${primaryColor}40` }}>CRUD Logic</span>
-                </div>
-
-                <div className="p-2.5 rounded-xl telemetry-block border border-zinc-800 flex items-center justify-between text-xs font-mono text-zinc-400">
-                  <span>ARCHITECTURE</span>
-                  <span className="font-bold transition-colors" style={{ color: primaryColor }}>SQL BACKED</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

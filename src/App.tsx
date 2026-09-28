@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { NetworkParallax } from './components/NetworkParallax';
 import { Navbar, BlockTheme } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
+import { EducationSection } from './components/EducationSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ContactSection } from './components/ContactSection';
@@ -47,10 +47,10 @@ export default function App() {
     const aos = (window as any).AOS;
     if (aos) {
       aos.init({
-        duration: 750,
+        duration: 650,
         easing: 'ease-out-cubic',
         once: true,
-        offset: 40
+        offset: 30
       });
     }
   }, []);
@@ -91,10 +91,10 @@ export default function App() {
         backgroundColor: currentTheme.bgDark
       }}
     >
-      {/* Enterprise Software Networking Parallax Background */}
+      {/* Animated Constellation & Ambient Mesh Parallax Background */}
       <NetworkParallax theme={currentTheme} />
 
-      {/* Top Navigation Bar with Telemetry Ticker and Theme Switcher */}
+      {/* Sticky Navigation Bar with Interactive Palette Switcher (No Logo, No About) */}
       <Navbar
         onOpenResume={() => setIsResumeOpen(true)}
         blockTheme={blockTheme}
@@ -104,22 +104,29 @@ export default function App() {
         onOpenPaletteModal={() => setIsPaletteOpen(true)}
       />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections (Who I am / About Section removed as requested) */}
       <main className="relative z-10">
         <Hero onOpenResume={() => setIsResumeOpen(true)} theme={currentTheme} />
-        <AboutSection theme={currentTheme} />
+        {/* Horizontal Technical Skills Section */}
         <SkillsSection theme={currentTheme} />
+
+        {/* Education Section matching Resume */}
+        <EducationSection theme={currentTheme} />
+
+        {/* Experience Section with 3-Color Combination Themes */}
         <ExperienceSection theme={currentTheme} />
+
+        {/* Projects Section with 3-Color Combination Themes */}
         <ProjectsSection theme={currentTheme} />
       </main>
 
-      {/* Contact & Relocation Footer */}
+      {/* Contact Section */}
       <ContactSection onOpenResume={() => setIsResumeOpen(true)} theme={currentTheme} />
 
-      {/* Critical Fixed Bottom-Right Interactive Profile Element */}
+      {/* Floating Profile Action Corner */}
       <FloatingProfileCorner onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Printable Professional Resume Modal */}
+      {/* Printable Professional Resume PDF Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}

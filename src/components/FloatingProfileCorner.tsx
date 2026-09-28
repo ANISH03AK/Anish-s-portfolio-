@@ -47,20 +47,20 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
             }}
           />
           <div>
-            <div className="text-xs font-bold text-white font-display leading-tight">ANISH KUMAR</div>
-            <div className="text-[9px] font-mono text-yellow-400">React Dev & BMS Engineer</div>
+            <div className="text-xs font-bold text-white font-name-stylish leading-tight">ANISH KUMAR</div>
+            <div className="text-[9px] font-mono text-cyan-400">React Dev & BMS Engineer</div>
           </div>
         </div>
         <div className="py-2 space-y-1.5 text-[11px] font-mono text-zinc-300">
           <div className="flex items-center gap-1.5">
-            <i className="fa-solid fa-graduation-cap text-yellow-400 text-xs" />
+            <i className="fa-solid fa-graduation-cap text-cyan-400 text-xs" />
             <span>MCA: 85% Distinction</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <i className="fa-solid fa-briefcase text-red-400 text-xs" />
-            <span>TCS BMS Operations</span>
+            <i className="fa-solid fa-briefcase text-indigo-400 text-xs" />
+            <span>TCS BMS Engineer</span>
           </div>
-          <div className="flex items-center gap-1.5 text-yellow-300">
+          <div className="flex items-center gap-1.5 text-cyan-300">
             <i className="fa-solid fa-passport text-xs" />
             <span>Valid Passport · Mobile</span>
           </div>
@@ -70,9 +70,10 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
             setPopupOpen(false);
             onOpenResume();
           }}
-          className="w-full mt-1 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold text-[10px] font-mono uppercase tracking-wider transition-all cursor-pointer shadow-md shadow-red-600/30"
+          className="w-full mt-1 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[10px] font-mono uppercase tracking-wider transition-all cursor-pointer shadow-md shadow-indigo-600/30 flex items-center justify-center gap-1.5"
         >
-          VIEW FULL RESUME
+          <i className="fa-solid fa-file-pdf" />
+          <span>VIEW RESUME (PDF)</span>
         </button>
       </div>
 

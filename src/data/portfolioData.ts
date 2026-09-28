@@ -15,6 +15,174 @@ export interface RadarDomain {
   tags: string[];
 }
 
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  score: string;
+  period: string;
+  description?: string;
+}
+
+export interface ExperienceItem {
+  role: string;
+  company: string;
+  location?: string;
+  period: string;
+  bullets: string[];
+  tags: string[];
+}
+
+export interface ProjectItem {
+  title: string;
+  tech: string;
+  link?: string;
+  period: string;
+  bullets: string[];
+  tags: string[];
+}
+
+export interface AchievementItem {
+  title: string;
+  event: string;
+  date: string;
+  organization: string;
+  badge: string;
+  icon: string;
+}
+
+export const PERSONAL_INFO = {
+  name: "ANISH KUMAR",
+  title: "Software Developer & BMS Specialist",
+  location: "Anna Nagar West, Chennai, 600040",
+  phone: "8668183926",
+  phoneFormatted: "+91 8668183926",
+  email: "anish03ak@gmail.com",
+  github: "https://github.com/ANISH03AK",
+  githubHandle: "github.com/ANISH03AK",
+  dexterUrl: "https://dexter-style-elevation.vercel.app/",
+  summary: "MCA graduate and Software Developer skilled in React JS, Python, and SQL. Proven experience building responsive web applications, consuming RESTful APIs, and maintaining critical enterprise infrastructure (BMS, Fire Alarms, CCTV) at TCS. Seeking to leverage full-stack development and complex system troubleshooting skills in a fast-paced IT role."
+};
+
+export const EDUCATION_DATA: EducationItem[] = [
+  {
+    degree: "Master of Computer Applications",
+    institution: "Meenakshi Ramasamy Engineering College",
+    score: "85%",
+    period: "Aug 2022 – Aug 2024",
+    description: "Core specializations in Software Engineering, Web Technologies, Database Systems, Cloud Computing, and Neural Networks."
+  },
+  {
+    degree: "B.Sc. in Computer Science",
+    institution: "Meenakshi Ramasamy Arts and Science College",
+    score: "82%",
+    period: "Jul 2019 – Apr 2022",
+    description: "Strong grounding in Computer Science fundamentals, Object-Oriented Programming, Data Structures, and Relational Databases."
+  },
+  {
+    degree: "Diploma in Computer Hardware",
+    institution: "Meenakshi Ramasamy Arts and Science College",
+    score: "80%",
+    period: "Jul 2019 – Apr 2020",
+    description: "Practical engineering in computer hardware architecture, network cabling, interface protocols, peripheral devices, and system diagnostics."
+  }
+];
+
+export const TECHNICAL_SKILLS = {
+  languages: ["Python", "JavaScript", "SQL"],
+  frontend: ["HTML5", "CSS3", "React JS", "UI/UX", "React Native"],
+  backendAndDb: ["MYSQL", "RESTful APIs", "RDBMS", "Supabase"],
+  tools: ["Git", "GitHub", "MS Office Suite"],
+  bmsInfrastructure: ["Fire Alarm", "WLD", "VESDA", "AHU", "NOVEC System"],
+  securitySystems: ["Rodent Repellent", "PA", "CCTV", "Flap Barrier"]
+};
+
+export const EXPERIENCE_DATA: ExperienceItem[] = [
+  {
+    role: "BMS Engineer",
+    company: "Tata Consultancy Services (TCS) (Contract via Johnson Controls)",
+    location: "Chennai, India",
+    period: "Sept 2025 – Present",
+    bullets: [
+      "Manage and maintain comprehensive Building Management Systems (BMS) for TCS facilities, ensuring uninterrupted and secure operations.",
+      "Operate and troubleshoot critical infrastructure, including WLD, VESDA, Rodent repellent, PA systems, Air Handling Units (AHU), and NOVEC fire suppression systems.",
+      "Oversee enterprise security hardware and access controls (Fire Alarms, CCTV, Flap Barriers) and execute daily operational database management using SQL."
+    ],
+    tags: ["Johnson Controls", "BMS", "AHU", "WLD", "VESDA", "NOVEC System", "Fire Alarm", "CCTV", "Flap Barriers", "SQL"]
+  },
+  {
+    role: "Intern",
+    company: "Fino Payment Bank: Jayankondam",
+    location: "Jayankondam, India",
+    period: "Dec 2024 – June 2025",
+    bullets: [
+      "Executed daily banking operations and analyzed customer data to optimize workflow efficiency.",
+      "Completed a comprehensive research study on payment bank services, earning a \"Very Good\" performance rating from management."
+    ],
+    tags: ["Banking Operations", "Customer Data Analysis", "Workflow Optimization", "Payment Bank Services", "Performance: Very Good"]
+  }
+];
+
+export const PROJECTS_DATA: ProjectItem[] = [
+  {
+    title: "Dexter Men's Wear (React JS)",
+    tech: "React JS",
+    link: "https://dexter-style-elevation.vercel.app/",
+    period: "Apr 2026",
+    bullets: [
+      "Engineered a responsive e-commerce application using React JS, featuring dynamic state management and scalable components.",
+      "Consumed RESTful APIs for dynamic UI rendering and utilized AI tools (Copilot, ChatGPT) to accelerate the development cycle."
+    ],
+    tags: ["React JS", "Tailwind CSS", "RESTful APIs", "State Management", "Vercel", "AI Tools (Copilot, ChatGPT)"]
+  },
+  {
+    title: "Detection of Fake and Fraudulent Faces via Neural Network (Python)",
+    tech: "Python",
+    period: "Aug 2024",
+    bullets: [
+      "Trained Convolutional Neural Networks (CNNs) using Python to accurately detect and classify synthesized and realistic fake facial images.",
+      "Developed modular, scalable code optimized for future REST API deployment to address security vulnerabilities."
+    ],
+    tags: ["Python", "Convolutional Neural Networks (CNN)", "Neural Networks", "Deep Learning", "REST API Ready", "Computer Vision"]
+  },
+  {
+    title: "Online Tourism Management System",
+    tech: "Web / MySQL",
+    period: "Apr 2022",
+    bullets: [
+      "Built a web platform with secure backend API endpoints to efficiently manage user bookings and travel itineraries.",
+      "Developed an intuitive administrator interface for seamless MySQL database interaction and package management."
+    ],
+    tags: ["Web Platform", "MySQL", "Backend APIs", "Booking Management", "Admin Dashboard", "RDBMS"]
+  }
+];
+
+export const ACHIEVEMENTS_DATA: AchievementItem[] = [
+  {
+    title: "First Place: Code Conversion competition",
+    event: "Tech Fest 22",
+    date: "06-06-2022",
+    organization: "Tech Fest 22",
+    badge: "1ST PLACE WINNER",
+    icon: "fa-solid fa-trophy"
+  },
+  {
+    title: "Participant: State-level seminar on \"Python for Data Science\"",
+    event: "Python for Data Science",
+    date: "29-04-2022",
+    organization: "Cognitive Class",
+    badge: "STATE LEVEL SEMINAR",
+    icon: "fa-brands fa-python"
+  },
+  {
+    title: "Participant: State-level webinar on \"Roles and Responsibilities of Database Administrator\"",
+    event: "Roles and Responsibilities of Database Administrator",
+    date: "20-12-2021",
+    organization: "Cognitive Class",
+    badge: "STATE LEVEL WEBINAR",
+    icon: "fa-solid fa-database"
+  }
+];
+
 export const RADAR_CORE_DOMAINS: RadarDomain[] = [
   {
     id: 'Frontend',
@@ -26,63 +194,63 @@ export const RADAR_CORE_DOMAINS: RadarDomain[] = [
     glowColor: 'rgba(239, 68, 68, 0.6)',
     icon: 'fa-brands fa-react',
     status: 'Production Deployed · 90% Mastery',
-    desc: 'Advanced React component architecture, modern hooks, responsive Tailwind CSS layouts, dynamic client-side filtering, state management, and seamless REST API integrations.',
-    project: "Dexter Men's Wear (Live E-Commerce on Vercel)",
-    projectBadge: 'Vercel Live',
-    tags: ['React.js', 'JavaScript (ES6+)', 'Tailwind CSS', 'Responsive UI', 'State Management', 'RESTful APIs', 'Custom Hooks']
+    desc: 'HTML5, CSS3, React JS, UI/UX, and React Native component architecture, consuming RESTful APIs for dynamic UI rendering with state management.',
+    project: "Dexter Men's Wear (React JS | Vercel Live)",
+    projectBadge: 'React JS Live',
+    tags: ['React JS', 'HTML5', 'CSS3', 'UI/UX', 'React Native', 'RESTful APIs', 'State Management']
   },
   {
     id: 'Backend',
     label: 'Backend',
     fullName: 'Backend & Databases',
-    value: 85,
-    baseline: 85,
+    value: 86,
+    baseline: 86,
     color: '#eab308',
     glowColor: 'rgba(234, 179, 8, 0.6)',
     icon: 'fa-solid fa-database',
-    status: 'Relational 3NF & ACID Compliant',
-    desc: 'Third normal form (3NF) relational database design in MySQL, parameterized SQL queries against injection vulnerabilities, Supabase backend integration, and row-level locking for atomic booking transactions.',
-    project: 'Online Tourism Management System (MySQL 3NF & PHP APIs)',
-    projectBadge: 'ACID Guaranteed',
-    tags: ['Python', 'SQL', 'MySQL 3NF', 'Supabase', 'Relational Modeling', 'CRUD APIs', 'Row Locking', 'JSON Schemas']
+    status: 'RDBMS & Daily SQL Management',
+    desc: 'MYSQL, RESTful APIs, RDBMS, Supabase, and executing daily operational database management using SQL at TCS.',
+    project: 'Online Tourism Management System (MySQL Backend)',
+    projectBadge: 'MySQL Backed',
+    tags: ['Python', 'SQL', 'MYSQL', 'RESTful APIs', 'RDBMS', 'Supabase', 'Daily SQL Mgmt']
   },
   {
     id: 'BMS',
     label: 'BMS',
-    fullName: 'BMS Infrastructure & ELV Systems',
-    value: 92,
-    baseline: 92,
+    fullName: 'BMS Infrastructure & Security Systems',
+    value: 94,
+    baseline: 94,
     color: '#dc2626',
     glowColor: 'rgba(220, 38, 38, 0.6)',
     icon: 'fa-solid fa-network-wired',
-    status: 'TCS Mission-Critical · 99.99% Uptime',
-    desc: 'Operational supervision of real-time Building Management Systems for Tata Consultancy Services (TCS) via Johnson Controls Metasys, monitoring AHU climate control loops, WLD water leak ribbons, VESDA sub-micron smoke detection, and NOVEC 1230 clean agent fire suppression.',
-    project: 'TCS Enterprise BMS Operations Suite (Johnson Controls Metasys)',
-    projectBadge: '99.99% Facilities Uptime',
-    tags: ['Metasys BMS', 'Honeywell', 'HVAC / AHU Loops', 'VESDA Detection', 'WLD Water Sensors', 'NOVEC 1230', 'CCTV & Flap Barriers']
+    status: 'TCS BMS Engineer · Uninterrupted Uptime',
+    desc: 'Managing Building Management Systems (BMS) for TCS facilities: WLD, VESDA, Rodent repellent, PA systems, AHU, NOVEC fire suppression, Fire Alarms, CCTV, and Flap Barriers.',
+    project: 'TCS Facilities BMS & Critical Infrastructure',
+    projectBadge: 'TCS Facility BMS',
+    tags: ['Fire Alarm', 'WLD', 'VESDA', 'AHU', 'NOVEC System', 'Rodent Repellent', 'PA', 'CCTV', 'Flap Barrier']
   },
   {
     id: 'AI',
     label: 'AI',
-    fullName: 'AI Neural Networks & Diagnostics',
+    fullName: 'Neural Networks & Python AI',
     value: 88,
     baseline: 88,
     color: '#facc15',
     glowColor: 'rgba(250, 204, 21, 0.6)',
     icon: 'fa-solid fa-brain',
-    status: 'MCA 85% Distinction · Capstone Research',
-    desc: 'Architected Convolutional Neural Networks (CNNs) using Keras and OpenCV to classify synthetic and deepfake facial boundary blending artifacts with high precision, alongside distinguished hardware/software diagnostic troubleshooting.',
-    project: 'AI Deepfake & Fraudulent Face Detection (Python CNN Research)',
-    projectBadge: '85% MCA Distinction',
-    tags: ['Convolutional Neural Networks', 'Deep Learning', 'OpenCV Preprocessing', 'Face Authenticity', 'Model Optimization', 'System Troubleshooting']
+    status: 'MCA 85% · Neural Network Research',
+    desc: 'Trained Convolutional Neural Networks (CNNs) using Python to accurately detect and classify synthesized and realistic fake facial images, with modular code for REST API deployment.',
+    project: 'Detection of Fake and Fraudulent Faces via Neural Network',
+    projectBadge: 'Python CNN',
+    tags: ['Python', 'Convolutional Neural Networks (CNN)', 'Neural Networks', 'AI Tools', 'Copilot', 'ChatGPT']
   }
 ];
 
 export const RADAR_8_AXES: RadarDomain[] = [
   {
     id: 'React',
-    label: 'React Architecture',
-    fullName: 'React Component Architecture',
+    label: 'React JS & Frontend',
+    fullName: 'React JS & UI/UX Architecture',
     domain: 'Frontend',
     value: 90,
     baseline: 90,
@@ -90,132 +258,121 @@ export const RADAR_8_AXES: RadarDomain[] = [
     glowColor: 'rgba(239, 68, 68, 0.6)',
     icon: 'fa-brands fa-react',
     status: 'Production Deployed',
-    desc: 'Modular React 18 component design, custom hooks for catalog state and filter management, and optimal rendering performance.',
-    project: "Dexter Men's Wear (Vercel Live)",
-    projectBadge: 'React 18',
-    tags: ['React.js', 'State Hooks', 'Custom Filters', 'Context API']
-  },
-  {
-    id: 'Tailwind',
-    label: 'UI/UX & Tailwind',
-    fullName: 'UI/UX & Tailwind CSS Systems',
-    domain: 'Frontend',
-    value: 92,
-    baseline: 92,
-    color: '#f87171',
-    glowColor: 'rgba(248, 113, 113, 0.6)',
-    icon: 'fa-brands fa-css3-alt',
-    status: 'Responsive & Pixel-Perfect',
-    desc: 'Mobile-first responsive design, modern dark-mode palettes, glassmorphism UI tags, and micro-interactions.',
-    project: "Dexter Men's Wear & Portfolio Design",
-    projectBadge: 'Tailwind CSS',
-    tags: ['Tailwind CSS', 'Responsive UI', 'Glassmorphism', 'Flexbox/Grid']
+    desc: 'Engineered responsive e-commerce web applications with React JS, featuring dynamic state management and scalable components.',
+    project: "Dexter Men's Wear (Apr 2026)",
+    projectBadge: 'React JS',
+    tags: ['React JS', 'HTML5', 'CSS3', 'UI/UX', 'React Native']
   },
   {
     id: 'Python',
-    label: 'Python Scripting',
-    fullName: 'Python Scripting & Data Logic',
+    label: 'Python Programming',
+    fullName: 'Python Scripting & CNN Neural Networks',
     domain: 'Backend',
     value: 88,
     baseline: 88,
     color: '#eab308',
     glowColor: 'rgba(234, 179, 8, 0.6)',
     icon: 'fa-brands fa-python',
-    status: 'Core Foundation',
-    desc: 'Object-oriented Python programming, data transformation scripts, model training, and algorithmic pipelines.',
-    project: 'Deepfake CNN Model Training Pipeline',
-    projectBadge: 'Python 3',
-    tags: ['Python', 'OOP', 'Data Pipelines', 'Algorithms']
+    status: 'Core Skill & AI Research',
+    desc: 'Python programming for training Convolutional Neural Networks and building backend logic and data pipelines.',
+    project: 'Fake Face Detection via Neural Network (Aug 2024)',
+    projectBadge: 'Python CNN',
+    tags: ['Python', 'Data Science', 'Cognitive Class', 'OOP']
   },
   {
     id: 'SQL',
-    label: 'MySQL & Relational DB',
-    fullName: 'MySQL & Relational Database Design',
+    label: 'MYSQL & SQL Management',
+    fullName: 'MYSQL & Operational Database Management',
     domain: 'Backend',
-    value: 84,
-    baseline: 84,
+    value: 86,
+    baseline: 86,
     color: '#f59e0b',
     glowColor: 'rgba(245, 158, 11, 0.6)',
     icon: 'fa-solid fa-database',
-    status: '3NF Normalization & ACID',
-    desc: 'Third normal form relational database modeling, foreign key constraints, atomic transactions, and Supabase integration.',
-    project: 'Online Tourism Management System',
-    projectBadge: 'MySQL 3NF',
-    tags: ['MySQL', 'RDBMS', 'ACID Transactions', 'Row Locks', 'Supabase']
+    status: 'Daily SQL Management at TCS',
+    desc: 'MYSQL, RESTful APIs, RDBMS, Supabase, and executing daily operational database management using SQL at TCS.',
+    project: 'Online Tourism Management System & TCS SQL Ops',
+    projectBadge: 'MYSQL / RDBMS',
+    tags: ['MYSQL', 'SQL', 'RDBMS', 'RESTful APIs', 'Supabase']
   },
   {
-    id: 'Metasys',
-    label: 'Metasys BMS Operations',
-    fullName: 'Johnson Controls Metasys BMS',
+    id: 'BMS',
+    label: 'BMS & AHU Infrastructure',
+    fullName: 'BMS Infrastructure & AHU Systems',
     domain: 'BMS',
-    value: 92,
-    baseline: 92,
+    value: 94,
+    baseline: 94,
     color: '#dc2626',
     glowColor: 'rgba(220, 38, 38, 0.6)',
     icon: 'fa-solid fa-network-wired',
     status: 'TCS Mission-Critical',
-    desc: 'Operational supervision of HVAC chillers, AHU temperature/humidity envelopes, DDC field controllers, and sensor telemetry.',
-    project: 'Tata Consultancy Services Enterprise Facilities',
-    projectBadge: '99.99% Uptime',
-    tags: ['Johnson Controls Metasys', 'AHU Loops', 'DDC Controllers', 'Telemetry']
+    desc: 'Operating and troubleshooting critical infrastructure: WLD, VESDA, Rodent repellent, PA systems, AHU, and NOVEC fire suppression systems.',
+    project: 'TCS BMS Facilities (Sept 2025 – Present)',
+    projectBadge: 'TCS Facility',
+    tags: ['AHU', 'WLD', 'VESDA', 'NOVEC System', 'Fire Alarm']
   },
   {
     id: 'Security',
-    label: 'CCTV & ELV Security',
-    fullName: 'CCTV, Fire Alarms & ELV Protocols',
+    label: 'Security & Access Control',
+    fullName: 'Enterprise Security Systems & Access Control',
     domain: 'BMS',
-    value: 89,
-    baseline: 89,
+    value: 90,
+    baseline: 90,
     color: '#ea580c',
     glowColor: 'rgba(234, 88, 12, 0.6)',
     icon: 'fa-solid fa-video',
-    status: 'Enterprise Certified',
-    desc: 'Managing multi-tier CCTV networks, addressable fire alarm panels, VESDA early smoke detection, and NOVEC 1230 clean agent systems.',
-    project: 'TCS Campus Access & Life Safety Systems',
-    projectBadge: 'Zero Incidents',
-    tags: ['CCTV Surveillance', 'VESDA Detection', 'NOVEC 1230', 'Flap Turnstiles']
+    status: 'CCTV & Flap Barriers',
+    desc: 'Oversee enterprise security hardware and access controls (Fire Alarms, CCTV, Flap Barriers, Rodent Repellent, PA systems).',
+    project: 'TCS Security Infrastructure',
+    projectBadge: 'Access Control',
+    tags: ['CCTV', 'Flap Barrier', 'Fire Alarms', 'Rodent Repellent', 'PA']
   },
   {
     id: 'CNN',
-    label: 'CNN & Deep Learning',
-    fullName: 'Convolutional Neural Networks',
+    label: 'CNN Neural Networks',
+    fullName: 'Convolutional Neural Networks (CNN)',
     domain: 'AI',
-    value: 85,
-    baseline: 85,
+    value: 88,
+    baseline: 88,
     color: '#fbbf24',
     glowColor: 'rgba(251, 191, 36, 0.6)',
     icon: 'fa-solid fa-brain',
-    status: 'MCA Capstone Research',
-    desc: 'Architecting multi-layer CNNs for facial authenticity classification and spatial artifact detection with OpenCV.',
-    project: 'AI-Based Deepfake & Face Authenticity Detection',
-    projectBadge: 'MCA 85%',
-    tags: ['CNN Layers', 'Keras/TensorFlow', 'OpenCV', 'Face Detection']
+    status: 'Face Verification Research',
+    desc: 'Trained Convolutional Neural Networks using Python to accurately detect and classify synthesized and realistic fake facial images.',
+    project: 'Detection of Fake and Fraudulent Faces (Aug 2024)',
+    projectBadge: 'CNN Research',
+    tags: ['CNN', 'Python', 'Face Detection', 'REST API Ready']
+  },
+  {
+    id: 'Tools',
+    label: 'Tools & Workflow',
+    fullName: 'Git, GitHub, MS Office & AI Tools',
+    domain: 'Frontend',
+    value: 92,
+    baseline: 92,
+    color: '#f87171',
+    glowColor: 'rgba(248, 113, 113, 0.6)',
+    icon: 'fa-brands fa-github',
+    status: 'Version Control & AI Acceleration',
+    desc: 'Proficient with Git, GitHub, MS Office Suite, and utilizing AI tools (Copilot, ChatGPT) to accelerate the development cycle.',
+    project: 'Development Workflows & Production Deployments',
+    projectBadge: 'Git / GitHub',
+    tags: ['Git', 'GitHub', 'MS Office Suite', 'Copilot', 'ChatGPT']
   },
   {
     id: 'Troubleshooting',
     label: 'System Troubleshooting',
-    fullName: 'System Diagnostics & SLA Response',
-    domain: 'AI',
+    fullName: 'Complex System Troubleshooting & Operations',
+    domain: 'BMS',
     value: 95,
     baseline: 95,
     color: '#facc15',
     glowColor: 'rgba(250, 204, 21, 0.6)',
     icon: 'fa-solid fa-wrench',
-    status: 'Distinguished Diagnostic Skill',
-    desc: 'Rigorous root-cause analysis across software exceptions, hardware sensory drifts, and network protocol anomalies under tight SLAs.',
-    project: 'Enterprise Telemetry & Server Hall Diagnostics',
-    projectBadge: 'Rapid SLA',
-    tags: ['Root Cause Analysis', 'Hardware Interlocks', 'Log Audits', 'Telemetry']
+    status: 'Zero Downtime Maintenance',
+    desc: 'Operating and troubleshooting critical infrastructure for TCS facilities, ensuring uninterrupted and secure operations under strict SLAs.',
+    project: 'TCS Enterprise Operations & Fino Bank Operations',
+    projectBadge: 'Uninterrupted Ops',
+    tags: ['System Troubleshooting', 'SLA Adherence', 'Operations', 'Diagnostics']
   }
 ];
-
-export const PERSONAL_INFO = {
-  name: "Anish Kumar",
-  title: "React JS Developer & BMS/ELV Engineer",
-  location: "Anna Nagar West, Chennai, 600040",
-  phone: "+91 8668183926",
-  email: "anish03ak@gmail.com",
-  github: "https://github.com/ANISH03AK",
-  githubHandle: "github.com/ANISH03AK",
-  dexterUrl: "https://dexter-style-elevation.vercel.app/"
-};

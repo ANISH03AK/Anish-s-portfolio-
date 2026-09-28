@@ -23,7 +23,8 @@ const MIME_TYPES = {
   '.woff2': 'font/woff2',
   '.ttf': 'font/ttf',
   '.map': 'application/json',
-  '.txt': 'text/plain; charset=UTF-8'
+  '.txt': 'text/plain; charset=UTF-8',
+  '.pdf': 'application/pdf'
 };
 
 const server = http.createServer((req, res) => {
