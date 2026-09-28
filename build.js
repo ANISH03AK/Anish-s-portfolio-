@@ -40,9 +40,11 @@ esbuild.build({
 
   // Copy static public assets to dist publish directory
   const staticFiles = [
+    'Anish_Kumar_Resume.pdf',
     'index.html',
     'd3.min.js',
     'profile.jpg',
+    'profile.png',
     'profile.svg',
     'network-mesh-bg.svg',
     'IMG_20260904_140606_442.jpg',

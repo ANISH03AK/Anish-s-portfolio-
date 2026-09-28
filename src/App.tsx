@@ -7,6 +7,7 @@ import { EducationSection } from './components/EducationSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ContactSection } from './components/ContactSection';
+import { SectionDivider } from './components/SectionDivider';
 import { FloatingProfileCorner } from './components/FloatingProfileCorner';
 import { ResumeModal } from './components/ResumeModal';
 import { ColorPaletteModal } from './components/ColorPaletteModal';
@@ -104,21 +105,37 @@ export default function App() {
         onOpenPaletteModal={() => setIsPaletteOpen(true)}
       />
 
-      {/* Main Content Sections (Who I am / About Section removed as requested) */}
+      {/* Main Content Sections */}
       <main className="relative z-10">
         <Hero onOpenResume={() => setIsResumeOpen(true)} theme={currentTheme} />
+
+        {/* Subtle Animated Gradient Divider: Hero -> Skills */}
+        <SectionDivider theme={currentTheme} />
+
         {/* Horizontal Technical Skills Section */}
         <SkillsSection theme={currentTheme} />
+
+        {/* Subtle Animated Gradient Divider: Skills -> Education */}
+        <SectionDivider theme={currentTheme} />
 
         {/* Education Section matching Resume */}
         <EducationSection theme={currentTheme} />
 
+        {/* Subtle Animated Gradient Divider: Education -> Experience */}
+        <SectionDivider theme={currentTheme} />
+
         {/* Experience Section with 3-Color Combination Themes */}
         <ExperienceSection theme={currentTheme} />
+
+        {/* Subtle Animated Gradient Divider: Experience -> Projects */}
+        <SectionDivider theme={currentTheme} />
 
         {/* Projects Section with 3-Color Combination Themes */}
         <ProjectsSection theme={currentTheme} />
       </main>
+
+      {/* Subtle Animated Gradient Divider: Projects -> Contact */}
+      <SectionDivider theme={currentTheme} />
 
       {/* Contact Section */}
       <ContactSection onOpenResume={() => setIsResumeOpen(true)} theme={currentTheme} />

@@ -18,10 +18,10 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ theme }) => 
   ];
 
   return (
-    <section id="education" className="py-28 sm:py-36 border-t border-zinc-800/80 relative z-10">
+    <section id="education" className="py-20 sm:py-28 relative z-10 scroll-mt-28 sm:scroll-mt-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Generous Space */}
-        <div className="max-w-2xl mb-16 sm:mb-20" data-aos="fade-up">
+        <div className="max-w-2xl mb-12 sm:mb-16" data-aos="fade-up">
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold mb-3 border"
             style={{
@@ -33,7 +33,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ theme }) => 
             <i className="fa-solid fa-user-graduate" />
             <span>02. Academic Qualifications</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-display tracking-tight whitespace-nowrap">
             Education &amp; Credentials
           </h2>
           <p className="text-zinc-300 text-sm sm:text-base mt-2.5 leading-relaxed">
@@ -42,14 +42,14 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ theme }) => 
         </div>
 
         {/* Education Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {EDUCATION_DATA.map((edu, idx) => {
             const cardColor = idx === 0 ? primaryColor : idx === 1 ? secondaryColor : accentColor;
 
             return (
               <div
                 key={idx}
-                className="p-7 rounded-3xl bg-zinc-950/85 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 shadow-xl hover:-translate-y-1.5 flex flex-col justify-between group"
+                className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-zinc-950/85 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 shadow-xl hover:-translate-y-1.5 flex flex-col justify-between group"
                 data-aos="fade-up"
                 data-aos-delay={idx * 120}
               >

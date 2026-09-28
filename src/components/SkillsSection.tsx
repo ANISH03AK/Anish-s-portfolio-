@@ -80,7 +80,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
   ];
 
   return (
-    <section id="skills" className="py-24 sm:py-32 relative z-10 border-t border-zinc-800/80">
+    <section id="skills" className="py-20 sm:py-28 relative z-10 scroll-mt-28 sm:scroll-mt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Compact Header with Generous Negative Space & Clear Text */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -96,7 +96,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
               <i className="fa-solid fa-code" />
               <span>01. Technical Competencies</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-display tracking-tight whitespace-nowrap">
               Engineering Proficiencies
             </h2>
             <p className="text-zinc-300 text-sm sm:text-base mt-2 max-w-xl">
@@ -105,30 +105,32 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
           </div>
 
           {/* Right Action: Category Filters + Horizontal Scroll Buttons */}
-          <div className="flex flex-wrap items-center gap-3">
-            {/* Category Tabs */}
-            <div className="inline-flex p-1 bg-zinc-900 rounded-xl border border-zinc-800 text-xs font-mono">
-              {categories.map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer whitespace-nowrap ${
-                    activeTab === tab.id
-                      ? 'text-white shadow-sm'
-                      : 'text-zinc-400 hover:text-white'
-                  }`}
-                  style={
-                    activeTab === tab.id
-                      ? {
-                          background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`
-                        }
-                      : {}
-                  }
-                >
-                  {tab.label}
-                  <span className="ml-1 opacity-80 text-[10px]">({tab.count})</span>
-                </button>
-              ))}
+          <div className="flex flex-wrap items-center gap-3 max-w-full">
+            {/* Category Tabs with responsive horizontal swipe */}
+            <div className="overflow-x-auto no-scrollbar max-w-full pb-0.5">
+              <div className="inline-flex p-1 bg-zinc-900 rounded-xl border border-zinc-800 text-xs font-mono shrink-0">
+                {categories.map(tab => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as any)}
+                    className={`px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                      activeTab === tab.id
+                        ? 'text-white shadow-sm'
+                        : 'text-zinc-400 hover:text-white'
+                    }`}
+                    style={
+                      activeTab === tab.id
+                        ? {
+                            background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`
+                          }
+                        : {}
+                    }
+                  >
+                    {tab.label}
+                    <span className="ml-1 opacity-80 text-[10px]">({tab.count})</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* View Mode Toggle: Horizontal Track vs Horizontal Rows */}

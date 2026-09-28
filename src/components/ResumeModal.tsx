@@ -41,22 +41,22 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Top Control Bar */}
-        <div className="px-4 sm:px-6 py-3.5 border-b border-zinc-800 bg-zinc-900/90 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <div className="px-4 sm:px-6 py-3.5 border-b border-zinc-800 bg-zinc-900/95 flex flex-wrap items-center justify-between gap-3 shrink-0">
           <div className="flex items-center gap-3">
-            <span className="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-cyan-400 flex items-center justify-center text-sm font-bold">
-              <i className="fa-solid fa-file-pdf text-base text-red-400" />
+            <span className="w-9 h-9 rounded-xl bg-red-500/20 border border-red-500/40 text-red-400 flex items-center justify-center text-sm font-bold">
+              <i className="fa-solid fa-file-pdf text-base" />
             </span>
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-white font-bold text-sm sm:text-base font-display">
-                  ANISH KUMAR — Official Resume
+                  ANISH KUMAR — Official Resume (PDF)
                 </h3>
                 <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold">
-                  PDF Available
+                  Original Document
                 </span>
               </div>
               <span className="text-[11px] font-mono text-zinc-400">
-                Software Developer & BMS Operations Specialist · MCA 85% Distinction
+                Software Developer &amp; BMS Operations Specialist · 8668183926
               </span>
             </div>
           </div>
@@ -69,18 +69,18 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 onClick={() => setViewMode('pdf')}
                 className={`px-3 py-1 rounded-md font-semibold transition-colors cursor-pointer ${
                   viewMode === 'pdf'
-                    ? 'bg-indigo-600 text-white shadow-sm'
+                    ? 'bg-red-600 text-white shadow-sm'
                     : 'text-zinc-400 hover:text-white'
                 }`}
               >
-                <i className="fa-solid fa-file-lines mr-1.5" />
-                PDF Document
+                <i className="fa-solid fa-file-pdf mr-1.5" />
+                Original PDF
               </button>
               <button
                 onClick={() => setViewMode('ats')}
                 className={`px-3 py-1 rounded-md font-semibold transition-colors cursor-pointer ${
                   viewMode === 'ats'
-                    ? 'bg-indigo-600 text-white shadow-sm'
+                    ? 'bg-red-600 text-white shadow-sm'
                     : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -93,8 +93,8 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <a
               href="/Anish_Kumar_Resume.pdf"
               download="Anish_Kumar_Resume.pdf"
-              className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold text-xs font-mono flex items-center gap-2 transition-all cursor-pointer shadow-md shadow-red-600/30 active:scale-95"
-              title="Download official PDF resume directly"
+              className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold text-xs font-mono flex items-center gap-2 transition-all cursor-pointer shadow-md shadow-red-600/30 active:scale-95"
+              title="Download exact official PDF resume"
             >
               <i className="fa-solid fa-download" />
               <span>DOWNLOAD PDF</span>
@@ -109,7 +109,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               title="Open PDF in new tab"
             >
               <i className="fa-solid fa-arrow-up-right-from-square text-[11px]" />
-              <span>Full Tab</span>
+              <span>Open Tab</span>
             </a>
 
             {/* Print */}
@@ -143,22 +143,21 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-zinc-200 font-medium">Anish_Kumar_Resume.pdf</span>
-                  <span>(Generated A4 PDF Document)</span>
+                  <span>(Exact 1-Page Document)</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="hidden sm:inline">Use browser controls or click download</span>
                   <a
                     href="/Anish_Kumar_Resume.pdf"
                     download="Anish_Kumar_Resume.pdf"
-                    className="text-cyan-400 hover:underline flex items-center gap-1"
+                    className="text-cyan-400 hover:underline flex items-center gap-1 font-bold"
                   >
-                    <i className="fa-solid fa-file-arrow-down" /> Direct Save
+                    <i className="fa-solid fa-file-arrow-down" /> Click to Save File
                   </a>
                 </div>
               </div>
 
-              {/* Embedded PDF iframe with seamless fallback */}
-              <div className="flex-1 w-full h-full min-h-[550px] relative">
+              {/* Embedded PDF iframe */}
+              <div className="flex-1 w-full h-full min-h-[550px] relative bg-zinc-900">
                 <iframe
                   src="/Anish_Kumar_Resume.pdf#toolbar=1&navpanes=0&scrollbar=1"
                   title="Anish Kumar Resume PDF"
@@ -166,13 +165,13 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                   onError={() => setPdfLoadError(true)}
                 />
 
-                {/* If iframe doesn't render in certain restricted sandboxes, show styled fallback card */}
+                {/* Seamless Fallback Card */}
                 {pdfLoadError && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-zinc-950 text-center">
                     <i className="fa-solid fa-file-pdf text-5xl text-red-500 mb-4" />
                     <h4 className="text-lg font-bold text-white mb-2">Resume PDF Ready to Download</h4>
                     <p className="text-sm text-zinc-400 max-w-md mb-6">
-                      Your browser preview is restricted, but the official PDF is ready and can be downloaded or opened directly.
+                      Click below to download or open the exact original resume PDF file directly.
                     </p>
                     <div className="flex gap-4">
                       <a
@@ -183,197 +182,176 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                         <i className="fa-solid fa-download" />
                         Download Anish_Kumar_Resume.pdf
                       </a>
-                      <button
-                        onClick={() => setViewMode('ats')}
-                        className="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-sm"
-                      >
-                        Read Formatted Version
-                      </button>
                     </div>
                   </div>
                 )}
               </div>
             </div>
           ) : (
-            /* ATS Structured Text Resume (Clean, printable, formatted) */
-            <div className="overflow-y-auto h-full p-6 sm:p-10 space-y-6 text-sm text-zinc-200 font-sans" id="printable-resume">
+            /* ATS Structured Text Resume (Exact Match to Image & Order) */
+            <div className="overflow-y-auto h-full p-6 sm:p-12 text-black bg-white font-sans max-w-3xl mx-auto shadow-xl" id="printable-resume">
               {/* Header */}
-              <div className="text-center pb-5 border-b border-zinc-800">
-                <h1 className="text-3xl font-extrabold text-white tracking-wide font-name-stylish">
+              <div className="text-center pb-4">
+                <h1 className="text-2xl font-black text-black tracking-wide font-display">
                   ANISH KUMAR
                 </h1>
-                <p className="text-cyan-400 font-mono text-xs sm:text-sm mt-1 font-semibold">
-                  Software Developer & BMS Operations Specialist
+                <p className="text-xs text-gray-800 mt-1">Anna Nagar West, Chennai, 600040</p>
+                <p className="text-xs text-gray-800 mt-1">
+                  8668183926 | anish03ak@gmail.com | <a href="https://github.com/ANISH03AK" target="_blank" rel="noreferrer" className="text-black underline">https://github.com/ANISH03AK</a>
                 </p>
-                <p className="text-zinc-400 text-xs mt-1">{PERSONAL_INFO.location}</p>
-                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs font-mono text-zinc-300 mt-2.5">
-                  <span className="flex items-center gap-1.5">
-                    <i className="fa-solid fa-phone text-cyan-400" />
-                    <a href={`tel:${PERSONAL_INFO.phone}`} className="hover:text-cyan-300">{PERSONAL_INFO.phoneFormatted}</a>
-                  </span>
-                  <span className="text-zinc-600">|</span>
-                  <span className="flex items-center gap-1.5">
-                    <i className="fa-solid fa-envelope text-indigo-400" />
-                    <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-cyan-300">{PERSONAL_INFO.email}</a>
-                  </span>
-                  <span className="text-zinc-600">|</span>
-                  <span className="flex items-center gap-1.5">
-                    <i className="fa-brands fa-github text-cyan-400" />
-                    <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="hover:text-cyan-300">{PERSONAL_INFO.githubHandle}</a>
-                  </span>
-                </div>
               </div>
 
-              {/* Professional Summary */}
-              <div>
-                <h2 className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider mb-2 border-b border-zinc-800 pb-1 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
+              {/* 1. PROFESSIONAL SUMMARY */}
+              <div className="mt-4">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-black">
                   PROFESSIONAL SUMMARY
                 </h2>
-                <p className="text-zinc-300 leading-relaxed text-sm">
-                  {PERSONAL_INFO.summary}
+                <div className="h-[1px] bg-black w-full mt-1 mb-2" />
+                <p className="text-xs leading-relaxed text-gray-900">
+                  • MCA graduate and Software Developer skilled in React JS, Python, and SQL. Proven experience building responsive web applications, consuming RESTful APIs, and maintaining critical enterprise infrastructure (BMS, Fire Alarms, CCTV) at TCS. Seeking to leverage full-stack development and complex system troubleshooting skills in a fast-paced IT role.
                 </p>
               </div>
 
-              {/* Technical Skills */}
-              <div>
-                <h2 className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider mb-2 border-b border-zinc-800 pb-1 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                  TECHNICAL SKILLS
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-xs sm:text-sm">
-                  <div>
-                    <span className="text-zinc-400 font-mono">► Languages:</span>{' '}
-                    <span className="text-white font-medium">{TECHNICAL_SKILLS.languages.join(', ')}</span>
-                  </div>
-                  <div>
-                    <span className="text-zinc-400 font-mono">► Frontend:</span>{' '}
-                    <span className="text-white font-medium">{TECHNICAL_SKILLS.frontend.join(', ')}</span>
-                  </div>
-                  <div>
-                    <span className="text-zinc-400 font-mono">► Backend & DB:</span>{' '}
-                    <span className="text-white font-medium">{TECHNICAL_SKILLS.backendAndDb.join(', ')}</span>
-                  </div>
-                  <div>
-                    <span className="text-zinc-400 font-mono">► Tools:</span>{' '}
-                    <span className="text-white font-medium">{TECHNICAL_SKILLS.tools.join(', ')}</span>
-                  </div>
-                  <div>
-                    <span className="text-zinc-400 font-mono">► BMS Infrastructure:</span>{' '}
-                    <span className="text-white font-medium">{TECHNICAL_SKILLS.bmsInfrastructure.join(', ')}</span>
-                  </div>
-                  <div>
-                    <span className="text-zinc-400 font-mono">► Security Systems:</span>{' '}
-                    <span className="text-white font-medium">{TECHNICAL_SKILLS.securitySystems.join(', ')}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Professional Experience */}
-              <div>
-                <h2 className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider mb-3 border-b border-zinc-800 pb-1 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                  PROFESSIONAL EXPERIENCE
-                </h2>
-                <div className="space-y-4">
-                  {EXPERIENCE_DATA.map((exp, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-zinc-900/60 border border-zinc-800">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-                        <div className="font-bold text-white text-sm">
-                          {exp.role} – {exp.company}
-                        </div>
-                        <div className="text-cyan-400 font-mono text-xs whitespace-nowrap font-medium">
-                          {exp.period}
-                        </div>
-                      </div>
-                      <ul className="space-y-1.5 text-xs text-zinc-300">
-                        {exp.bullets.map((bullet, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-2">
-                            <span className="text-indigo-400">•</span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Projects */}
-              <div>
-                <h2 className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider mb-3 border-b border-zinc-800 pb-1 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                  PROJECTS
-                </h2>
-                <div className="space-y-4">
-                  {PROJECTS_DATA.map((proj, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-zinc-900/60 border border-zinc-800">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-                        <div className="font-bold text-white text-sm">
-                          {proj.title}
-                          {proj.link && (
-                            <a
-                              href={proj.link}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="ml-2 text-cyan-400 underline hover:text-cyan-300 font-mono text-xs"
-                            >
-                              {proj.link}
-                            </a>
-                          )}
-                        </div>
-                        <div className="text-cyan-400 font-mono text-xs whitespace-nowrap font-medium">
-                          {proj.period}
-                        </div>
-                      </div>
-                      <ul className="space-y-1.5 text-xs text-zinc-300">
-                        {proj.bullets.map((b, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-2">
-                            <span className="text-indigo-400">•</span>
-                            <span>{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Education */}
-              <div>
-                <h2 className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider mb-2 border-b border-zinc-800 pb-1 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
+              {/* 2. EDUCATION */}
+              <div className="mt-4">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-black">
                   EDUCATION
                 </h2>
-                <div className="space-y-2.5 text-xs sm:text-sm">
-                  {EDUCATION_DATA.map((edu, idx) => (
-                    <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                      <div>
-                        <strong className="text-white font-semibold">{edu.degree}</strong>
-                        <span className="text-zinc-300"> | {edu.institution} - <strong className="text-cyan-400">{edu.score}</strong></span>
-                      </div>
-                      <div className="text-zinc-400 font-mono text-xs whitespace-nowrap">{edu.period}</div>
+                <div className="h-[1px] bg-black w-full mt-1 mb-2" />
+                <div className="space-y-1.5 text-xs text-gray-900">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="font-bold">Master of Computer Applications</span> | Meenakshi Ramasamy Engineering College - 85%
                     </div>
-                  ))}
+                    <div className="font-bold whitespace-nowrap">Aug 2022 – Aug 2024</div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="font-bold">B.Sc. in Computer Science</span> | Meenakshi Ramasamy Arts and Science College - 82%
+                    </div>
+                    <div className="font-bold whitespace-nowrap">Jul 2019 – Apr 2022</div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="font-bold">Diploma in Computer Hardware</span> | Meenakshi Ramasamy Arts and Science College - 80%
+                    </div>
+                    <div className="font-bold whitespace-nowrap">Jul 2019 – Apr 2020</div>
+                  </div>
                 </div>
               </div>
 
-              {/* Achievements */}
-              <div>
-                <h2 className="text-xs font-mono uppercase text-cyan-400 font-bold tracking-wider mb-2 border-b border-zinc-800 pb-1 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                  ACHIEVEMENTS & CERTIFICATIONS
+              {/* 3. TECHNICAL SKILLS */}
+              <div className="mt-4">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-black">
+                  TECHNICAL SKILLS
                 </h2>
-                <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-300">
-                  {ACHIEVEMENTS_DATA.map((ach, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-indigo-400">•</span>
-                      <span>
-                        <strong className="text-white">{ach.title}</strong>
-                        {ach.date && <span className="text-zinc-400 ml-1">({ach.date})</span>}
-                      </span>
-                    </li>
-                  ))}
+                <div className="h-[1px] bg-black w-full mt-1 mb-2" />
+                <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 text-xs text-gray-900">
+                  <div>
+                    <span className="font-bold">► Languages:</span> Python, JavaScript, SQL
+                  </div>
+                  <div>
+                    <span className="font-bold">► Frontend:</span> HTML5, CSS3, React JS, UI/UX, React Native
+                  </div>
+                  <div>
+                    <span className="font-bold">► Backend &amp; DB:</span> MYSQL, RESTful APIs, RDBMS, Supabase
+                  </div>
+                  <div>
+                    <span className="font-bold">► Tools:</span> Git, GitHub, MS Office Suite
+                  </div>
+                  <div>
+                    <span className="font-bold">► BMS Infrastructure:</span> Fire Alarm, WLD, VESDA, AHU, NOVEC System
+                  </div>
+                  <div>
+                    <span className="font-bold">► Security Systems:</span> Rodent Repellent, PA, CCTV, Flap Barrier
+                  </div>
+                </div>
+              </div>
+
+              {/* 4. EXPERIENCE */}
+              <div className="mt-4">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-black">
+                  EXPERIENCE
+                </h2>
+                <div className="h-[1px] bg-black w-full mt-1 mb-2" />
+                <div className="space-y-3 text-xs text-gray-900">
+                  <div>
+                    <div className="flex items-center justify-between font-bold">
+                      <span>BMS Engineer – Tata Consultancy Services (TCS) (Contract via Johnson Controls)</span>
+                      <span>Sept 2025 – Present</span>
+                    </div>
+                    <ul className="mt-1 space-y-0.5 leading-relaxed">
+                      <li>• Manage and maintain comprehensive Building Management Systems (BMS) for TCS facilities, ensuring uninterrupted and secure operations.</li>
+                      <li>• Operate and troubleshoot critical infrastructure, including WLD, VESDA, Rodent repellent, PA systems, Air Handling Units (AHU), and NOVEC fire suppression systems.</li>
+                      <li>• Oversee enterprise security hardware and access controls (Fire Alarms, CCTV, Flap Barriers) and execute daily operational database management using SQL.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between font-bold">
+                      <span>Intern – Fino Payment Bank: Jayankondam</span>
+                      <span>Dec 2024 – June 2025</span>
+                    </div>
+                    <ul className="mt-1 space-y-0.5 leading-relaxed">
+                      <li>• Executed daily banking operations and analyzed customer data to optimize workflow efficiency.</li>
+                      <li>• Completed a comprehensive research study on payment bank services, earning a "Very Good" performance rating from management.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* 5. PROJECTS */}
+              <div className="mt-4">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-black">
+                  PROJECTS
+                </h2>
+                <div className="h-[1px] bg-black w-full mt-1 mb-2" />
+                <div className="space-y-3 text-xs text-gray-900">
+                  <div>
+                    <div className="flex items-center justify-between font-bold">
+                      <span>Dexter Men's Wear (React JS) | <a href="https://dexter-style-elevation.vercel.app/" target="_blank" rel="noreferrer" className="underline">https://dexter-style-elevation.vercel.app/</a></span>
+                      <span>Apr 2026</span>
+                    </div>
+                    <ul className="mt-1 space-y-0.5 leading-relaxed">
+                      <li>• Engineered a responsive e-commerce application using React JS, featuring dynamic state management and scalable components.</li>
+                      <li>• Consumed RESTful APIs for dynamic UI rendering and utilized AI tools (Copilot, ChatGPT) to accelerate the development cycle.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between font-bold">
+                      <span>Detection of Fake and Fraudulent Faces via Neural Network (Python)</span>
+                      <span>Aug 2024</span>
+                    </div>
+                    <ul className="mt-1 space-y-0.5 leading-relaxed">
+                      <li>• Trained Convolutional Neural Networks (CNNs) using Python to accurately detect and classify synthesized and realistic fake facial images.</li>
+                      <li>• Developed modular, scalable code optimized for future REST API deployment to address security vulnerabilities.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between font-bold">
+                      <span>Online Tourism Management System</span>
+                      <span>Apr 2022</span>
+                    </div>
+                    <ul className="mt-1 space-y-0.5 leading-relaxed">
+                      <li>• Built a web platform with secure backend API endpoints to efficiently manage user bookings and travel itineraries.</li>
+                      <li>• Developed an intuitive administrator interface for seamless MySQL database interaction and package management.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* 6. ACHIEVEMENTS */}
+              <div className="mt-4">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-black">
+                  ACHIEVEMENTS
+                </h2>
+                <div className="h-[1px] bg-black w-full mt-1 mb-2" />
+                <ul className="space-y-0.5 text-xs text-gray-900 leading-relaxed">
+                  <li>• First Place: Code Conversion competition at "Tech Fest 22" (06-06-2022)</li>
+                  <li>• Participant: State-level seminar on "Python for Data Science" via Cognitive Class (29-04-2022)</li>
+                  <li>• Participant: State-level webinar on "Roles and Responsibilities of Database Administrator" via Cognitive Class (20-12-2021)</li>
                 </ul>
               </div>
             </div>
@@ -384,16 +362,16 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         <div className="px-6 py-3 border-t border-zinc-800 bg-zinc-950 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-400 shrink-0">
           <div className="flex items-center gap-2">
             <i className="fa-solid fa-circle-check text-emerald-400" />
-            <span>ATS-Compliant 1-Page Layout · Document Ready for Direct Submission</span>
+            <span>Exact 1-Page Official Resume PDF Ready</span>
           </div>
 
           <div className="flex items-center gap-3">
             <a
               href="/Anish_Kumar_Resume.pdf"
               download="Anish_Kumar_Resume.pdf"
-              className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center gap-2 transition-all shadow-md active:scale-95"
+              className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer"
             >
-              <i className="fa-solid fa-file-arrow-down" />
+              <i className="fa-solid fa-download" />
               <span>Download PDF File (Anish_Kumar_Resume.pdf)</span>
             </a>
           </div>

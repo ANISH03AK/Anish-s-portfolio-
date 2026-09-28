@@ -58,10 +58,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ theme }) => {
   const accentColor = theme?.accent || '#f43f5e';
 
   return (
-    <section id="projects" className="py-28 sm:py-36 border-t border-zinc-800/80 relative z-10">
+    <section id="projects" className="py-20 sm:py-28 relative z-10 scroll-mt-28 sm:scroll-mt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Generous Space */}
-        <div className="max-w-2xl mb-16 sm:mb-20" data-aos="fade-up">
+        <div className="max-w-2xl mb-12 sm:mb-16" data-aos="fade-up">
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold mb-3 border"
             style={{
@@ -71,9 +71,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ theme }) => {
             }}
           >
             <i className="fa-solid fa-cubes" />
-            <span>03. Featured Deployments</span>
+            <span>04. Featured Deployments</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-display tracking-tight whitespace-nowrap">
             Key Software Projects
           </h2>
           <p className="text-zinc-300 text-sm sm:text-base mt-2.5 leading-relaxed">

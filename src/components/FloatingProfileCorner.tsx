@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface FloatingProfileCornerProps {
-  onOpenResume: () => void;
+  onOpenResume?: () => void;
 }
 
-export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ onOpenResume }) => {
+export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ onOpenResume = () => {} }) => {
   const [popupOpen, setPopupOpen] = useState(false);
   const cornerRef = useRef<HTMLDivElement>(null);
 
@@ -23,7 +24,7 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
       ref={cornerRef}
       className={`fixed-profile-corner ${popupOpen ? 'popup-open' : ''}`}
       id="floating-profile"
-      title="Anish Kumar - Touch / Hover for Quick Profile"
+      title="Anish Kumar · Quick Profile & Resume"
       onClick={() => setPopupOpen(!popupOpen)}
     >
       {/* Interactive Corner Hover / Tap Popup */}
@@ -32,75 +33,81 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
         id="corner-popup"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center gap-2.5 pb-2.5 border-b border-zinc-800">
+        <div className="flex items-center gap-3 pb-2.5 border-b border-zinc-800">
           <img
-            src="profile.jpg"
+            src="/profile.svg"
             alt="Anish Kumar"
-            className="w-8 h-8 rounded-full object-cover border border-yellow-400"
-            style={{ objectPosition: 'center 36%' }}
+            className="w-10 h-10 rounded-full object-cover border border-amber-400 bg-zinc-900 shrink-0"
             onError={(e) => {
               const target = e.currentTarget;
               if (!target.dataset.hasFallenBack) {
                 target.dataset.hasFallenBack = 'true';
-                target.src = 'profile.svg';
+                target.src = '/profile.png';
               }
             }}
           />
-          <div>
-            <div className="text-xs font-bold text-white font-name-stylish leading-tight">ANISH KUMAR</div>
-            <div className="text-[9px] font-mono text-cyan-400">React Dev & BMS Engineer</div>
+          <div className="min-w-0">
+            <div className="text-xs font-bold text-white font-name-stylish whitespace-nowrap">
+              ANISH KUMAR
+            </div>
+            <div className="text-[10px] font-mono text-cyan-400 truncate">
+              Software Developer &amp; BMS Engineer
+            </div>
           </div>
         </div>
-        <div className="py-2 space-y-1.5 text-[11px] font-mono text-zinc-300">
-          <div className="flex items-center gap-1.5">
-            <i className="fa-solid fa-graduation-cap text-cyan-400 text-xs" />
+
+        <div className="py-2.5 space-y-2 text-[11px] font-mono text-zinc-300">
+          <div className="flex items-center gap-2">
+            <i className="fa-solid fa-graduation-cap text-cyan-400 text-xs w-4 text-center" />
             <span>MCA: 85% Distinction</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <i className="fa-solid fa-briefcase text-indigo-400 text-xs" />
-            <span>TCS BMS Engineer</span>
+          <div className="flex items-center gap-2">
+            <i className="fa-solid fa-briefcase text-indigo-400 text-xs w-4 text-center" />
+            <span>TCS BMS Operations (Johnson Controls)</span>
           </div>
-          <div className="flex items-center gap-1.5 text-cyan-300">
-            <i className="fa-solid fa-passport text-xs" />
-            <span>Valid Passport · Mobile</span>
+          <div className="flex items-center gap-2">
+            <i className="fa-solid fa-passport text-rose-400 text-xs w-4 text-center" />
+            <span className="text-rose-300 font-semibold">Passport Ready</span>
           </div>
         </div>
-        <button
-          onClick={() => {
-            setPopupOpen(false);
-            onOpenResume();
-          }}
-          className="w-full mt-1 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[10px] font-mono uppercase tracking-wider transition-all cursor-pointer shadow-md shadow-indigo-600/30 flex items-center justify-center gap-1.5"
-        >
-          <i className="fa-solid fa-file-pdf" />
-          <span>VIEW RESUME (PDF)</span>
-        </button>
+
+        <div className="pt-2 border-t border-zinc-800 flex items-center justify-between gap-2">
+          <button
+            onClick={() => {
+              setPopupOpen(false);
+              onOpenResume();
+            }}
+            className="w-full py-1.5 px-3 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold font-mono text-[10px] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+          >
+            <i className="fa-solid fa-file-pdf" />
+            <span>OPEN RESUME (PDF)</span>
+          </button>
+        </div>
       </div>
 
-      {/* Glowing Rim Container with Scale & Rotate Interaction */}
+      {/* Profile Halo Ring & Avatar */}
       <div className="profile-glow-ring">
         <div className="profile-orbit-halo" />
         <div className="profile-circle-crop">
           <img
-            src="profile.jpg"
-            alt="Anish Kumar"
-            id="corner-profile-img"
-            style={{ objectPosition: 'center 36%' }}
+            src="/profile.svg"
+            alt="Anish Kumar - Software Developer & BMS Operations Specialist"
+            loading="eager"
             onError={(e) => {
               const target = e.currentTarget;
               if (!target.dataset.hasFallenBack) {
                 target.dataset.hasFallenBack = 'true';
-                target.src = 'profile.svg';
+                target.src = '/profile.png';
               }
             }}
           />
         </div>
+      </div>
 
-        {/* Status Tag on Corner Image */}
-        <div className="profile-corner-status">
-          <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping" />
-          <span>ANISH · AK</span>
-        </div>
+      {/* Online Status Pill Badge */}
+      <div className="profile-corner-status">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+        <span>TCS BMS</span>
       </div>
     </div>
   );

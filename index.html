@@ -689,6 +689,36 @@
       #printable-resume { position: absolute; left: 0; top: 0; width: 100%; }
       .fixed-profile-corner { display: none !important; }
     }
+
+    /* Subtle Animated Gradient Section Dividers */
+    @keyframes subtleDividerFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .animated-divider-line {
+      background-size: 250% 100%;
+      animation: subtleDividerFlow 8s ease-in-out infinite;
+    }
+    @keyframes subtlePulseGlow {
+      0%, 100% {
+        transform: scale(1) rotate(45deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.3) rotate(45deg);
+        opacity: 1;
+      }
+    }
+    .divider-center-node {
+      animation: subtlePulseGlow 4s ease-in-out infinite;
+    }
   </style>
 </head>
 <body class="bg-[#050505] antialiased selection:bg-red-600 selection:text-yellow-200 relative text-zinc-100">

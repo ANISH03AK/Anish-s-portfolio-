@@ -30,7 +30,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume, th
   };
 
   return (
-    <footer id="contact" className="border-t border-zinc-800/80 relative z-10 pt-28 pb-16">
+    <footer id="contact" className="relative z-10 pt-16 sm:pt-20 pb-16 scroll-mt-28 sm:scroll-mt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* International Mobility Callout Banner (Passport Details) */}
         <div
