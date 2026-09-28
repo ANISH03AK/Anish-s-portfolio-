@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface FloatingProfileCornerProps {
   onOpenResume?: () => void;
@@ -7,7 +6,26 @@ interface FloatingProfileCornerProps {
 
 export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ onOpenResume = () => {} }) => {
   const [popupOpen, setPopupOpen] = useState(false);
+  const [isVisibleAtTop, setIsVisibleAtTop] = useState(true);
   const cornerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      // Show when at the top (scrollY <= 80px), hide smoothly when scrolled down
+      if (scrollY > 80) {
+        setIsVisibleAtTop(false);
+        setPopupOpen(false); // Close popup if open when user scrolls down
+      } else {
+        setIsVisibleAtTop(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Check initial scroll position
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -22,7 +40,7 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
   return (
     <div
       ref={cornerRef}
-      className={`fixed-profile-corner ${popupOpen ? 'popup-open' : ''}`}
+      className={`fixed-profile-corner ${popupOpen ? 'popup-open' : ''} ${!isVisibleAtTop ? 'corner-hidden' : ''}`}
       id="floating-profile"
       title="Anish Kumar · Quick Profile & Resume"
       onClick={() => setPopupOpen(!popupOpen)}
