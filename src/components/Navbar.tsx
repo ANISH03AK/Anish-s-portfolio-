@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      const sections = ['hero', 'skills', 'education', 'experience', 'projects', 'contact'];
+      const sections = ['hero', 'skills', 'education', 'experience', 'projects', 'achievements', 'contact'];
       
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -72,6 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { href: '#education', label: 'EDUCATION', id: 'education' },
     { href: '#experience', label: 'EXPERIENCE', id: 'experience' },
     { href: '#projects', label: 'PROJECTS', id: 'projects' },
+    { href: '#achievements', label: 'ACHIEVEMENTS', id: 'achievements' },
     { href: '#contact', label: 'CONTACT', id: 'contact' }
   ];
 
@@ -92,16 +93,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#070a12]/95 backdrop-blur-md border-b border-zinc-800/80 transition-colors duration-300">
-      {/* Top Bar: Brand & Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-        {/* Brand Name Typography & Small Animated Profile Logo */}
+      {/* Top Bar: Brand (Logo + ANISH KUMAR) & Menu Section at Last Corner */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        {/* Left: Small Animated Profile Logo + ANISH KUMAR Only */}
         <a
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
             handleNavClick('#hero');
           }}
-          className="flex items-center gap-2.5 sm:gap-3 shrink-0 py-1 group select-none cursor-pointer"
+          className="flex items-center gap-3 shrink-0 py-1 group select-none cursor-pointer"
           title="Anish Kumar · Portfolio Home"
         >
           {/* Small Profile Logo with Smooth Animated Circle Border */}
@@ -151,92 +152,53 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
 
-          <div className="flex flex-col justify-center shrink-0">
-            <span className="text-xl sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
-              ANISH KUMAR
-            </span>
-            <span
-              className="text-[10px] font-mono tracking-wider uppercase transition-colors font-medium whitespace-nowrap mt-1 hidden sm:block"
-              style={{ color: currentTheme.secondary }}
-            >
-              Software Developer &amp; BMS Engineer
-            </span>
-          </div>
+          {/* Name Only: ANISH KUMAR */}
+          <span className="text-xl sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
+            ANISH KUMAR
+          </span>
         </a>
 
-        {/* Desktop Navigation Menu (Visible on lg screens and up) */}
-        <nav id="desktop-nav" className="hidden lg:flex items-center gap-6 xl:gap-7 text-xs font-mono font-semibold tracking-wider uppercase text-zinc-300">
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
-              }}
-              className={`nav-link py-1 hover:text-white transition-colors cursor-pointer ${
-                activeSection === link.id ? 'active text-cyan-400 font-bold' : ''
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        {/* Right Corner: Menu Section & Navigation */}
+        <div className="flex items-center gap-4 sm:gap-6 shrink-0">
+          {/* Desktop Navigation Menu Links */}
+          <nav id="desktop-nav" className="hidden lg:flex items-center gap-6 xl:gap-7 text-xs font-mono font-semibold tracking-wider uppercase text-zinc-300">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
+                className={`nav-link py-1 hover:text-white transition-colors cursor-pointer ${
+                  activeSection === link.id ? 'active text-cyan-400 font-bold' : ''
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        {/* Right Action CTA & Theme Palette Button */}
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-          {/* LinkedIn Profile Pathway */}
-          <a
-            href={PERSONAL_INFO.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-zinc-900 border border-zinc-700/80 hover:border-[#0077b5] text-xs font-mono font-bold text-zinc-300 hover:text-[#38bdf8] transition-all shadow-sm group shrink-0"
-            title="LinkedIn Profile: Anish Kumar"
-          >
-            <i className="fa-brands fa-linkedin-in text-xs text-[#0077b5] group-hover:text-[#38bdf8] group-hover:scale-110 transition-transform" />
-            <span className="hidden xl:inline">LINKEDIN</span>
-          </a>
-
-          {/* Interactive Palette Studio Trigger Button */}
-          <button
-            onClick={onOpenPaletteModal}
-            className="px-2.5 sm:px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-700/80 hover:border-cyan-400 text-xs font-mono font-bold flex items-center gap-1.5 sm:gap-2 text-zinc-200 hover:text-white transition-all shadow-sm cursor-pointer group shrink-0"
-            title="Open Theme Studio: 2 & 3 Color Combinations"
-          >
-            <span className="flex items-center -space-x-1">
-              {currentTheme.swatch.map((c, i) => (
-                <span
-                  key={i}
-                  className="w-2.5 h-2.5 rounded-full border border-black/80"
-                  style={{ backgroundColor: c }}
-                />
-              ))}
-            </span>
-            <span className="hidden sm:inline">THEMES</span>
-            <i className="fa-solid fa-palette text-[10px] text-cyan-400 group-hover:rotate-12 transition-transform" />
-          </button>
-
-          {/* Resume PDF Button */}
+          {/* Resume PDF Action Button */}
           <button
             onClick={onOpenResume}
-            className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-white font-bold text-xs tracking-wider uppercase transition-all shadow-md active:scale-95 flex items-center gap-1.5 cursor-pointer shrink-0"
+            className="hidden sm:flex px-3.5 py-1.5 rounded-lg text-white font-bold text-xs tracking-wider uppercase transition-all shadow-md active:scale-95 items-center gap-1.5 cursor-pointer shrink-0"
             style={{
               background: `linear-gradient(135deg, ${currentTheme.primary}, ${currentTheme.secondary})`,
               boxShadow: `0 0 14px ${currentTheme.glowColor}`
             }}
           >
             <i className="fa-solid fa-file-pdf text-xs" />
-            <span className="hidden sm:inline">RESUME (PDF)</span>
-            <span className="sm:hidden text-xs">RESUME</span>
+            <span>RESUME</span>
           </button>
 
-          {/* Mobile menu toggle button */}
+          {/* Mobile Menu Toggle Button (In Last Corner on Mobile - Icon Only) */}
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
-            className="lg:hidden p-2 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-900 transition-colors cursor-pointer"
-            aria-label="Toggle menu"
+            className="lg:hidden p-2 text-zinc-300 hover:text-white rounded-lg bg-zinc-900/90 border border-zinc-800 hover:bg-zinc-800 transition-colors cursor-pointer flex items-center justify-center w-10 h-10"
+            aria-label="Toggle navigation menu"
           >
-            <i className={`fa-solid ${mobileNavOpen ? 'fa-xmark' : 'fa-bars'} text-lg`} />
+            <i className={`fa-solid ${mobileNavOpen ? 'fa-xmark' : 'fa-bars'} text-base text-cyan-400`} />
           </button>
         </div>
       </div>

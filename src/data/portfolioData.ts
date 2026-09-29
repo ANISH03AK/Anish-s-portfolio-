@@ -378,3 +378,31 @@ export const RADAR_8_AXES: RadarDomain[] = [
     tags: ['System Troubleshooting', 'SLA Adherence', 'Operations', 'Diagnostics']
   }
 ];
+
+export const ACHIEVEMENTS: AchievementItem[] = [
+  {
+    title: 'First Place Winner: Code Conversion Competition',
+    event: 'Tech Fest 22 Inter-Collegiate Coding Championship',
+    date: '06-06-2022',
+    organization: 'Tech Fest Academic Council',
+    badge: '1st Place / Gold Trophy',
+    icon: 'fa-solid fa-trophy'
+  },
+  {
+    title: 'State-Level Seminar: Python for Data Science',
+    event: 'Advanced Computing & Statistical Analysis Seminar',
+    date: '29-04-2022',
+    organization: 'Cognitive Class',
+    badge: 'State-Level Certificate',
+    icon: 'fa-solid fa-award'
+  },
+  {
+    title: 'Roles & Responsibilities of Database Administrator (DBA)',
+    event: 'State-Level RDBMS Architecture & Operations Webinar',
+    date: '20-12-2021',
+    organization: 'Cognitive Class',
+    badge: 'State-Level Certificate',
+    icon: 'fa-solid fa-database'
+  }
+];
+

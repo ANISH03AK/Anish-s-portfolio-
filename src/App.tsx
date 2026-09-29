@@ -6,6 +6,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { EducationSection } from './components/EducationSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ProjectsSection } from './components/ProjectsSection';
+import { AchievementsSection } from './components/AchievementsSection';
 import { ContactSection } from './components/ContactSection';
 import { SectionDivider } from './components/SectionDivider';
 import { FloatingProfileCorner } from './components/FloatingProfileCorner';
@@ -132,9 +133,15 @@ export default function App() {
 
         {/* Projects Section with 3-Color Combination Themes */}
         <ProjectsSection theme={currentTheme} />
+
+        {/* Subtle Animated Gradient Divider: Projects -> Achievements */}
+        <SectionDivider theme={currentTheme} />
+
+        {/* Achievements Section matching Resume */}
+        <AchievementsSection theme={currentTheme} />
       </main>
 
-      {/* Subtle Animated Gradient Divider: Projects -> Contact */}
+      {/* Subtle Animated Gradient Divider: Achievements -> Contact */}
       <SectionDivider theme={currentTheme} />
 
       {/* Contact Section */}
