@@ -187,13 +187,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
               </a>
 
               <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3.5 rounded-xl bg-black/75 hover:bg-[#0077b5]/20 text-zinc-200 hover:text-[#38bdf8] border border-zinc-800 hover:border-[#0077b5]/60 transition-all flex items-center justify-center group"
+                title="LinkedIn Profile: Anish Kumar"
+              >
+                <i className="fa-brands fa-linkedin-in text-lg text-[#0077b5] group-hover:text-[#38bdf8] group-hover:scale-110 transition-transform" />
+              </a>
+
+              <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3.5 rounded-xl bg-black/75 hover:bg-zinc-900 text-zinc-200 hover:text-white border border-zinc-800 transition-colors"
+                className="p-3.5 rounded-xl bg-black/75 hover:bg-zinc-900 text-zinc-200 hover:text-white border border-zinc-800 transition-colors flex items-center justify-center group"
                 title="GitHub Profile"
               >
-                <i className="fa-brands fa-github text-lg" />
+                <i className="fa-brands fa-github text-lg group-hover:scale-110 transition-transform" />
               </a>
             </div>
 

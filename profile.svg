@@ -1,339 +1,181 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <defs>
-    <!-- Studio Amber/Tan Background Gradients -->
-    <radialGradient id="bgStudioGlow" cx="50%" cy="42%" r="65%">
-      <stop offset="0%" stop-color="#c99763" />
-      <stop offset="35%" stop-color="#af7e4c" />
-      <stop offset="65%" stop-color="#8a5a2e" />
-      <stop offset="90%" stop-color="#5a3416" />
-      <stop offset="100%" stop-color="#3d210b" />
+    <!-- Background & Canvas Gradients -->
+    <radialGradient id="spaceCore" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="45%" stop-color="#090d16" />
+      <stop offset="85%" stop-color="#04060a" />
+      <stop offset="100%" stop-color="#010204" />
     </radialGradient>
 
-    <!-- Warm Vignette Overlay -->
-    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
-      <stop offset="60%" stop-color="transparent" />
-      <stop offset="100%" stop-color="rgba(20, 10, 4, 0.45)" />
-    </radialGradient>
-
-    <!-- Crimson/Red Hair Rim Light Gradient -->
-    <linearGradient id="crimsonRimLight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff2a55" />
-      <stop offset="40%" stop-color="#e11d48" />
-      <stop offset="70%" stop-color="#be123c" />
-      <stop offset="100%" stop-color="#881337" />
+    <!-- Holographic Cyan/Indigo Cyber Beams -->
+    <linearGradient id="cyberCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0284c7" />
     </linearGradient>
 
-    <radialGradient id="redRimGlow" cx="28%" cy="28%" r="40%">
-      <stop offset="0%" stop-color="rgba(255, 42, 85, 0.55)" />
-      <stop offset="50%" stop-color="rgba(225, 29, 72, 0.25)" />
+    <linearGradient id="cyberGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#facc15" />
+      <stop offset="80%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+
+    <linearGradient id="cyberRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fda4af" />
+      <stop offset="45%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#be123c" />
+    </linearGradient>
+
+    <linearGradient id="titaniumSheen" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="30%" stop-color="#94a3b8" stop-opacity="0.6" />
+      <stop offset="70%" stop-color="#334155" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="neonBloom" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur1" />
+      <feGaussianBlur stdDeviation="25" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="intenseGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Conic-like Radial Arc Gradient -->
+    <radialGradient id="centerBurst" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.45" />
+      <stop offset="40%" stop-color="#6366f1" stop-opacity="0.2" />
+      <stop offset="75%" stop-color="#06b6d4" stop-opacity="0.08" />
       <stop offset="100%" stop-color="transparent" />
     </radialGradient>
-
-    <!-- Skin Tones Gradients -->
-    <linearGradient id="skinBase" x1="30%" y1="0%" x2="70%" y2="100%">
-      <stop offset="0%" stop-color="#e4a87a" />
-      <stop offset="40%" stop-color="#cb8a5a" />
-      <stop offset="75%" stop-color="#b67345" />
-      <stop offset="100%" stop-color="#9a572c" />
-    </linearGradient>
-
-    <radialGradient id="faceKeyLight" cx="48%" cy="40%" r="50%">
-      <stop offset="0%" stop-color="#eed0b3" />
-      <stop offset="45%" stop-color="#df9e6e" />
-      <stop offset="85%" stop-color="#c17c49" />
-      <stop offset="100%" stop-color="#a05d2e" />
-    </radialGradient>
-
-    <linearGradient id="neckShadow" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#7a3f1c" />
-      <stop offset="35%" stop-color="#934f24" />
-      <stop offset="100%" stop-color="#b87242" />
-    </linearGradient>
-
-    <!-- Hair Shading Gradients -->
-    <linearGradient id="hairBase" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#241d24" />
-      <stop offset="30%" stop-color="#19151c" />
-      <stop offset="70%" stop-color="#120f14" />
-      <stop offset="100%" stop-color="#0a080c" />
-    </linearGradient>
-
-    <!-- White Shirt Gradients -->
-    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="40%" stop-color="#f8fafc" />
-      <stop offset="75%" stop-color="#e2e8f0" />
-      <stop offset="100%" stop-color="#cbd5e1" />
-    </linearGradient>
-
-    <linearGradient id="collarLeftGrad" x1="0%" y1="0%" x2="100%" y2="80%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="70%" stop-color="#f1f5f9" />
-      <stop offset="100%" stop-color="#d8e2ec" />
-    </linearGradient>
-
-    <linearGradient id="collarRightGrad" x1="100%" y1="0%" x2="0%" y2="80%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="70%" stop-color="#f1f5f9" />
-      <stop offset="100%" stop-color="#d8e2ec" />
-    </linearGradient>
-
-    <!-- Gold Chain Gradient -->
-    <linearGradient id="goldChain" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#eab308" />
-      <stop offset="25%" stop-color="#fde047" />
-      <stop offset="50%" stop-color="#ca8a04" />
-      <stop offset="75%" stop-color="#fef08a" />
-      <stop offset="100%" stop-color="#a16207" />
-    </linearGradient>
-
-    <!-- Subtle Drop Shadow Filter -->
-    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#2d1606" flood-opacity="0.35" />
-    </filter>
   </defs>
 
-  <!-- Studio Background -->
-  <rect width="800" height="800" fill="url(#bgStudioGlow)" />
-  <rect width="800" height="800" fill="url(#vignette)" />
+  <!-- Deep Obsidian Space Canvas -->
+  <rect width="800" height="800" fill="url(#spaceCore)" />
 
-  <!-- Crimson Kicker Light Aura behind left hair/shoulder -->
-  <circle cx="270" cy="270" r="230" fill="url(#redRimGlow)" />
+  <!-- Ambient Light Burst -->
+  <circle cx="400" cy="400" r="380" fill="url(#centerBurst)" />
 
-  <!-- ==================== BODY & CLOTHING ==================== -->
-  <g id="torso-and-shirt">
-    <!-- Chest / Sternum Skin visible in open collar -->
-    <path d="M 330 460 Q 400 520 470 460 L 460 620 Q 400 660 340 620 Z" fill="#b97648" />
-    <!-- Chest Shadow beneath collar line -->
-    <path d="M 345 470 Q 400 535 455 470 Q 400 500 345 470 Z" fill="#8f4a21" />
-
-    <!-- Thin Twisted Gold Chain Necklace -->
-    <path d="M 348 480 C 375 540 425 540 452 480" stroke="url(#goldChain)" stroke-width="4.5" fill="none" stroke-linecap="round" filter="drop-shadow(0 2px 3px rgba(0,0,0,0.4))" />
-    <path d="M 353 483 C 378 537 422 537 447 483" stroke="#fef08a" stroke-width="1.8" stroke-dasharray="3 2" fill="none" opacity="0.85" />
-
-    <!-- White Shirt Body -->
-    <path d="M 120 800 C 130 670 190 560 300 520 L 500 520 C 610 560 670 670 680 800 Z" fill="url(#shirtGrad)" filter="url(#softShadow)" />
-
-    <!-- Shirt Creases & Soft Shadows -->
-    <!-- Left Shoulder Shadow -->
-    <path d="M 190 620 C 230 680 270 740 280 800 C 265 790 220 710 175 660 Z" fill="#cbd5e1" opacity="0.6" />
-    <!-- Right Shoulder Shadow -->
-    <path d="M 610 620 C 570 680 530 740 520 800 C 535 790 580 710 625 660 Z" fill="#cbd5e1" opacity="0.6" />
-    
-    <!-- Open Collar Wings -->
-    <!-- Left Collar (Viewer's Left) -->
-    <path d="M 310 470 L 400 620 L 400 530 L 320 460 Z" fill="url(#collarLeftGrad)" filter="drop-shadow(-3px 5px 6px rgba(0,0,0,0.18))" />
-    <!-- Right Collar (Viewer's Right) -->
-    <path d="M 490 470 L 400 620 L 400 530 L 480 460 Z" fill="url(#collarRightGrad)" filter="drop-shadow(3px 5px 6px rgba(0,0,0,0.18))" />
-
-    <!-- Outer Collar Lapels Flared -->
-    <polygon points="310,470 230,550 370,550" fill="#ffffff" filter="drop-shadow(-2px 4px 5px rgba(0,0,0,0.15))" />
-    <polygon points="490,470 570,550 430,550" fill="#f8fafc" filter="drop-shadow(2px 4px 5px rgba(0,0,0,0.15))" />
-
-    <!-- Placket & Button -->
-    <line x1="400" y1="620" x2="400" y2="800" stroke="#cbd5e1" stroke-width="2.5" />
-    <!-- Mother-of-pearl Button -->
-    <circle cx="400" cy="690" r="7.5" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" />
-    <circle cx="400" cy="690" r="5" fill="#e2e8f0" />
-    <circle cx="398" cy="688" r="1.2" fill="#475569" />
-    <circle cx="402" cy="688" r="1.2" fill="#475569" />
-    <circle cx="398" cy="692" r="1.2" fill="#475569" />
-    <circle cx="402" cy="692" r="1.2" fill="#475569" />
+  <!-- Circular Precision Telemetry Grid Lines -->
+  <g opacity="0.4">
+    <circle cx="400" cy="400" r="370" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="8 12" />
+    <circle cx="400" cy="400" r="350" fill="none" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 6" />
+    <circle cx="400" cy="400" r="310" fill="none" stroke="#334155" stroke-width="1" />
+    <circle cx="400" cy="400" r="260" fill="none" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="16 8" />
+    <circle cx="400" cy="400" r="190" fill="none" stroke="#06b6d4" stroke-width="0.8" stroke-dasharray="4 8" opacity="0.6" />
   </g>
 
-  <!-- ==================== NECK & JAW ==================== -->
-  <g id="neck-and-chin">
-    <!-- Neck Base Column -->
-    <path d="M 330 380 L 330 510 Q 400 530 470 510 L 470 380 Z" fill="url(#skinBase)" />
-    <!-- Deep Neck Shadow from Jaw -->
-    <path d="M 330 380 Q 400 445 470 380 L 470 415 Q 400 475 330 415 Z" fill="url(#neckShadow)" />
+  <!-- High-Tech Hexagonal Energy Shield Outer Lattice -->
+  <g transform="translate(400, 400)" opacity="0.85">
+    <!-- Outer Hexagon Ring -->
+    <polygon points="
+      0,-330 285.7,-165 285.7,165 0,330 -285.7,165 -285.7,-165" 
+      fill="none" stroke="url(#cyberCyan)" stroke-width="3" filter="url(#intenseGlow)" />
 
-    <!-- Adams Apple / Tendons -->
-    <path d="M 388 440 Q 400 455 412 440 Q 400 460 388 440 Z" fill="#8c481e" opacity="0.65" />
+    <!-- Secondary Inset Hexagon -->
+    <polygon points="
+      0,-305 264.1,-152.5 264.1,152.5 0,305 -264.1,152.5 -264.1,-152.5" 
+      fill="none" stroke="url(#cyberGold)" stroke-width="1.5" stroke-dasharray="40 18 10 18" opacity="0.75" />
+
+    <!-- Corner Node Precision Anchors -->
+    <circle cx="0" cy="-330" r="7" fill="#38bdf8" filter="url(#neonBloom)" />
+    <circle cx="285.7" cy="-165" r="7" fill="#38bdf8" filter="url(#neonBloom)" />
+    <circle cx="285.7" cy="165" r="7" fill="#facc15" filter="url(#neonBloom)" />
+    <circle cx="0" cy="330" r="7" fill="#f43f5e" filter="url(#neonBloom)" />
+    <circle cx="-285.7" cy="165" r="7" fill="#f43f5e" filter="url(#neonBloom)" />
+    <circle cx="-285.7" cy="-165" r="7" fill="#38bdf8" filter="url(#neonBloom)" />
   </g>
 
-  <!-- ==================== EARS ==================== -->
-  <g id="ears">
-    <!-- Left Ear with Crimson Rim Light Catch -->
-    <path d="M 285 320 C 265 320 265 410 290 405 C 295 405 295 350 285 320 Z" fill="#b97648" />
-    <!-- Crimson Edge on Left Ear -->
-    <path d="M 280 325 C 263 345 264 395 285 405" stroke="#ff2a55" stroke-width="4.5" fill="none" stroke-linecap="round" />
-    <!-- Inner Left Ear Cartilage -->
-    <path d="M 282 345 Q 274 365 284 380" stroke="#7e3c15" stroke-width="2.5" fill="none" />
+  <!-- BMS Circuit Conduits & Telemetry Nodes -->
+  <g opacity="0.65" stroke-linecap="round">
+    <!-- Horizontal & Diagonal Conduits -->
+    <path d="M 120 400 L 260 400 L 310 450" fill="none" stroke="#06b6d4" stroke-width="2" />
+    <path d="M 680 400 L 540 400 L 490 350" fill="none" stroke="#f43f5e" stroke-width="2" />
+    <path d="M 400 120 L 400 240 L 440 280" fill="none" stroke="#facc15" stroke-width="2" />
+    <path d="M 400 680 L 400 560 L 360 520" fill="none" stroke="#38bdf8" stroke-width="2" />
 
-    <!-- Right Ear with Warm Rim Light -->
-    <path d="M 515 320 C 535 320 535 410 510 405 C 505 405 505 350 515 320 Z" fill="#ba7749" />
-    <path d="M 520 325 C 537 345 536 395 515 405" stroke="#e09a67" stroke-width="3" fill="none" stroke-linecap="round" />
-    <path d="M 518 345 Q 526 365 516 380" stroke="#7e3c15" stroke-width="2.5" fill="none" />
+    <circle cx="260" cy="400" r="4" fill="#38bdf8" />
+    <circle cx="540" cy="400" r="4" fill="#f43f5e" />
+    <circle cx="400" cy="240" r="4" fill="#facc15" />
+    <circle cx="400" cy="560" r="4" fill="#38bdf8" />
   </g>
 
-  <!-- ==================== HEAD & FACE ==================== -->
-  <g id="face-and-features">
-    <!-- Head Contour -->
-    <path d="M 285 300 C 275 420 310 485 400 485 C 490 485 525 420 515 300 C 510 200 480 180 400 180 C 320 180 290 200 285 300 Z" fill="url(#faceKeyLight)" filter="url(#softShadow)" />
+  <!-- Central Holographic Energy Core Emblem: Monogram "AK" -->
+  <g id="akMonogram" transform="translate(400, 400)">
+    <!-- Ambient Core Backlight -->
+    <circle cx="0" cy="0" r="160" fill="url(#centerBurst)" filter="url(#neonBloom)" opacity="0.8" />
 
-    <!-- Left Cheek Subtle Contour -->
-    <path d="M 288 330 C 295 400 330 455 380 475 C 340 450 305 400 295 340 Z" fill="#8a471f" opacity="0.35" />
-    <!-- Right Cheek Subtle Contour -->
-    <path d="M 512 330 C 505 400 470 455 420 475 C 460 450 495 400 505 340 Z" fill="#8a471f" opacity="0.25" />
+    <!-- Inner Core Shield -->
+    <circle cx="0" cy="0" r="150" fill="#070b14" stroke="url(#titaniumSheen)" stroke-width="3" />
 
-    <!-- ==================== FOREHEAD RED TILAK / BINDI ==================== -->
-    <!-- Distinctive red sacred mark seen in Anish's photo -->
-    <g id="forehead-tilak">
-      <ellipse cx="400" cy="275" rx="4.5" ry="6.5" fill="#dc2626" filter="drop-shadow(0 0 3px rgba(220, 38, 38, 0.7))" />
-      <ellipse cx="400" cy="275" rx="3.5" ry="5.5" fill="#ef4444" />
-      <circle cx="400" cy="274" r="1.5" fill="#fca5a5" />
-    </g>
+    <!-- Radial Sector Tech Segments -->
+    <path d="M 0 -148 A 148 148 0 0 1 128 -74" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" filter="url(#intenseGlow)" />
+    <path d="M 148 0 A 148 148 0 0 1 74 128" fill="none" stroke="#facc15" stroke-width="4" stroke-linecap="round" filter="url(#intenseGlow)" />
+    <path d="M -128 74 A 148 148 0 0 1 -148 0" fill="none" stroke="#f43f5e" stroke-width="4" stroke-linecap="round" filter="url(#intenseGlow)" />
 
-    <!-- ==================== EYEBROWS ==================== -->
-    <g id="eyebrows">
-      <!-- Left Eyebrow (Arching smoothly) -->
-      <path d="M 315 295 Q 350 278 385 292 Q 350 283 318 296" fill="#171219" stroke="#171219" stroke-width="4" stroke-linecap="round" />
-      <!-- Right Eyebrow -->
-      <path d="M 485 295 Q 450 278 415 292 Q 450 283 482 296" fill="#171219" stroke="#171219" stroke-width="4" stroke-linecap="round" />
-    </g>
+    <!-- ==================== LETTER "A" ==================== -->
+    <!-- Left Leg of 'A' -->
+    <polygon points="-125,100 -80,-90 -45,-90 -85,100" fill="url(#cyberCyan)" filter="url(#intenseGlow)" />
+    <polygon points="-125,100 -80,-90 -68,-90 -105,100" fill="#ffffff" opacity="0.5" />
 
-    <!-- ==================== EYES ==================== -->
-    <g id="eyes">
-      <!-- Left Eye -->
-      <g transform="translate(320, 310)">
-        <!-- Sclera -->
-        <path d="M 0 12 Q 24 0 48 12 Q 24 24 0 12 Z" fill="#f8fafc" stroke="#935b34" stroke-width="1" />
-        <!-- Iris (Warm Amber Dark Brown) -->
-        <circle cx="24" cy="12" r="10" fill="#3b2314" />
-        <circle cx="24" cy="12" r="9" fill="#52321c" />
-        <circle cx="24" cy="12" r="5.5" fill="#1a0f08" />
-        <!-- Highlights -->
-        <circle cx="26" cy="10" r="2.5" fill="#ffffff" />
-        <circle cx="21" cy="14" r="1.2" fill="rgba(255,255,255,0.6)" />
-        <!-- Upper Eyelid & Lash Line -->
-        <path d="M -2 12 Q 24 -1 50 12" stroke="#1a141b" stroke-width="3.5" fill="none" stroke-linecap="round" />
-        <!-- Eyelid Crease -->
-        <path d="M 4 5 Q 24 -4 44 6" stroke="#7e431d" stroke-width="2" fill="none" opacity="0.6" />
-      </g>
+    <!-- Right Leg of 'A' / Shared Spine -->
+    <polygon points="-45,-90 -10,-90 35,100 -5,100" fill="url(#cyberGold)" />
+    <polygon points="-30,-90 -10,-90 20,100 0,100" fill="#ffffff" opacity="0.3" />
 
-      <!-- Right Eye -->
-      <g transform="translate(432, 310)">
-        <!-- Sclera -->
-        <path d="M 0 12 Q 24 0 48 12 Q 24 24 0 12 Z" fill="#f8fafc" stroke="#935b34" stroke-width="1" />
-        <!-- Iris -->
-        <circle cx="24" cy="12" r="10" fill="#3b2314" />
-        <circle cx="24" cy="12" r="9" fill="#52321c" />
-        <circle cx="24" cy="12" r="5.5" fill="#1a0f08" />
-        <!-- Highlights -->
-        <circle cx="26" cy="10" r="2.5" fill="#ffffff" />
-        <circle cx="21" cy="14" r="1.2" fill="rgba(255,255,255,0.6)" />
-        <!-- Upper Eyelid & Lash Line -->
-        <path d="M -2 12 Q 24 -1 50 12" stroke="#1a141b" stroke-width="3.5" fill="none" stroke-linecap="round" />
-        <!-- Eyelid Crease -->
-        <path d="M 4 5 Q 24 -4 44 6" stroke="#7e431d" stroke-width="2" fill="none" opacity="0.6" />
-      </g>
-    </g>
+    <!-- Crossbar of 'A' with Glowing Circuit Trace -->
+    <polygon points="-96,30 18,30 24,52 -90,52" fill="url(#cyberCyan)" />
+    <line x1="-85" y1="41" x2="10" y2="41" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
 
-    <!-- ==================== NOSE ==================== -->
-    <g id="nose">
-      <!-- Nose Bridge Shading -->
-      <path d="M 390 300 L 388 375 Q 400 382 412 375 L 410 300" fill="none" />
-      <path d="M 388 310 L 385 365" stroke="#9f5627" stroke-width="2.2" stroke-linecap="round" opacity="0.4" />
-      <!-- Nose Tip -->
-      <ellipse cx="400" cy="378" rx="14" ry="9" fill="#ba7343" />
-      <circle cx="400" cy="376" r="4.5" fill="#d99363" opacity="0.6" />
-      <!-- Nostrils -->
-      <ellipse cx="384" cy="382" rx="4.5" ry="3" fill="#4d240d" />
-      <ellipse cx="416" cy="382" rx="4.5" ry="3" fill="#4d240d" />
-      <path d="M 378 380 Q 384 386 392 384" stroke="#874319" stroke-width="2" fill="none" />
-      <path d="M 422 380 Q 416 386 408 384" stroke="#874319" stroke-width="2" fill="none" />
-    </g>
+    <!-- Peak Diamond Crown of 'A' -->
+    <polygon points="-62.5,-90 -45,-125 -27.5,-90 -45,-75" fill="#facc15" filter="url(#neonBloom)" />
+    <circle cx="-45" cy="-95" r="4" fill="#ffffff" />
 
-    <!-- ==================== MUSTACHE & MOUTH ==================== -->
-    <g id="mouth-and-mustache">
-      <!-- Philtrum Indentation -->
-      <path d="M 396 385 L 396 405" stroke="#7e3c15" stroke-width="1.8" opacity="0.4" />
-      <path d="M 404 385 L 404 405" stroke="#7e3c15" stroke-width="1.8" opacity="0.4" />
+    <!-- ==================== LETTER "K" ==================== -->
+    <!-- Vertical Spine of 'K' -->
+    <polygon points="10,-85 45,-85 45,95 10,95" fill="url(#cyberGold)" />
+    <polygon points="10,-85 24,-85 24,95 10,95" fill="#ffffff" opacity="0.45" />
 
-      <!-- Full, Characteristic Dark Mustache -->
-      <!-- Left Mustache Wing -->
-      <path d="M 398 412 Q 375 402 342 418 C 362 426 385 425 398 418 Z" fill="#161218" />
-      <!-- Right Mustache Wing -->
-      <path d="M 402 412 Q 425 402 458 418 C 438 426 415 425 402 418 Z" fill="#161218" />
-      <!-- Mustache Center Dip Texture -->
-      <path d="M 392 413 Q 400 417 408 413 Q 400 422 392 413 Z" fill="#0f0c11" />
-      
-      <!-- Individual hair strokes for realism -->
-      <path d="M 350 418 Q 370 412 395 416" stroke="#251d27" stroke-width="1.5" fill="none" />
-      <path d="M 450 418 Q 430 412 405 416" stroke="#251d27" stroke-width="1.5" fill="none" />
+    <!-- Upper Arm of 'K' with Cyber Chevron -->
+    <polygon points="45,-10 115,-85 152,-85 75,10" fill="url(#cyberRose)" filter="url(#intenseGlow)" />
+    <polygon points="115,-85 152,-85 138,-65 105,-65" fill="#ffffff" opacity="0.6" />
 
-      <!-- Lips with Gentle Smile -->
-      <!-- Upper Lip peek -->
-      <path d="M 368 426 Q 400 428 432 426 Q 400 432 368 426 Z" fill="#884232" />
-      <!-- Mouth Center Line -->
-      <path d="M 364 427 Q 400 434 436 427" stroke="#481a13" stroke-width="2.5" fill="none" stroke-linecap="round" />
-      <!-- Full Lower Lip -->
-      <path d="M 368 428 Q 400 445 432 428 Q 400 448 368 428 Z" fill="#ab594b" />
-      <ellipse cx="400" cy="437" rx="14" ry="4" fill="#c36e60" opacity="0.75" />
+    <!-- Lower Leg of 'K' with Dynamic Flare -->
+    <polygon points="62,-2 135,95 98,95 35,20" fill="url(#cyberCyan)" filter="url(#intenseGlow)" />
+    <polygon points="98,95 135,95 118,75 85,75" fill="#ffffff" opacity="0.6" />
 
-      <!-- Soul Patch below lower lip -->
-      <ellipse cx="400" cy="452" rx="6" ry="4.5" fill="#171219" />
-      <path d="M 395 450 Q 400 456 405 450" stroke="#0e0a10" stroke-width="2" fill="none" />
-
-      <!-- Chin Goatee / Beard -->
-      <path d="M 382 472 Q 400 484 418 472 Q 412 485 400 487 Q 388 485 382 472 Z" fill="#161118" />
-      <circle cx="400" cy="478" r="8" fill="#140f16" opacity="0.9" />
-    </g>
+    <!-- Center Junction Fusion Star -->
+    <polygon points="50,5 57,-4 65,3 58,11" fill="#ffffff" filter="url(#neonBloom)" />
   </g>
 
-  <!-- ==================== VOLUMINOUS CURLY HAIR ==================== -->
-  <g id="curly-hair">
-    <!-- Main Hair Mass Silhouette -->
-    <path d="M 270 320 
-             C 240 290 235 240 250 200 
-             C 240 170 255 130 280 100 
-             C 310 70 360 50 410 50 
-             C 470 50 525 75 550 115 
-             C 570 145 575 190 565 230 
-             C 560 260 550 290 535 320 
-             C 515 260 505 230 495 210 
-             C 460 230 430 235 400 230 
-             C 370 235 340 230 305 210 
-             C 295 240 285 280 270 320 Z" 
-          fill="url(#hairBase)" filter="url(#softShadow)" />
+  <!-- Telemetry HUD Typography & Readouts -->
+  <g font-family="'JetBrains Mono', 'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="3" fill="#94a3b8" opacity="0.85">
+    <!-- Top Arc Header -->
+    <text x="400" y="70" text-anchor="middle" fill="#38bdf8">SYS.CORE // ANISH KUMAR</text>
+    <text x="400" y="745" text-anchor="middle" fill="#facc15">DEV • BMS ARCHITECTURE • 2026</text>
 
-    <!-- ==================== CRIMSON / RED RIM LIGHT ON LEFT CURLS ==================== -->
-    <!-- Highly distinctive feature of Anish's new uploaded photo -->
-    <g id="crimson-hair-highlights">
-      <!-- Outer edge crimson rim waves -->
-      <path d="M 245 200 C 235 170 250 130 275 100" stroke="url(#crimsonRimLight)" stroke-width="9" fill="none" stroke-linecap="round" filter="drop-shadow(-2px 0 6px rgba(255, 42, 85, 0.8))" />
-      <path d="M 260 230 C 242 195 255 160 270 135" stroke="#ff2a55" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9" />
-      <path d="M 272 260 C 255 235 258 200 268 175" stroke="#f43f5e" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85" />
-      <path d="M 275 300 C 265 275 268 250 278 230" stroke="#e11d48" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.8" />
-      <path d="M 285 330 C 275 305 278 280 285 260" stroke="#be123c" stroke-width="4.5" fill="none" stroke-linecap="round" opacity="0.75" />
+    <!-- Side Coordinates -->
+    <text x="65" y="405" text-anchor="start" font-size="9" fill="#06b6d4" opacity="0.7">LAT: 28.61° N</text>
+    <text x="735" y="405" text-anchor="end" font-size="9" fill="#f43f5e" opacity="0.7">LON: 77.20° E</text>
+  </g>
 
-      <!-- Top Left Curl Crest with Red Glow -->
-      <path d="M 275 105 Q 300 80 330 75" stroke="#ff2a55" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.85" />
-      <path d="M 295 125 Q 320 100 350 95" stroke="#e11d48" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.75" />
-    </g>
-
-    <!-- Detailed Voluminous Curls & Strands across the crown -->
-    <!-- Top Waves -->
-    <path d="M 330 75 Q 375 60 420 65" stroke="#332a35" stroke-width="7" fill="none" stroke-linecap="round" />
-    <path d="M 360 90 Q 410 75 460 85" stroke="#3a303d" stroke-width="6" fill="none" stroke-linecap="round" />
-    <path d="M 420 65 Q 470 65 520 85" stroke="#332a35" stroke-width="7" fill="none" stroke-linecap="round" />
-    <path d="M 450 85 Q 505 95 540 125" stroke="#382e3b" stroke-width="6" fill="none" stroke-linecap="round" />
-
-    <!-- Forehead Curls Dipping into Brow Area -->
-    <path d="M 315 210 Q 330 235 345 220 Q 360 205 375 225" stroke="#1c161f" stroke-width="12" fill="none" stroke-linecap="round" />
-    <path d="M 365 220 Q 380 240 400 230 Q 420 220 435 235" stroke="#1c161f" stroke-width="12" fill="none" stroke-linecap="round" />
-    <path d="M 425 230 Q 445 245 465 225 Q 480 215 495 225" stroke="#1c161f" stroke-width="12" fill="none" stroke-linecap="round" />
-
-    <!-- Individual Hair Highlights (Dimensional Wave Shading) -->
-    <path d="M 345 130 Q 375 115 405 130" stroke="#483c4c" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" />
-    <path d="M 415 125 Q 445 115 475 130" stroke="#483c4c" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" />
-    <path d="M 370 160 Q 400 145 430 160" stroke="#483c4c" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" />
-    <path d="M 330 175 Q 360 160 390 175" stroke="#483c4c" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6" />
-    <path d="M 430 175 Q 460 160 490 175" stroke="#483c4c" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6" />
-
-    <!-- Right Side Hair Warm Rim Reflection -->
-    <path d="M 545 125 C 570 160 570 205 560 245" stroke="#8a6345" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6" />
-    <path d="M 555 210 C 565 240 550 270 535 295" stroke="#8a6345" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.5" />
+  <!-- Glowing Corner Tech Brackets -->
+  <g stroke="#38bdf8" stroke-width="2" fill="none" opacity="0.8">
+    <path d="M 40 80 L 40 40 L 80 40" />
+    <path d="M 760 80 L 760 40 L 720 40" />
+    <path d="M 40 720 L 40 760 L 80 760" stroke="#f43f5e" />
+    <path d="M 760 720 L 760 760 L 720 760" stroke="#facc15" />
   </g>
 </svg>

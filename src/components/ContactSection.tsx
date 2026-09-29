@@ -136,6 +136,26 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume, th
 
               <div className="flex items-center gap-3.5 text-zinc-200">
                 <div
+                  className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center transition-colors shadow-sm text-[#0077b5]"
+                >
+                  <i className="fa-brands fa-linkedin-in text-base" />
+                </div>
+                <div>
+                  <div className="text-[11px] text-zinc-400 font-semibold">LINKEDIN</div>
+                  <a
+                    href={PERSONAL_INFO.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-white hover:text-[#38bdf8] transition-colors flex items-center gap-1.5"
+                  >
+                    <span>{PERSONAL_INFO.linkedinHandle}</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3.5 text-zinc-200">
+                <div
                   className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center transition-colors shadow-sm"
                   style={{ color: accentColor }}
                 >
@@ -150,8 +170,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume, th
               </div>
             </div>
 
-            {/* Social Buttons */}
-            <div className="flex items-center gap-3 pt-2">
+            {/* Social & Professional Profile Pathways */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-2">
+              <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2.5 rounded-xl bg-[#0077b5]/15 hover:bg-[#0077b5]/25 text-[#38bdf8] hover:text-white border border-[#0077b5]/50 text-xs font-mono font-semibold flex items-center gap-2 transition-all shadow-sm active:scale-95 group"
+              >
+                <i className="fa-brands fa-linkedin-in text-sm text-[#0077b5] group-hover:text-white transition-colors" />
+                <span>LinkedIn Pathway</span>
+                <i className="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-75" />
+              </a>
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
@@ -269,10 +299,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenResume, th
           <div>
             © {new Date().getFullYear()} <strong className="text-white font-name-stylish">ANISH KUMAR</strong>. All rights reserved.
           </div>
-          <div className="flex items-center gap-2 text-zinc-400">
-            <span>React JS</span>
+          <div className="flex flex-wrap items-center gap-2.5 text-zinc-400">
+            <a
+              href={PERSONAL_INFO.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-400 hover:text-[#38bdf8] transition-colors flex items-center gap-1 font-semibold"
+            >
+              <i className="fa-brands fa-linkedin text-[#0077b5]" />
+              <span>LinkedIn</span>
+            </a>
             <span>·</span>
-            <span>Tailwind CSS</span>
+            <a
+              href={PERSONAL_INFO.github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <i className="fa-brands fa-github" />
+              <span>GitHub</span>
+            </a>
+            <span>·</span>
+            <span>React JS</span>
             <span>·</span>
             <span>BMS Architecture</span>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { COLOR_THEMES, ColorTheme, getThemeById } from '../data/colorThemes';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 export type BlockTheme = 'cyber' | 'obsidian' | 'blueprint' | 'frosted';
 
@@ -22,8 +23,26 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [logoPhoto, setLogoPhoto] = useState<string>(() => {
+    return typeof window !== 'undefined'
+      ? localStorage.getItem('anish_profile_photo') || '/profile.jpg?v=3'
+      : '/profile.jpg?v=3';
+  });
 
   const currentTheme: ColorTheme = getThemeById(activeColorThemeId);
+
+  useEffect(() => {
+    const handlePhotoSync = () => {
+      const saved = localStorage.getItem('anish_profile_photo');
+      setLogoPhoto(saved || '/profile.jpg?v=3');
+    };
+    window.addEventListener('storage', handlePhotoSync);
+    window.addEventListener('profilePhotoUpdated', handlePhotoSync);
+    return () => {
+      window.removeEventListener('storage', handlePhotoSync);
+      window.removeEventListener('profilePhotoUpdated', handlePhotoSync);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,25 +94,74 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#070a12]/95 backdrop-blur-md border-b border-zinc-800/80 transition-colors duration-300">
       {/* Top Bar: Brand & Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-        {/* Brand Name Typography - Locked to ONE SINGLE LINE across every device */}
+        {/* Brand Name Typography & Small Animated Profile Logo */}
         <a
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
             handleNavClick('#hero');
           }}
-          className="flex flex-col justify-center shrink-0 py-1 group select-none cursor-pointer"
+          className="flex items-center gap-2.5 sm:gap-3 shrink-0 py-1 group select-none cursor-pointer"
           title="Anish Kumar · Portfolio Home"
         >
-          <span className="text-xl sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
-            ANISH KUMAR
-          </span>
-          <span
-            className="text-[10px] font-mono tracking-wider uppercase transition-colors font-medium whitespace-nowrap mt-1 hidden sm:block"
-            style={{ color: currentTheme.secondary }}
-          >
-            Software Developer &amp; BMS Engineer
-          </span>
+          {/* Small Profile Logo with Smooth Animated Circle Border */}
+          <div className="relative shrink-0 flex items-center justify-center">
+            {/* Ambient Aura Ring */}
+            <div
+              className="absolute -inset-1 rounded-full opacity-60 group-hover:opacity-100 transition-opacity blur-sm pointer-events-none"
+              style={{
+                background: `radial-gradient(circle, ${currentTheme.primary}99 0%, ${currentTheme.secondary}44 70%, transparent 100%)`
+              }}
+            />
+
+            {/* Rotating Conic Gradient Outer Circle Animation */}
+            <div
+              className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full p-[2px] flex items-center justify-center transition-transform group-hover:scale-105"
+            >
+              {/* Spinning Animated Border Ring */}
+              <div
+                className="navbar-logo-spinning-border absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  background: `conic-gradient(from 0deg, ${currentTheme.primary}, ${currentTheme.secondary}, #f43f5e, #facc15, ${currentTheme.primary})`
+                }}
+              />
+
+              {/* Inner Circle Crop with Logo */}
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-[#070b14] z-10">
+                <img
+                  src={logoPhoto}
+                  alt="Anish Kumar"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  style={{ objectPosition: 'center 30%' }}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.hasFallenBack) {
+                      target.dataset.hasFallenBack = 'true';
+                      target.src = '/profile.png?v=3';
+                    } else if (!target.dataset.hasFallenBack2) {
+                      target.dataset.hasFallenBack2 = 'true';
+                      target.src = '/profile.svg';
+                    }
+                  }}
+                />
+              </div>
+
+              {/* Micro Status Dot */}
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#070a12] z-20 shadow-sm animate-pulse" />
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-center shrink-0">
+            <span className="text-xl sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
+              ANISH KUMAR
+            </span>
+            <span
+              className="text-[10px] font-mono tracking-wider uppercase transition-colors font-medium whitespace-nowrap mt-1 hidden sm:block"
+              style={{ color: currentTheme.secondary }}
+            >
+              Software Developer &amp; BMS Engineer
+            </span>
+          </div>
         </a>
 
         {/* Desktop Navigation Menu (Visible on lg screens and up) */}
@@ -116,7 +184,19 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right Action CTA & Theme Palette Button */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          {/* LinkedIn Profile Pathway */}
+          <a
+            href={PERSONAL_INFO.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-zinc-900 border border-zinc-700/80 hover:border-[#0077b5] text-xs font-mono font-bold text-zinc-300 hover:text-[#38bdf8] transition-all shadow-sm group shrink-0"
+            title="LinkedIn Profile: Anish Kumar"
+          >
+            <i className="fa-brands fa-linkedin-in text-xs text-[#0077b5] group-hover:text-[#38bdf8] group-hover:scale-110 transition-transform" />
+            <span className="hidden xl:inline">LINKEDIN</span>
+          </a>
+
           {/* Interactive Palette Studio Trigger Button */}
           <button
             onClick={onOpenPaletteModal}
@@ -263,28 +343,37 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
           </div>
 
-          <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between gap-3">
+          <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between gap-2.5">
+            <a
+              href={PERSONAL_INFO.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-mono text-[#38bdf8] hover:text-white flex items-center gap-1.5 py-2 px-2.5 rounded-lg bg-[#0077b5]/15 border border-[#0077b5]/40 cursor-pointer"
+            >
+              <i className="fa-brands fa-linkedin-in text-[#0077b5]" />
+              <span>LinkedIn</span>
+            </a>
             <button
               onClick={() => {
                 setMobileNavOpen(false);
                 onOpenPaletteModal();
               }}
-              className="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-2 py-2 px-3 rounded-lg bg-zinc-900 border border-zinc-800 cursor-pointer"
+              className="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 py-2 px-2.5 rounded-lg bg-zinc-900 border border-zinc-800 cursor-pointer"
             >
               <i className="fa-solid fa-palette" />
-              <span>Theme Studio</span>
+              <span>Themes</span>
             </button>
             <button
               onClick={() => {
                 setMobileNavOpen(false);
                 onOpenResume();
               }}
-              className="text-xs font-mono text-white font-bold px-4 py-2 rounded-lg cursor-pointer shadow-md"
+              className="text-xs font-mono text-white font-bold px-3 py-2 rounded-lg cursor-pointer shadow-md"
               style={{
                 background: `linear-gradient(135deg, ${currentTheme.primary}, ${currentTheme.secondary})`
               }}
             >
-              Resume (PDF)
+              Resume
             </button>
           </div>
         </div>

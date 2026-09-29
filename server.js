@@ -30,7 +30,7 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   // CORS & Security headers
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', '*');
 
   if (req.method === 'OPTIONS') {
@@ -39,13 +39,50 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  const parsedUrl = url.parse(req.url);
+
+  // Endpoint to permanently save user profile photo to disk (profile.jpg)
+  if (req.method === 'POST' && (parsedUrl.pathname === '/api/save-profile-photo' || parsedUrl.pathname === '/api/upload-photo')) {
+    const body = [];
+    req.on('data', chunk => body.push(chunk));
+    req.on('end', () => {
+      try {
+        const raw = Buffer.concat(body).toString();
+        const json = JSON.parse(raw);
+        if (json.imageBase64) {
+          const base64Data = json.imageBase64.replace(/^data:image\/\w+;base64,/, '');
+          const buffer = Buffer.from(base64Data, 'base64');
+          
+          // Write to project root profile.jpg
+          const rootProfilePath = path.join(__dirname, 'profile.jpg');
+          fs.writeFileSync(rootProfilePath, buffer);
+
+          // Also write to dist/profile.jpg if dist exists
+          const distProfilePath = path.join(__dirname, 'dist', 'profile.jpg');
+          if (fs.existsSync(path.join(__dirname, 'dist'))) {
+            fs.writeFileSync(distProfilePath, buffer);
+          }
+
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ success: true, message: 'Saved as permanent profile.jpg file on disk' }));
+          return;
+        }
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+        return;
+      }
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: false, error: 'No image data provided' }));
+    });
+    return;
+  }
+
   if (req.method !== 'GET' && req.method !== 'HEAD') {
     res.writeHead(405, { 'Content-Type': 'text/plain' });
     res.end('Method Not Allowed');
     return;
   }
-
-  const parsedUrl = url.parse(req.url);
   let pathname = decodeURIComponent(parsedUrl.pathname || '/');
 
   // Root path serves index.html

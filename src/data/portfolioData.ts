@@ -59,6 +59,8 @@ export const PERSONAL_INFO = {
   email: "anish03ak@gmail.com",
   github: "https://github.com/ANISH03AK",
   githubHandle: "github.com/ANISH03AK",
+  linkedin: "https://www.linkedin.com/in/anish-kumar-14aa01304?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  linkedinHandle: "linkedin.com/in/anish-kumar-14aa01304",
   dexterUrl: "https://dexter-style-elevation.vercel.app/",
   summary: "MCA graduate and Software Developer skilled in React JS, Python, and SQL. Proven experience building responsive web applications, consuming RESTful APIs, and maintaining critical enterprise infrastructure (BMS, Fire Alarms, CCTV) at TCS. Seeking to leverage full-stack development and complex system troubleshooting skills in a fast-paced IT role."
 };
