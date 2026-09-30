@@ -48,7 +48,10 @@ esbuild.build({
     'profile.svg',
     'network-mesh-bg.svg',
     'IMG_20260904_140606_442.jpg',
-    'standalone.html'
+    'standalone.html',
+    'robots.txt',
+    'sitemap.xml',
+    '_redirects'
   ];
 
   for (const file of staticFiles) {

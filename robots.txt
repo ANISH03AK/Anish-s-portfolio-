@@ -1,0 +1,10 @@
+# robots.txt for Anish Kumar Professional Portfolio
+User-agent: *
+Allow: /
+
+# Disallow private build/system files if any
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://anishmcaprotfolio.netlify.app/sitemap.xml

@@ -3,9 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANISH KUMAR | React JS Developer & BMS/ELV Engineer</title>
-  <meta name="description" content="Personal portfolio of Anish Kumar - MCA Graduate (85% Distinction), React JS Developer, and BMS Operations Engineer at TCS." />
+  <title>Anish Kumar | MCA Graduate | Professional Portfolio</title>
+  <meta name="description" content="Anish Kumar's professional portfolio showcasing education, technical skills, projects, experience, certifications and contact information." />
+  <meta name="keywords" content="Anish Kumar, Anish MCA, MCA Graduate, Portfolio, Developer, Software Developer, Python, SQL, Web Development, React JS, BMS Engineer" />
+  <meta name="author" content="Anish Kumar" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#070a12" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" id="canonical-url" href="https://anishmcaprotfolio.netlify.app/" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anishmcaprotfolio.netlify.app/" id="og-url" />
+  <meta property="og:title" content="Anish Kumar | MCA Graduate | Professional Portfolio" />
+  <meta property="og:description" content="Anish Kumar's professional portfolio showcasing education, technical skills, projects, experience, certifications and contact information." />
+  <meta property="og:image" content="https://anishmcaprotfolio.netlify.app/profile.jpg" />
+  <meta property="og:image:alt" content="Anish Kumar professional profile photo" />
+  <meta property="og:site_name" content="Anish Kumar Portfolio" />
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anish Kumar | MCA Graduate | Professional Portfolio" />
+  <meta name="twitter:description" content="Anish Kumar's professional portfolio showcasing education, technical skills, projects, experience, certifications and contact information." />
+  <meta name="twitter:image" content="https://anishmcaprotfolio.netlify.app/profile.jpg" />
+  <meta name="twitter:image:alt" content="Anish Kumar professional profile photo" />
+
+  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/svg+xml" href="/profile.svg" />
+  <link rel="apple-touch-icon" href="/profile.png" />
+
+  <!-- Dynamic Canonical URL updater for live Netlify/production domain -->
+  <script>
+    if (typeof window !== 'undefined' && window.location.origin && !window.location.origin.includes('localhost') && !window.location.origin.includes('127.0.0.1')) {
+      var currentUrl = window.location.origin + window.location.pathname;
+      var canonEl = document.getElementById('canonical-url');
+      if (canonEl) canonEl.setAttribute('href', currentUrl);
+      var ogUrlEl = document.getElementById('og-url');
+      if (ogUrlEl) ogUrlEl.setAttribute('content', currentUrl);
+    }
+  </script>
+
+  <!-- Schema.org Structured Data (JSON-LD) for Person and Portfolio -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://anishmcaprotfolio.netlify.app/#person",
+        "name": "Anish Kumar",
+        "alternateName": ["Anish", "Anish MCA"],
+        "jobTitle": "Software Developer & BMS Operations Specialist",
+        "description": "MCA graduate (85% Distinction) and Software Developer skilled in React JS, Python, SQL, and Web Development with experience maintaining enterprise infrastructure at Tata Consultancy Services (TCS).",
+        "url": "https://anishmcaprotfolio.netlify.app/",
+        "image": "https://anishmcaprotfolio.netlify.app/profile.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chennai",
+          "postalCode": "600040",
+          "addressCountry": "IN"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Meenakshi Ramasamy Engineering College"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Meenakshi Ramasamy Arts and Science College"
+          }
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Tata Consultancy Services (TCS)"
+        },
+        "knowsAbout": [
+          "React JS",
+          "Python",
+          "SQL",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "Web Development",
+          "Building Management Systems (BMS)",
+          "RESTful APIs",
+          "Git",
+          "GitHub"
+        ],
+        "sameAs": [
+          "https://github.com/ANISH03AK",
+          "https://www.linkedin.com/in/anish-kumar-14aa01304"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://anishmcaprotfolio.netlify.app/#website",
+        "url": "https://anishmcaprotfolio.netlify.app/",
+        "name": "Anish Kumar | Professional Portfolio",
+        "description": "Anish Kumar's professional portfolio showcasing education, technical skills, projects, experience, certifications and contact information.",
+        "publisher": {
+          "@id": "https://anishmcaprotfolio.netlify.app/#person"
+        },
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>

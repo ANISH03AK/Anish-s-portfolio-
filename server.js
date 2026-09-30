@@ -24,6 +24,7 @@ const MIME_TYPES = {
   '.ttf': 'font/ttf',
   '.map': 'application/json',
   '.txt': 'text/plain; charset=UTF-8',
+  '.xml': 'application/xml; charset=UTF-8',
   '.pdf': 'application/pdf'
 };
 

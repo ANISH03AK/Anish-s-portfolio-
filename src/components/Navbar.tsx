@@ -131,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="relative w-full h-full rounded-full overflow-hidden bg-[#070b14] z-10">
                 <img
                   src={logoPhoto}
-                  alt="Anish Kumar"
+                  alt="Anish Kumar professional profile photo"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   style={{ objectPosition: 'center 30%' }}
                   onError={(e) => {
@@ -153,9 +153,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Name Only: ANISH KUMAR */}
-          <span className="text-xl sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
+          <h1 className="text-xl sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
             ANISH KUMAR
-          </span>
+          </h1>
         </a>
 
         {/* Right Corner: Menu Section & Navigation */}

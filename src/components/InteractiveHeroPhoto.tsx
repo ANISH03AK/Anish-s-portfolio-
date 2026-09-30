@@ -156,7 +156,7 @@ export const InteractiveHeroPhoto: React.FC<InteractiveHeroPhotoProps> = ({ clas
           <div className="w-full h-full rounded-full overflow-hidden bg-slate-800 relative animate-gentle-float">
             <img
               src={photoSrc}
-              alt="Anish Kumar"
+              alt="Anish Kumar professional profile photo - MCA Graduate & Software Developer"
               onError={() => {
                 // Fallback to /profile.jpg or /profile.png if src/assets path varies
                 if (photoSrc !== '/profile.jpg') {

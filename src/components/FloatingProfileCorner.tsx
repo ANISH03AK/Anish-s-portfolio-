@@ -69,7 +69,7 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
               <div className="relative shrink-0">
                 <img
                   src={photoUrl}
-                  alt="Anish Kumar"
+                  alt="Anish Kumar professional profile photo"
                   className="w-12 h-12 rounded-full object-cover border-2 border-cyan-400 bg-zinc-900 shadow-md"
                   style={{ objectPosition: 'center 30%' }}
                   onError={(e) => {
@@ -189,7 +189,7 @@ export const FloatingProfileCorner: React.FC<FloatingProfileCornerProps> = ({ on
 
               <img
                 src={photoUrl}
-                alt="Anish Kumar - Software Developer & BMS Operations Specialist"
+                alt="Anish Kumar professional profile photo - Software Developer & BMS Operations Specialist"
                 className="profile-logo-img"
                 loading="eager"
                 style={{ objectPosition: 'center 30%' }}
