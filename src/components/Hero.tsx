@@ -15,6 +15,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
   useEffect(() => {
     const titles = [
       'React JS Developer',
+      'React Native Developer',
       'BMS & ELV Engineer',
       'Full-Stack Developer'
     ];
@@ -102,22 +103,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
             </div>
 
             {/* Main Section Headline - Strictly One Line across Every Device */}
-            <div className="space-y-1.5">
-              <div className="text-zinc-300 text-sm sm:text-lg lg:text-xl font-sans font-medium whitespace-nowrap overflow-hidden text-ellipsis">
+            <div className="space-y-1 sm:space-y-1.5">
+              <div className="text-zinc-300 text-xs sm:text-base lg:text-xl font-sans font-medium whitespace-nowrap overflow-hidden text-ellipsis">
                 Software Developer &amp; BMS Operations Specialist
               </div>
-              <div className="flex items-center min-h-[46px] whitespace-nowrap overflow-visible">
+              <div className="flex items-center min-h-[38px] sm:min-h-[48px] md:min-h-[58px] whitespace-nowrap overflow-hidden">
                 <span
                   id="typing-text"
-                  className="font-extrabold transition-colors font-name-stylish whitespace-nowrap text-[6vw] sm:text-4xl md:text-5xl lg:text-6xl leading-none inline-block"
+                  className="font-extrabold transition-colors font-name-stylish whitespace-nowrap leading-none inline-block tracking-tight"
                   style={{
                     color: primaryColor,
-                    textShadow: `0 0 20px ${primaryColor}55`
+                    textShadow: `0 0 20px ${primaryColor}55`,
+                    fontSize: 'clamp(1.15rem, 5.2vw, 3.75rem)'
                   }}
                 >
                   {typedText}
                 </span>
-                <span className="cursor-blink ml-1.5 inline-block" style={{ backgroundColor: primaryColor }}>&nbsp;</span>
+                <span
+                  className="cursor-blink ml-1 sm:ml-1.5 inline-block shrink-0"
+                  style={{ backgroundColor: primaryColor }}
+                />
               </div>
             </div>
 
