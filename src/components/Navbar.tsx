@@ -25,8 +25,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [activeSection, setActiveSection] = useState('hero');
   const [logoPhoto, setLogoPhoto] = useState<string>(() => {
     return typeof window !== 'undefined'
-      ? localStorage.getItem('anish_profile_photo') || '/profile.jpg?v=3'
-      : '/profile.jpg?v=3';
+      ? localStorage.getItem('anish_profile_photo') || '/profile.png'
+      : '/profile.png';
   });
 
   const currentTheme: ColorTheme = getThemeById(activeColorThemeId);
@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   useEffect(() => {
     const handlePhotoSync = () => {
       const saved = localStorage.getItem('anish_profile_photo');
-      setLogoPhoto(saved || '/profile.jpg?v=3');
+      setLogoPhoto(saved || '/profile.png');
     };
     window.addEventListener('storage', handlePhotoSync);
     window.addEventListener('profilePhotoUpdated', handlePhotoSync);
@@ -115,53 +115,43 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
             />
 
-            {/* Rotating Conic Gradient Outer Circle Animation */}
+            {/* Subtle Gradient Outer Circle Frame */}
             <div
-              className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full p-[2px] flex items-center justify-center transition-transform group-hover:scale-105"
+              className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-[2px] flex items-center justify-center transition-transform group-hover:scale-105 shadow-md shrink-0"
+              style={{
+                background: `linear-gradient(135deg, ${currentTheme.primary}, ${currentTheme.secondary})`
+              }}
             >
-              {/* Spinning Animated Border Ring */}
-              <div
-                className="navbar-logo-spinning-border absolute inset-0 rounded-full pointer-events-none"
-                style={{
-                  background: `conic-gradient(from 0deg, ${currentTheme.primary}, ${currentTheme.secondary}, #f43f5e, #facc15, ${currentTheme.primary})`
-                }}
-              />
-
-              {/* Inner Circle Crop with Logo */}
-              <div className="relative w-full h-full rounded-full overflow-hidden bg-[#070b14] z-10">
+              {/* Inner Circle Crop with Real Profile Photo */}
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-[#070b14] z-10 border border-black/40">
                 <img
                   src={logoPhoto}
                   alt="Anish Kumar professional profile photo"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  style={{ objectPosition: 'center 30%' }}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  style={{ objectPosition: 'center 28%' }}
+                  loading="eager"
                   onError={(e) => {
                     const target = e.currentTarget;
                     if (!target.dataset.hasFallenBack) {
                       target.dataset.hasFallenBack = 'true';
-                      target.src = '/profile.png?v=3';
-                    } else if (!target.dataset.hasFallenBack2) {
-                      target.dataset.hasFallenBack2 = 'true';
-                      target.src = '/profile.svg';
+                      target.src = '/profile.jpg';
                     }
                   }}
                 />
               </div>
-
-              {/* Micro Status Dot */}
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#070a12] z-20 shadow-sm animate-pulse" />
             </div>
           </div>
 
           {/* Name Only: ANISH KUMAR */}
-          <h1 className="text-xl sm:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
+          <h1 className="text-lg sm:text-xl lg:text-2xl font-black tracking-tight font-name-stylish text-white whitespace-nowrap leading-none transition-colors group-hover:text-cyan-400 shrink-0">
             ANISH KUMAR
           </h1>
         </a>
 
         {/* Right Corner: Menu Section & Navigation */}
-        <div className="flex items-center gap-4 sm:gap-6 shrink-0">
+        <div className="flex items-center gap-3 sm:gap-5 shrink-0">
           {/* Desktop Navigation Menu Links */}
-          <nav id="desktop-nav" className="hidden lg:flex items-center gap-6 xl:gap-7 text-xs font-mono font-semibold tracking-wider uppercase text-zinc-300">
+          <nav id="desktop-nav" className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs font-mono font-semibold tracking-wider uppercase text-zinc-300">
             {navLinks.map((link) => (
               <a
                 key={link.id}

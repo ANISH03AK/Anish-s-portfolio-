@@ -83,9 +83,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-1 sm:pt-2">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Hero Presentation (7 cols) */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-5" data-aos="fade-up" data-aos-duration="800">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 items-start">
+          {/* Left Hero Presentation (58% of available desktop width) */}
+          <div className="lg:col-span-7 min-w-0 space-y-4 sm:space-y-5" data-aos="fade-up" data-aos-duration="800">
             {/* Status Ribbon with 3-Color Combination Accents */}
             <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-black/85 border border-zinc-800 text-xs font-mono shadow-md backdrop-blur-md">
               <span className="relative flex items-center justify-center">
@@ -102,26 +102,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
               </span>
             </div>
 
-            {/* Main Section Headline - Strictly One Line across Every Device */}
-            <div className="space-y-1 sm:space-y-1.5">
-              <div className="text-zinc-300 text-xs sm:text-base lg:text-xl font-sans font-medium whitespace-nowrap overflow-hidden text-ellipsis">
+            {/* Main Section Headline - Bold, Attractive, Wrapped naturally without clipping */}
+            <div className="space-y-1.5 sm:space-y-2">
+              <div className="text-zinc-300 text-xs sm:text-base lg:text-lg font-sans font-medium tracking-wide">
                 Software Developer &amp; BMS Operations Specialist
               </div>
-              <div className="flex items-center min-h-[38px] sm:min-h-[48px] md:min-h-[58px] whitespace-nowrap overflow-hidden">
+              <div className="flex items-center flex-wrap min-h-[48px] sm:min-h-[56px] lg:min-h-[66px]">
                 <span
                   id="typing-text"
-                  className="font-extrabold transition-colors font-name-stylish whitespace-nowrap leading-none inline-block tracking-tight"
+                  className="font-extrabold transition-colors font-name-stylish leading-[1.12] inline-block tracking-tight break-words"
                   style={{
                     color: primaryColor,
                     textShadow: `0 0 20px ${primaryColor}55`,
-                    fontSize: 'clamp(1.15rem, 5.2vw, 3.75rem)'
+                    fontSize: 'clamp(1.85rem, 3.2vw, 3.35rem)'
                   }}
                 >
                   {typedText}
                 </span>
                 <span
-                  className="cursor-blink ml-1 sm:ml-1.5 inline-block shrink-0"
-                  style={{ backgroundColor: primaryColor }}
+                  className="cursor-blink ml-1.5 inline-block shrink-0 align-middle"
+                  style={{ backgroundColor: primaryColor, height: '0.95em' }}
                 />
               </div>
             </div>
@@ -140,7 +140,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
             </p>
 
             {/* Direct Resume Contact Details */}
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-300 py-1">
+            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 text-xs font-mono text-zinc-300 py-1">
               <span className="flex items-center gap-1.5 text-zinc-200">
                 <i className="fa-solid fa-location-dot transition-colors" style={{ color: primaryColor }} />
                 <span>{PERSONAL_INFO.location}</span>
@@ -158,10 +158,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 pt-1 sm:pt-2">
               <button
                 onClick={onOpenResume}
-                className="px-5 sm:px-6 py-3.5 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide transition-all shadow-lg active:scale-95 flex items-center gap-2 cursor-pointer group"
+                className="px-5 sm:px-6 py-3.5 rounded-xl text-white font-bold text-xs sm:text-sm tracking-wide transition-all shadow-lg active:scale-95 flex items-center gap-2 cursor-pointer group shrink-0"
                 style={{
                   background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
                   boxShadow: `0 0 24px ${theme?.glowColor || 'rgba(6, 182, 212, 0.4)'}`
@@ -176,7 +176,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
                 target="_blank"
                 rel="noreferrer"
                 id="hero-bolt-button"
-                className="px-4 sm:px-5 py-3.5 rounded-xl bg-black/85 hover:bg-zinc-900 font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-md flex items-center gap-2 group cursor-pointer border"
+                className="px-4 sm:px-5 py-3.5 rounded-xl bg-black/85 hover:bg-zinc-900 font-semibold text-xs sm:text-sm tracking-wide transition-all shadow-md flex items-center gap-2 group cursor-pointer border shrink-0"
                 style={{
                   color: primaryColor,
                   borderColor: `${primaryColor}66`,
@@ -195,7 +195,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3.5 rounded-xl bg-black/75 hover:bg-[#0077b5]/20 text-zinc-200 hover:text-[#38bdf8] border border-zinc-800 hover:border-[#0077b5]/60 transition-all flex items-center justify-center group"
+                className="p-3.5 rounded-xl bg-black/75 hover:bg-[#0077b5]/20 text-zinc-200 hover:text-[#38bdf8] border border-zinc-800 hover:border-[#0077b5]/60 transition-all flex items-center justify-center group shrink-0"
                 title="LinkedIn Profile: Anish Kumar"
               >
                 <i className="fa-brands fa-linkedin-in text-lg text-[#0077b5] group-hover:text-[#38bdf8] group-hover:scale-110 transition-transform" />
@@ -205,59 +205,115 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3.5 rounded-xl bg-black/75 hover:bg-zinc-900 text-zinc-200 hover:text-white border border-zinc-800 transition-colors flex items-center justify-center group"
+                className="p-3.5 rounded-xl bg-black/75 hover:bg-zinc-900 text-zinc-200 hover:text-white border border-zinc-800 transition-colors flex items-center justify-center group shrink-0"
                 title="GitHub Profile"
               >
                 <i className="fa-brands fa-github text-lg group-hover:scale-110 transition-transform" />
               </a>
             </div>
 
-            {/* Proof Metrics Bar - Perfectly Responsive Grid on All Screens */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-zinc-800/80">
-              <div className="p-3 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-colors">
+            {/* Proof Metrics Bar - Perfectly Balanced Responsive Grid with Uniform Heights */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-3 border-t border-zinc-800/80">
+              <div className="p-3 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-colors flex flex-col justify-between min-w-0 min-h-[92px]">
                 <div className="text-xl sm:text-2xl font-bold font-mono transition-colors" style={{ color: primaryColor }}>85%</div>
-                <div className="text-xs font-bold text-white mt-0.5">MCA Distinction</div>
-                <div className="text-[10px] text-zinc-300 mt-0.5 leading-tight">Meenakshi Ramasamy College</div>
+                <div>
+                  <div className="text-xs font-bold text-white leading-tight">MCA Distinction</div>
+                  <div className="text-[10px] text-zinc-400 mt-0.5 leading-tight truncate" title="Meenakshi Ramasamy College">Meenakshi Ramasamy</div>
+                </div>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-colors">
+              <div className="p-3 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-colors flex flex-col justify-between min-w-0 min-h-[92px]">
                 <div className="text-xl sm:text-2xl font-bold font-mono text-white">TCS</div>
-                <div className="text-xs font-bold text-white mt-0.5">BMS Operations</div>
-                <div className="text-[10px] text-zinc-300 mt-0.5 leading-tight">Johnson Controls Facility</div>
+                <div>
+                  <div className="text-xs font-bold text-white leading-tight">BMS Operations</div>
+                  <div className="text-[10px] text-zinc-400 mt-0.5 leading-tight truncate" title="Johnson Controls Facility">Johnson Controls Facility</div>
+                </div>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-colors">
+              <div className="p-3 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-colors flex flex-col justify-between min-w-0 min-h-[92px]">
                 <div className="text-xl sm:text-2xl font-bold font-mono transition-colors" style={{ color: secondaryColor }}>3+</div>
-                <div className="text-xs font-bold text-white mt-0.5">Core Projects</div>
-                <div className="text-[10px] text-zinc-300 mt-0.5 leading-tight">React · Python · SQL</div>
+                <div>
+                  <div className="text-xs font-bold text-white leading-tight">Core Projects</div>
+                  <div className="text-[10px] text-zinc-400 mt-0.5 leading-tight truncate">React · Python · SQL</div>
+                </div>
               </div>
-              <div className="p-3 rounded-xl bg-zinc-900/80 border transition-colors" style={{ borderColor: `${accentColor}55` }}>
+              <div className="p-3 rounded-xl bg-zinc-900/80 border transition-colors flex flex-col justify-between min-w-0 min-h-[92px]" style={{ borderColor: `${accentColor}55` }}>
                 <div className="text-xl sm:text-2xl font-bold font-mono transition-colors" style={{ color: accentColor }}>
                   <i className="fa-solid fa-passport" />
                 </div>
-                <div className="text-xs font-bold text-white mt-0.5">Passport Ready</div>
-                <div className="text-[10px] font-mono font-bold mt-0.5" style={{ color: accentColor }}>GLOBAL RELOCATION</div>
+                <div>
+                  <div className="text-xs font-bold text-white leading-tight">Passport Ready</div>
+                  <div className="text-[10px] font-mono font-bold mt-0.5 tracking-tight truncate" style={{ color: accentColor }}>GLOBAL RELOCATION</div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Side: Dual-Domain Experience Console (5 cols) */}
-          <div className="lg:col-span-5" data-aos="fade-left" data-aos-duration="900">
+          {/* Right Side: Dual-Domain Experience Console (42% of available desktop width) */}
+          <div className="lg:col-span-5 min-w-0" data-aos="fade-left" data-aos-duration="900">
             <div
               className="rounded-2xl p-[1.5px] shadow-2xl transition-all"
               style={{
                 background: `linear-gradient(135deg, ${primaryColor}90, ${secondaryColor}90, ${accentColor}90)`
               }}
             >
-              <div className="rounded-2xl p-5 sm:p-6 relative overflow-hidden bg-zinc-950/95 backdrop-blur-xl">
-                {/* Console Header */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-zinc-800/80">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: accentColor }} />
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: secondaryColor }} />
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: primaryColor }} />
-                    <span className="text-xs font-mono text-zinc-300 ml-2 font-medium">anish-kumar.profile</span>
+              <div className="rounded-2xl p-4 sm:p-5 lg:p-5 relative overflow-hidden bg-zinc-950/95 backdrop-blur-xl">
+                {/* Real Profile Photo Header inside Console */}
+                <div className="flex items-center gap-3.5 p-3 mb-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800/90 shadow-sm">
+                  <div
+                    className="relative shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full p-[2px] shadow-md"
+                    style={{ background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})` }}
+                  >
+                    <div className="w-full h-full rounded-full overflow-hidden bg-[#070b14] border border-black/50">
+                      <img
+                        src="/profile.png"
+                        alt="Anish Kumar - Professional Portrait"
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: 'center 28%' }}
+                        loading="eager"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          if (!target.dataset.hasFallenBack) {
+                            target.dataset.hasFallenBack = 'true';
+                            target.src = '/profile.jpg';
+                          }
+                        }}
+                      />
+                    </div>
+                    <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#070b14] shadow-sm animate-pulse" />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1.5">
+                      <h2 className="text-sm sm:text-base font-bold text-white font-name-stylish tracking-tight truncate">
+                        ANISH KUMAR
+                      </h2>
+                      <span className="text-xs text-cyan-400 shrink-0" title="Verified Professional">
+                        <i className="fa-solid fa-circle-check" />
+                      </span>
+                    </div>
+                    <p className="text-[11px] sm:text-xs font-mono text-zinc-300 truncate mt-0.5">
+                      MCA Graduate · TCS BMS Operations
+                    </p>
+                    <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 mt-1">
+                      <span className="flex items-center gap-1">
+                        <i className="fa-solid fa-location-dot text-[9px]" style={{ color: primaryColor }} />
+                        Chennai, India
+                      </span>
+                      <span>·</span>
+                      <span className="font-semibold" style={{ color: accentColor }}>Ready for Roles</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Console Status Header */}
+                <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-zinc-800/80">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: accentColor }} />
+                    <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: secondaryColor }} />
+                    <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: primaryColor }} />
+                    <span className="text-xs font-mono text-zinc-300 ml-1 font-medium truncate">interactive.dashboard</span>
                   </div>
                   <div
-                    className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded border font-semibold"
+                    className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded border font-semibold shrink-0"
                     style={{
                       backgroundColor: `${primaryColor}18`,
                       color: primaryColor,
@@ -270,10 +326,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
                 </div>
 
                 {/* Domain Mode Switcher Tabs */}
-                <div className="grid grid-cols-2 gap-2 p-1.5 bg-zinc-900 rounded-xl mb-4 text-xs font-mono border border-zinc-800">
+                <div className="grid grid-cols-2 gap-2 p-1.5 bg-zinc-900 rounded-xl mb-3.5 text-xs font-mono border border-zinc-800">
                   <button
                     onClick={() => setDomainTab('software')}
-                    className={`py-2 px-3 rounded-lg font-bold transition-all cursor-pointer ${
+                    className={`py-2 px-3 rounded-lg font-bold transition-all cursor-pointer truncate ${
                       domainTab === 'software'
                         ? 'text-white shadow-md'
                         : 'text-zinc-400 hover:text-white'
@@ -292,7 +348,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, theme }) => {
                   </button>
                   <button
                     onClick={() => setDomainTab('bms')}
-                    className={`py-2 px-3 rounded-lg font-bold transition-all cursor-pointer ${
+                    className={`py-2 px-3 rounded-lg font-bold transition-all cursor-pointer truncate ${
                       domainTab === 'bms'
                         ? 'text-white shadow-md'
                         : 'text-zinc-400 hover:text-white'
